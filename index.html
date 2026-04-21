@@ -12,13 +12,13 @@
     --bg: #0a0a0f;
     --surface: #111118;
     --surface2: #1a1a26;
-    --accent: #e8c87a;
-    --accent2: #7ac4e8;
-    --accent3: #c87ae8;
+    --accent: #c9b3f5;
+    --accent2: #f5b3c9;
+    --accent3: #b3f5c9;
     --text: #e8e8f0;
     --muted: #7a7a9a;
-    --border: rgba(232,200,122,0.15);
-    --glow: rgba(232,200,122,0.08);
+    --border: rgba(201,179,245,0.15);
+    --glow: rgba(201,179,245,0.08);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,15 +71,15 @@
   .hero-grid {
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(232,200,122,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(232,200,122,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(201,179,245,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,179,245,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
   }
   .hero-orb {
     position: absolute;
     width: 600px; height: 600px;
-    background: radial-gradient(ellipse, rgba(232,200,122,0.07) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(201,179,245,0.07) 0%, transparent 70%);
     top: -100px; right: -100px;
     border-radius: 50%;
     pointer-events: none;
@@ -87,7 +87,7 @@
   .hero-orb2 {
     position: absolute;
     width: 400px; height: 400px;
-    background: radial-gradient(ellipse, rgba(122,196,232,0.05) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(245,179,201,0.05) 0%, transparent 70%);
     bottom: -50px; left: 10%;
     border-radius: 50%;
     pointer-events: none;
@@ -102,7 +102,7 @@
     padding: 0.4rem 1rem;
     border-radius: 100px;
     margin-bottom: 2rem;
-    background: rgba(232,200,122,0.05);
+    background: rgba(201,179,245,0.05);
     animation: fadeUp 0.7s ease both;
   }
   .hero-tag::before {
@@ -146,7 +146,7 @@
     letter-spacing: 0.06em;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,200,122,0.3); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,179,245,0.3); }
   .btn-outline {
     border: 1px solid var(--border);
     color: var(--text);
@@ -298,7 +298,7 @@
   }
   .project-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(232,200,122,0.3);
+    border-color: rgba(201,179,245,0.3);
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   }
   .project-card:hover::before { opacity: 1; }
@@ -311,10 +311,10 @@
     margin-bottom: 1.2rem;
     width: fit-content;
   }
-  .tag-sql { background: rgba(122,196,232,0.12); color: var(--accent2); border: 1px solid rgba(122,196,232,0.2); }
-  .tag-powerbi { background: rgba(232,200,122,0.12); color: var(--accent); border: 1px solid rgba(232,200,122,0.2); }
-  .tag-python { background: rgba(200,122,232,0.12); color: var(--accent3); border: 1px solid rgba(200,122,232,0.2); }
-  .tag-pipeline { background: rgba(122,232,160,0.12); color: #7ae8a0; border: 1px solid rgba(122,232,160,0.2); }
+  .tag-sql { background: rgba(245,179,201,0.12); color: var(--accent2); border: 1px solid rgba(245,179,201,0.2); }
+  .tag-powerbi { background: rgba(201,179,245,0.12); color: var(--accent); border: 1px solid rgba(201,179,245,0.2); }
+  .tag-python { background: rgba(179,245,201,0.12); color: var(--accent3); border: 1px solid rgba(179,245,201,0.2); }
+  .tag-pipeline { background: rgba(179,245,201,0.12); color: #b3f5c9; border: 1px solid rgba(179,245,201,0.2); }
   .project-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem; font-weight: 700;
@@ -374,7 +374,7 @@
     border-radius: 50%;
     background: var(--accent);
     border: 2px solid var(--bg);
-    box-shadow: 0 0 12px rgba(232,200,122,0.5);
+    box-shadow: 0 0 12px rgba(201,179,245,0.5);
   }
   .timeline-header { margin-bottom: 1rem; }
   .timeline-role {
@@ -421,7 +421,7 @@
     display: flex; gap: 1.2rem; align-items: flex-start;
     transition: transform 0.2s, border-color 0.2s;
   }
-  .cert-card:hover { transform: translateY(-3px); border-color: rgba(232,200,122,0.3); }
+  .cert-card:hover { transform: translateY(-3px); border-color: rgba(201,179,245,0.3); }
   .cert-icon {
     width: 42px; height: 42px; flex-shrink: 0;
     background: var(--glow);
@@ -515,7 +515,7 @@
   /* ── CODE PREVIEW PEEK ── */
   .code-preview-peek {
     background: #1a1a26;
-    border: 1px solid rgba(122,196,232,0.18);
+    border: 1px solid rgba(245,179,201,0.18);
     border-radius: 6px;
     padding: 0.8rem 1rem;
     margin-bottom: 1.2rem;
@@ -544,8 +544,8 @@
     font-size: 0.78rem; font-weight: 500;
     letter-spacing: 0.06em;
     color: var(--accent2);
-    background: rgba(122,196,232,0.08);
-    border: 1px solid rgba(122,196,232,0.25);
+    background: rgba(245,179,201,0.08);
+    border: 1px solid rgba(245,179,201,0.25);
     padding: 0.45rem 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -554,7 +554,7 @@
     display: flex; align-items: center; gap: 0.4rem;
   }
   .btn-view-code:hover {
-    background: rgba(122,196,232,0.15);
+    background: rgba(245,179,201,0.15);
     border-color: var(--accent2);
     color: #fff;
   }
@@ -571,7 +571,7 @@
   .code-modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
   .code-modal-inner {
     background: #0d0d15;
-    border: 1px solid rgba(122,196,232,0.25);
+    border: 1px solid rgba(245,179,201,0.25);
     border-radius: 12px;
     width: 100%;
     max-width: 860px;
@@ -583,8 +583,8 @@
   .code-modal-header {
     display: flex; justify-content: space-between; align-items: flex-start;
     padding: 1.2rem 1.5rem;
-    border-bottom: 1px solid rgba(122,196,232,0.15);
-    background: rgba(122,196,232,0.04);
+    border-bottom: 1px solid rgba(245,179,201,0.15);
+    background: rgba(245,179,201,0.04);
     gap: 1rem;
   }
   .code-modal-title {
@@ -634,7 +634,7 @@
   .cert-icon.brand-powerbi    { background: rgba(242,199,17,0.12); border-color: rgba(242,199,17,0.3); }
   .cert-icon.brand-python     { background: rgba(55,118,171,0.12); border-color: rgba(55,118,171,0.3); }
   .cert-icon.brand-aws        { background: rgba(255,153,0,0.12);  border-color: rgba(255,153,0,0.3); }
-  .cert-icon.brand-edu        { background: rgba(200,122,232,0.12); border-color: rgba(200,122,232,0.3); }
+  .cert-icon.brand-edu        { background: rgba(179,245,201,0.12); border-color: rgba(179,245,201,0.3); }
 
   /* ── RESUME NAV LINK ── */
   .nav-resume {
@@ -674,7 +674,6 @@
   <div class="hero-orb"></div>
   <div class="hero-orb2"></div>
   <div class="hero-content">
-    <div class="hero-tag">Open to Opportunities</div>
     <h1 class="hero-name">Rumana<br><span>Appi</span></h1>
     <p class="hero-sub">Senior Data &amp; Business Analyst transforming complex datasets into strategic intelligence — across e-commerce, insurance, and EdTech.</p>
     <div class="hero-ctas">
