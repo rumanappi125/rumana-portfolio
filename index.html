@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rumana Appi | Senior Data & Business Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a26;
+    --accent: #c9b3f5;
+    --accent2: #f5b3c9;
+    --accent3: #b3f5c9;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --border: rgba(201,179,245,0.15);
+    --glow: rgba(201,179,245,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 4rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,179,245,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,179,245,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-orb {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(ellipse, rgba(201,179,245,0.07) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-orb2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,179,201,0.05) 0%, transparent 70%);
+    bottom: -50px; left: 10%;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 900px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    background: rgba(201,179,245,0.05);
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+  h1.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+  h1.hero-name span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.45s ease both;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0f;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,179,245,0.3); }
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); background: var(--glow); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    animation: fadeUp 0.7s 0.6s ease both;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; max-width: 60px;
+    height: 1px; background: var(--accent);
+    opacity: 0.5;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--surface); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .skill-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .skill-card-title {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.6rem;
+  }
+  .skill-card-list {
+    font-size: 0.82rem; color: var(--muted);
+    line-height: 1.6; list-style: none;
+  }
+  .skill-card-list li::before { content: '→ '; color: var(--accent); }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg); }
+  .projects-filter {
+    display: flex; gap: 0.75rem; margin-bottom: 3rem; flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--accent);
+    color: #0a0a0f;
+    border-color: var(--accent);
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201,179,245,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .project-card:hover::before { opacity: 1; }
+  .project-tag {
+    display: inline-block;
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+    width: fit-content;
+  }
+  .tag-sql { background: rgba(245,179,201,0.12); color: var(--accent2); border: 1px solid rgba(245,179,201,0.2); }
+  .tag-powerbi { background: rgba(201,179,245,0.12); color: var(--accent); border: 1px solid rgba(201,179,245,0.2); }
+  .tag-python { background: rgba(179,245,201,0.12); color: var(--accent3); border: 1px solid rgba(179,245,201,0.2); }
+  .tag-pipeline { background: rgba(179,245,201,0.12); color: #b3f5c9; border: 1px solid rgba(179,245,201,0.2); }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 0.85rem; color: var(--muted);
+    line-height: 1.7; margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  .project-metrics {
+    display: flex; gap: 1.2rem; margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .metric {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--glow);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+  }
+  .project-links { display: flex; gap: 0.8rem; margin-top: auto; }
+  .project-link {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; padding-left: 2.5rem; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 3.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -2.5rem;
+    top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 12px rgba(201,179,245,0.5);
+  }
+  .timeline-header { margin-bottom: 1rem; }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-company {
+    font-size: 0.85rem; color: var(--accent);
+    font-weight: 500; margin-bottom: 0.25rem;
+  }
+  .timeline-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .timeline-bullets { list-style: none; margin-top: 1rem; }
+  .timeline-bullets li {
+    font-size: 0.87rem; color: var(--muted);
+    line-height: 1.7; padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .timeline-bullets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--accent); font-size: 0.7rem;
+  }
+  .timeline-bullets li strong { color: var(--text); font-weight: 500; }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--bg); }
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.6rem;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .cert-card:hover { transform: translateY(-3px); border-color: rgba(201,179,245,0.3); }
+  .cert-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: var(--glow);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .cert-name {
+    font-weight: 500; font-size: 0.9rem;
+    margin-bottom: 0.3rem; line-height: 1.35;
+  }
+  .cert-issuer {
+    font-size: 0.76rem; color: var(--accent);
+    font-weight: 500; letter-spacing: 0.06em;
+  }
+  .cert-skills {
+    font-size: 0.76rem; color: var(--muted);
+    margin-top: 0.5rem; line-height: 1.5;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--surface);
+    text-align: center;
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-intro {
+    font-size: 1rem; color: var(--muted);
+    line-height: 1.7; margin-bottom: 3rem;
+  }
+  .contact-cards {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .contact-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem 1.8rem;
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  }
+  .contact-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .contact-card-icon { font-size: 1.4rem; }
+  .contact-card-label {
+    font-size: 0.7rem; color: var(--muted);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .contact-card-value {
+    font-size: 0.85rem; color: var(--text); font-weight: 500;
+  }
+  .contact-loc {
+    font-size: 0.82rem; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p { font-size: 0.78rem; color: var(--muted); }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--accent);
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { gap: 1.8rem; flex-wrap: wrap; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+  }
+
+  /* ── CODE PREVIEW PEEK ── */
+  .code-preview-peek {
+    background: #1a1a26;
+    border: 1px solid rgba(245,179,201,0.18);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.7;
+    color: #9db5c8;
+    overflow: hidden;
+    position: relative;
+  }
+  .code-preview-peek::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 28px;
+    background: linear-gradient(transparent, #1a1a26);
+  }
+  .code-peek-kw  { color: #c678dd; }
+  .code-peek-fn  { color: #61afef; }
+  .code-peek-str { color: #98c379; }
+  .code-peek-num { color: #d19a66; }
+  .code-peek-cm  { color: #5c6370; font-style: italic; }
+
+  /* ── VIEW CODE BUTTON ── */
+  .btn-view-code {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent2);
+    background: rgba(245,179,201,0.08);
+    border: 1px solid rgba(245,179,201,0.25);
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .btn-view-code:hover {
+    background: rgba(245,179,201,0.15);
+    border-color: var(--accent2);
+    color: #fff;
+  }
+
+  /* ── CODE MODAL ── */
+  .code-modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  .code-modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .code-modal-inner {
+    background: #0d0d15;
+    border: 1px solid rgba(245,179,201,0.25);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 860px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    animation: modalIn 0.25s ease;
+  }
+  @keyframes modalIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .code-modal-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(245,179,201,0.15);
+    background: rgba(245,179,201,0.04);
+    gap: 1rem;
+  }
+  .code-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--text);
+  }
+  .code-modal-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .code-modal-actions { display: flex; gap: 0.6rem; flex-shrink: 0; }
+  .modal-btn {
+    font-size: 0.75rem; font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex; align-items: center;
+  }
+  .modal-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+  .modal-btn.modal-close { color: var(--muted); }
+  .modal-btn.modal-close:hover { border-color: #e87a7a; color: #e87a7a; }
+  .code-modal-inner pre {
+    margin: 0; padding: 0;
+    overflow-x: auto;
+    max-height: 68vh;
+  }
+  .code-modal-inner pre code.hljs {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.65;
+    padding: 1.5rem;
+    border-radius: 0;
+    background: #0d0d15;
+  }
+
+  /* ── CERT BRAND COLORS ── */
+  .cert-icon.brand-databricks { background: rgba(255,54,33,0.12); border-color: rgba(255,54,33,0.3); }
+  .cert-icon.brand-sql        { background: rgba(68,121,161,0.12); border-color: rgba(68,121,161,0.3); }
+  .cert-icon.brand-powerbi    { background: rgba(242,199,17,0.12); border-color: rgba(242,199,17,0.3); }
+  .cert-icon.brand-python     { background: rgba(55,118,171,0.12); border-color: rgba(55,118,171,0.3); }
+  .cert-icon.brand-aws        { background: rgba(255,153,0,0.12);  border-color: rgba(255,153,0,0.3); }
+  .cert-icon.brand-edu        { background: rgba(179,245,201,0.12); border-color: rgba(179,245,201,0.3); }
+
+  /* ── RESUME NAV LINK ── */
+  .nav-resume {
+    background: var(--accent);
+    color: #0a0a0f !important;
+    padding: 0.35rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-resume:hover { opacity: 0.85; color: #0a0a0f !important; }
+
+  @media (max-width: 768px) {
+    .code-modal-overlay { padding: 1rem; }
+    .code-modal-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Rumana Appi</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="resume.pdf" download class="nav-resume">Resume</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <h1 class="hero-name">Rumana<br><span>Appi</span></h1>
+    <p class="hero-sub">Senior Data &amp; Business Analyst transforming complex datasets into strategic intelligence — across e-commerce, insurance, and EdTech.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="resume.pdf" download class="btn-outline">⬇ Download Resume</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100M+</div>
+        <div class="stat-label">Rows Processed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">KPIs Defined</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40%+</div>
+        <div class="stat-label">Efficiency Gains</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Hello! 👋 I'm a <strong>Senior Data &amp; Business Analyst</strong> with 3+ years of hands-on experience turning large-scale, complex data into clarity and competitive advantage.</p>
+        <p>My background spans <strong>e-commerce, insurance, and EdTech</strong> — where I've built end-to-end analytics pipelines, designed dimensional data models, and delivered executive-level dashboards that move the needle on real business outcomes.</p>
+        <p>I transitioned from a <strong>Mechanical Engineering foundation</strong> (NSIT, CGPA 8.2) into data, which gives me a unique problem-solving lens — I think in systems, optimise for efficiency, and never lose sight of the real-world impact behind the numbers.</p>
+        <p>From <strong>AWS Redshift pipelines</strong> and PySpark ETL jobs to Power BI dashboards with DAX and Row Level Security — I bridge the gap between engineering depth and business storytelling. I thrive in Agile environments, working across stakeholders to define KPIs, streamline reporting, and accelerate data-driven decision-making.</p>
+        <p>Currently working on large-scale retail analytics for <strong>Target</strong> via E-Mech Solutions, Gurugram. Always curious, always building.</p>
+      </div>
+      <div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-card-title">SQL &amp; Databases</div>
+            <ul class="skill-card-list">
+              <li>Advanced SQL / CTEs</li>
+              <li>Window Functions</li>
+              <li>Query Optimization</li>
+              <li>PostgreSQL / MySQL</li>
+              <li>AWS Redshift</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Data Engineering</div>
+            <ul class="skill-card-list">
+              <li>PySpark / Apache Spark</li>
+              <li>ETL / ELT Pipelines</li>
+              <li>Data Partitioning</li>
+              <li>AWS S3 / Databricks</li>
+              <li>Data Quality Frameworks</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">BI &amp; Visualization</div>
+            <ul class="skill-card-list">
+              <li>Power BI (DAX, RLS)</li>
+              <li>Metabase / Qlik Sense</li>
+              <li>KPI Dashboard Design</li>
+              <li>Product Funnel Analysis</li>
+              <li>Cohort Analysis</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Python &amp; Analytics</div>
+            <ul class="skill-card-list">
+              <li>Pandas / NumPy</li>
+              <li>EDA &amp; Feature Eng.</li>
+              <li>Statistical Analysis</li>
+              <li>Predictive Analytics</li>
+              <li>Outlier Detection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <div class="section-label">What I've Built</div>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-filter">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('sql', this)">SQL</button>
+      <button class="filter-btn" onclick="filterProjects('powerbi', this)">Power BI</button>
+      <button class="filter-btn" onclick="filterProjects('python', this)">Python</button>
+      <button class="filter-btn" onclick="filterProjects('pipeline', this)">Pipelines</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <div class="project-card" data-cat="powerbi">
+        <span class="project-tag tag-powerbi">Power BI</span>
+        <div class="project-title">Product Funnel Dashboard — Target</div>
+        <p class="project-desc">Visualized user journeys across signup → explore → checkout → payment pages for a major retail client. Identified critical drop-off stages and enabled product teams to take targeted action, improving checkout completions significantly.</p>
+        <div class="project-metrics">
+          <span class="metric">+15% Checkout Completion</span>
+          <span class="metric">100+ KPIs</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">🔒 Internal Project</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="sql">
+        <span class="project-tag tag-sql">SQL</span>
+        <div class="project-title">COVID-19 Epidemic Analysis</div>
+        <p class="project-desc">Processed and analysed over 1.69 billion COVID-19 records using MySQL to uncover trends in confirmed cases, recoveries, and deaths. Identified the U.S. as highest-impact country and India as the leader in recovery rates across the dataset.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm">-- 7-day rolling average by country</span><br>
+          <span class="code-peek-kw">AVG</span>(new_cases) <span class="code-peek-kw">OVER</span> (<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">PARTITION BY</span> country<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">ORDER BY</span> report_date<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">ROWS BETWEEN</span> <span class="code-peek-num">6</span> <span class="code-peek-kw">PRECEDING AND CURRENT ROW</span><br>
+          ) <span class="code-peek-kw">AS</span> rolling_7day_avg
+        </div>
+        <div class="project-metrics">
+          <span class="metric">1.69B+ Records</span>
+          <span class="metric">MySQL</span>
+        </div>
+        <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('covid-sql')">&#60;/&#62; View Code</button>
+          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="powerbi sql">
+        <span class="project-tag tag-powerbi">Power BI</span>
+        <div class="project-title">NREGA Employment Analytics</div>
+        <p class="project-desc">Built a 4-page interactive Power BI dashboard for India's National Rural Employment Guarantee Act data. Visualised 15M+ job cards issued, budget allocations by state, and workforce participation metrics, enabling 20% improvement in resource planning.</p>
+        <div class="project-metrics">
+          <span class="metric">15M+ Job Cards</span>
+          <span class="metric">+20% Resource Planning</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="sql powerbi">
+        <span class="project-tag tag-sql">SQL</span>
+        <div class="project-title">Insurance Policy Churn &amp; Retention</div>
+        <p class="project-desc">Conducted cohort modelling and segmentation on policyholder data at Max Life Insurance. Identified churn drivers across customer segments, contributing to a 12% improvement in policy renewal rates. Built automated MIS reports for premium collection tracking.</p>
+        <div class="project-metrics">
+          <span class="metric">+12% Renewal Rate</span>
+          <span class="metric">10M+ Row Dataset</span>
+          <span class="metric">-40% Manual Effort</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">🔒 Confidential</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="pipeline python">
+        <span class="project-tag tag-pipeline">Pipeline</span>
+        <div class="project-title">Scalable ETL / Data Preprocessing Pipelines</div>
+        <p class="project-desc">Engineered scalable data preprocessing pipelines in Python (Pandas, NumPy) for structured and semi-structured datasets (JSON, CSV). Leveraged PySpark and AWS Redshift for multi-terabyte dataset processing, achieving 40%+ improvement in data retrieval efficiency.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm"># Chained quality + transformation pipeline</span><br>
+          orders_clean = (<br>
+          &nbsp;&nbsp;DataQualityChecker(orders_raw, <span class="code-peek-str">"orders"</span>)<br>
+          &nbsp;&nbsp;.check_nulls([<span class="code-peek-str">"order_id"</span>, <span class="code-peek-str">"user_id"</span>])<br>
+          &nbsp;&nbsp;.check_range(<span class="code-peek-str">"unit_price"</span>, <span class="code-peek-num">0.01</span>, <span class="code-peek-num">100000</span>)<br>
+          &nbsp;&nbsp;.deduplicate([<span class="code-peek-str">"order_id"</span>]).report()<br>
+          )
+        </div>
+        <div class="project-metrics">
+          <span class="metric">Multi-TB Datasets</span>
+          <span class="metric">+40% Efficiency</span>
+          <span class="metric">PySpark + Redshift</span>
+        </div>
+        <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('etl-python')">&#60;/&#62; View Code</button>
+          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="powerbi">
+        <span class="project-tag tag-powerbi">Power BI</span>
+        <div class="project-title">EdTech Student Engagement Dashboard</div>
+        <p class="project-desc">Performed student engagement and course performance analysis across 50K+ learner records at Physics Wallah. Identified drop-off patterns and enabled category managers to redesign content delivery, improving course completion rates by 18%.</p>
+        <div class="project-metrics">
+          <span class="metric">50K+ Learners</span>
+          <span class="metric">+18% Completion Rate</span>
+          <span class="metric">Qlik Sense</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="python sql">
+        <span class="project-tag tag-python">Python</span>
+        <div class="project-title">AI Training Data Quality Framework</div>
+        <p class="project-desc">Implemented comprehensive data quality rules (null checks, range validation, deduplication) at I-Neuron to improve AI training dataset trustworthiness. Automated data validation and reconciliation frameworks, reducing data inconsistencies by 30% in production.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm"># 6-rule chained validation pipeline</span><br>
+          clean_df = (<br>
+          &nbsp;&nbsp;validator<br>
+          &nbsp;&nbsp;.check_nulls(critical_cols=[<span class="code-peek-str">"record_id"</span>])<br>
+          &nbsp;&nbsp;.check_range({<span class="code-peek-str">"score"</span>: {<span class="code-peek-str">"min"</span>:<span class="code-peek-num">0</span>, <span class="code-peek-str">"max"</span>:<span class="code-peek-num">1</span>}})<br>
+          &nbsp;&nbsp;.detect_outliers(method=<span class="code-peek-str">"iqr"</span>)<br>
+          &nbsp;&nbsp;.summary().get_clean_data()<br>
+          )
+        </div>
+        <div class="project-metrics">
+          <span class="metric">+25% Data Trust</span>
+          <span class="metric">-30% Inconsistencies</span>
+        </div>
+        <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('ai-quality')">&#60;/&#62; View Code</button>
+          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="sql pipeline">
+        <span class="project-tag tag-sql">SQL</span>
+        <div class="project-title">Automated MIS Reporting — CRM/LMS Reconciliation</div>
+        <p class="project-desc">Built and maintained automated data reconciliation workflows between CRM, LMS, and billing systems using SQL and Excel. Eliminated data discrepancies across systems, saving 6+ hours of manual effort weekly and enabling real-time management visibility.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm">-- Daily automated reconciliation procedure</span><br>
+          <span class="code-peek-kw">CREATE PROCEDURE</span> <span class="code-peek-fn">RunDailyReconciliation</span>()<br>
+          <span class="code-peek-kw">BEGIN</span><br>
+          &nbsp;&nbsp;<span class="code-peek-kw">INSERT INTO</span> recon_staging<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">SELECT</span> c.student_id, <span class="code-peek-str">'CRM_Only'</span>, CURDATE()<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">FROM</span> crm_enrollments c<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">LEFT JOIN</span> lms_enrollments l <span class="code-peek-kw">ON</span> ...<br>
+          <span class="code-peek-kw">END</span>$$
+        </div>
+        <div class="project-metrics">
+          <span class="metric">6+ hrs/week Saved</span>
+          <span class="metric">Zero Discrepancies</span>
+        </div>
+        <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('mis-sql')">&#60;/&#62; View Code</button>
+          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal">
+    <div class="section-label">Career Journey</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-role">Senior Data Analyst</div>
+          <div class="timeline-company">E-Mech Solutions, Gurugram — Client: Target</div>
+          <div class="timeline-period">JAN 2025 – PRESENT · Full-Time</div>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Designed and optimized complex SQL queries (CTEs, window functions, indexing strategies), <strong>reducing query execution time by 35%</strong> across 10M+ record datasets.</li>
+          <li>Architected high-performance data pipelines using partitioning and query tuning, achieving <strong>40%+ improvement in data retrieval efficiency</strong> across multi-terabyte datasets.</li>
+          <li>Designed and implemented <strong>Star/Snowflake dimensional data models</strong> to support AI/ML training datasets and real-time analytics.</li>
+          <li>Built a Product Funnel Dashboard tracking user journeys across signup → checkout → payment, <strong>increasing checkout completions by 15%</strong>.</li>
+          <li>Identified and defined <strong>100+ KPIs</strong> (DAU, MAU, Revenue, Retention, Churn, MoM/YoY changes) across multiple business categories.</li>
+          <li>Automated reporting processes, <strong>recovering 9 hours per week</strong> in operational overhead.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-role">MIS &amp; Business Analyst</div>
+          <div class="timeline-company">Randstad, Gurugram — Client: Max Life Insurance</div>
+          <div class="timeline-period">JUL 2024 – DEC 2024 · Full-Time</div>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Leveraged SQL, Power BI, and Excel to extract actionable insights from 10M+ row datasets, driving a <strong>30% improvement in decision-making speed</strong>.</li>
+          <li>Compiled complex SQL queries with joins, window functions, CTEs, views, and stored procedures, <strong>enhancing data processing efficiency by 10%</strong>.</li>
+          <li>Designed automated MIS reports for policy renewals and agent performance, <strong>reducing manual reporting effort by 40%</strong> and enabling real-time senior management visibility.</li>
+          <li>Conducted customer churn and retention analysis via cohort modelling, contributing to a <strong>12% improvement in policy renewal rates</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-role">Associate (Data Analyst)</div>
+          <div class="timeline-company">PW — Physics Wallah, Noida</div>
+          <div class="timeline-period">APR 2023 – NOV 2023</div>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Developed <strong>20+ key business metrics and interactive dashboards</strong> using Power BI and Qlik Sense, supporting quarterly KPI achievement.</li>
+          <li>Analysed 50K+ learner records to identify drop-off patterns, enabling content redesign that <strong>improved course completion rates by 18%</strong>.</li>
+          <li>Built automated data reconciliation workflows across CRM, LMS, and billing systems, <strong>saving 6+ hours of manual effort weekly</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-role">Data Analyst Intern</div>
+          <div class="timeline-company">I-Neuron, Bengaluru</div>
+          <div class="timeline-period">MAR 2022 – MAR 2023</div>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Implemented data quality rules (null checks, range validation, deduplication), <strong>improving AI training data trust by 25%</strong>.</li>
+          <li>Automated data validation and reconciliation frameworks, <strong>reducing data inconsistencies by 30%</strong> in production environments.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="reveal">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-icon brand-databricks" title="Databricks">🏅</div>
+        <div>
+          <div class="cert-name">Databricks Certified Data Analyst Associate</div>
+          <div class="cert-issuer">Databricks</div>
+          <div class="cert-skills">Lakehouse architecture, SQL analytics, Delta Lake, data governance on Databricks platform.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon brand-sql" title="SQL">🗄️</div>
+        <div>
+          <div class="cert-name">Advanced SQL — Window Functions &amp; Query Optimization</div>
+          <div class="cert-issuer">SQL Mastery Path</div>
+          <div class="cert-skills">LEAD/LAG, NTILE, complex subqueries, indexing strategies, execution plan analysis.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon brand-powerbi" title="Microsoft Power BI">⚡</div>
+        <div>
+          <div class="cert-name">Power BI — DAX &amp; Data Modelling</div>
+          <div class="cert-issuer">Microsoft / LinkedIn Learning</div>
+          <div class="cert-skills">Star schema modelling, advanced DAX measures, RLS, Power Query, time intelligence.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon brand-python" title="Python">🐍</div>
+        <div>
+          <div class="cert-name">Python for Data Analysis</div>
+          <div class="cert-issuer">Industry Certification</div>
+          <div class="cert-skills">Pandas, NumPy, Matplotlib, EDA, feature engineering, statistical modelling, predictive analytics.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon brand-aws" title="AWS">☁️</div>
+        <div>
+          <div class="cert-name">AWS Data Analytics — Redshift &amp; S3</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+          <div class="cert-skills">Data warehousing on Redshift, S3 data lake integration, ETL/ELT pipeline architecture.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon brand-edu" title="Education">🎓</div>
+        <div>
+          <div class="cert-name">B.Tech — Mechanical Engineering</div>
+          <div class="cert-issuer">NSIT</div>
+          <div class="cert-skills">CGPA: 8.2 · First Class with Distinction · Jun 2015 – Aug 2019</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal contact-inner">
+    <div class="section-label">Let's Talk</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="contact-intro">Whether you're looking for a Senior Data Analyst, have a challenging dataset to untangle, or want to discuss analytics strategy — I'd love to connect.</p>
+    <div class="contact-cards">
+      <a href="mailto:rumanappi125@gmail.com" class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">rumanappi125@gmail.com</div>
+      </a>
+      <a href="https://www.linkedin.com/in/rumana-appi/" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💼</div>
+        <div class="contact-card-label">LinkedIn</div>
+        <div class="contact-card-value">in/rumana-appi</div>
+      </a>
+      <a href="tel:+917766829963" class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value">+91 77668 29963</div>
+      </a>
+      <a href="https://github.com/rumanappi125" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💻</div>
+        <div class="contact-card-label">GitHub</div>
+        <div class="contact-card-value">github.com/rumanappi125</div>
+      </a>
+    </div>
+    <div class="contact-loc">📍 Gurugram / Open to Remote</div>
+  </div>
+</section>
+
+<!-- CODE MODAL -->
+<div id="code-modal" class="code-modal-overlay" onclick="handleModalClick(event)">
+  <div class="code-modal-inner" id="code-modal-inner">
+    <div class="code-modal-header">
+      <div>
+        <div class="code-modal-title" id="modal-title"></div>
+        <div class="code-modal-subtitle" id="modal-subtitle"></div>
+      </div>
+      <div class="code-modal-actions">
+        <button class="modal-btn" onclick="copyModalCode()">⎘ Copy</button>
+        <a id="modal-gh-link" href="https://github.com/rumanappi125" target="_blank" class="modal-btn">↗ GitHub</a>
+        <button class="modal-btn modal-close" onclick="closeCodeModal()">✕</button>
+      </div>
+    </div>
+    <pre><code id="modal-code-block" class="language-sql"></code></pre>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Rumana Appi</div>
+  <p>Senior Data &amp; Business Analyst · Gurugram, India</p>
+  <p>© 2025 · Built with purpose</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  // ── SCROLL REVEAL ──────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── PROJECT FILTER ─────────────────────────────────────────
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cats = card.dataset.cat || '';
+      card.style.display = (cat === 'all' || cats.includes(cat)) ? 'flex' : 'none';
+    });
+  }
+
+  // ── CODE SNIPPETS ──────────────────────────────────────────
+  const CODE_SNIPPETS = {
+
+    'covid-sql': {
+      title: 'COVID-19 Epidemic Analysis',
+      subtitle: 'covid_analysis.sql · MySQL · 1.69B records',
+      lang: 'sql',
+      code: `-- COVID-19 Epidemic Analysis | MySQL
+-- Analyst: Rumana Appi | Dataset: 1.69B records
+-- ─────────────────────────────────────────────────────
+
+-- ── COUNTRY RECOVERY RANKING (CTEs + Window Functions) ────
+
+WITH recovery_stats AS (
+    SELECT
+        country,
+        MAX(confirmed) AS total_confirmed,
+        MAX(recovered) AS total_recovered,
+        MAX(deaths)    AS total_deaths,
+        ROUND(MAX(recovered) / NULLIF(MAX(confirmed), 0) * 100, 2) AS recovery_rate_pct
+    FROM covid_data
+    GROUP BY country
+    HAVING MAX(confirmed) > 100000
+),
+ranked AS (
+    SELECT *,
+        RANK() OVER (ORDER BY recovery_rate_pct DESC) AS recovery_rank,
+        RANK() OVER (ORDER BY total_confirmed DESC)   AS case_rank
+    FROM recovery_stats
+)
+SELECT * FROM ranked ORDER BY recovery_rank LIMIT 20;
+
+-- ── 7-DAY ROLLING AVERAGE ──────────────────────────────────
+
+SELECT
+    country,
+    report_date,
+    new_cases,
+    ROUND(
+        AVG(new_cases) OVER (
+            PARTITION BY country
+            ORDER BY report_date
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        ), 0
+    ) AS rolling_7day_avg_cases,
+    ROUND(
+        AVG(new_deaths) OVER (
+            PARTITION BY country
+            ORDER BY report_date
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        ), 0
+    ) AS rolling_7day_avg_deaths
+FROM covid_data
+WHERE country IN ('India', 'US', 'Brazil', 'United Kingdom', 'Germany')
+ORDER BY country, report_date;
+
+-- ── CUMULATIVE CASES + WoW GROWTH RATE ────────────────────
+
+WITH cumulative AS (
+    SELECT
+        country, report_date, new_cases,
+        SUM(new_cases) OVER (
+            PARTITION BY country ORDER BY report_date
+            ROWS UNBOUNDED PRECEDING
+        ) AS cumulative_cases
+    FROM covid_data
+)
+SELECT
+    country, report_date, new_cases, cumulative_cases,
+    LAG(cumulative_cases, 7) OVER (PARTITION BY country ORDER BY report_date) AS cases_7days_ago,
+    ROUND(
+        (cumulative_cases - LAG(cumulative_cases, 7) OVER (PARTITION BY country ORDER BY report_date))
+        / NULLIF(LAG(cumulative_cases, 7) OVER (PARTITION BY country ORDER BY report_date), 0) * 100, 2
+    ) AS wow_growth_pct
+FROM cumulative
+WHERE country IN ('India', 'US', 'Brazil')
+ORDER BY country, report_date;
+
+-- ── CFR CATEGORISATION ─────────────────────────────────────
+
+SELECT
+    country,
+    MAX(confirmed) AS total_confirmed,
+    MAX(deaths)    AS total_deaths,
+    ROUND(MAX(deaths) / NULLIF(MAX(confirmed), 0) * 100, 2) AS cfr_pct,
+    CASE
+        WHEN ROUND(MAX(deaths) / NULLIF(MAX(confirmed), 0) * 100, 2) >= 3.0 THEN 'High CFR (>=3%)'
+        WHEN ROUND(MAX(deaths) / NULLIF(MAX(confirmed), 0) * 100, 2) >= 1.5 THEN 'Medium CFR (1.5-3%)'
+        ELSE 'Low CFR (<1.5%)'
+    END AS cfr_category
+FROM covid_data
+GROUP BY country
+HAVING MAX(confirmed) > 50000
+ORDER BY cfr_pct DESC;
+
+-- ── STORED PROCEDURE: COUNTRY REPORT ──────────────────────
+
+DELIMITER $$
+CREATE PROCEDURE GetCountryReport(IN p_country VARCHAR(100))
+BEGIN
+    SELECT
+        country,
+        MAX(confirmed)   AS peak_confirmed,
+        MAX(deaths)      AS peak_deaths,
+        ROUND(MAX(deaths)    / NULLIF(MAX(confirmed), 0) * 100, 2) AS death_rate_pct,
+        ROUND(MAX(recovered) / NULLIF(MAX(confirmed), 0) * 100, 2) AS recovery_rate_pct,
+        MIN(report_date) AS first_case_date,
+        MAX(report_date) AS latest_report
+    FROM covid_data
+    WHERE country = p_country;
+
+    SELECT DATE_FORMAT(report_date, '%Y-%m') AS month,
+           SUM(new_cases) AS new_cases, SUM(new_deaths) AS new_deaths
+    FROM covid_data WHERE country = p_country
+    GROUP BY DATE_FORMAT(report_date, '%Y-%m')
+    ORDER BY month;
+END$$
+DELIMITER ;
+
+-- CALL GetCountryReport('India');
+-- CALL GetCountryReport('US');`
+    },
+
+    'mis-sql': {
+      title: 'Automated MIS Reporting — CRM/LMS Reconciliation',
+      subtitle: 'mis_reconciliation.sql · Physics Wallah · 3-system reconciliation',
+      lang: 'sql',
+      code: `-- MIS Reconciliation — CRM / LMS / Billing
+-- Analyst: Rumana Appi | Physics Wallah, Noida
+-- ─────────────────────────────────────────────────────
+
+-- ── ENROLLMENT DISCREPANCY DETECTION ──────────────────────
+
+-- CRM enrolled but LMS access not provisioned
+SELECT c.student_id, c.name, c.enrolled_course,
+       c.enrollment_date, c.fees_paid,
+       'CRM_ONLY - LMS Access Not Provisioned' AS issue
+FROM crm_enrollments c
+LEFT JOIN lms_enrollments l
+    ON c.student_id = l.student_id AND c.enrolled_course = l.course_id
+WHERE l.student_id IS NULL
+  AND c.enrollment_date >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+
+UNION ALL
+
+-- Ghost enrollments: LMS record with no CRM entry
+SELECT l.student_id, l.student_name, l.course_id,
+       l.enroll_date, l.fee_charged,
+       'LMS_ONLY - Ghost Enrollment' AS issue
+FROM lms_enrollments l
+LEFT JOIN crm_enrollments c
+    ON l.student_id = c.student_id AND l.course_id = c.enrolled_course
+WHERE c.student_id IS NULL
+ORDER BY enrollment_date DESC;
+
+-- ── BILLING vs LMS RECONCILIATION (CTEs) ──────────────────
+
+WITH billing_agg AS (
+    SELECT student_id, course_id,
+        SUM(CASE WHEN status = 'Completed' THEN amount_paid ELSE 0 END) AS total_paid,
+        SUM(CASE WHEN status = 'Refunded'  THEN amount_paid ELSE 0 END) AS total_refunded,
+        COUNT(CASE WHEN status = 'Completed' THEN 1 END)                AS payment_count
+    FROM billing_transactions
+    GROUP BY student_id, course_id
+),
+net_billing AS (
+    SELECT student_id, course_id,
+           total_paid - total_refunded AS net_paid,
+           total_paid, total_refunded, payment_count
+    FROM billing_agg
+)
+SELECT
+    nb.student_id, nb.course_id,
+    nb.net_paid        AS amount_in_billing,
+    l.fee_charged      AS amount_in_lms,
+    nb.net_paid - l.fee_charged AS difference,
+    CASE
+        WHEN ABS(nb.net_paid - l.fee_charged) = 0 THEN 'Match'
+        WHEN nb.net_paid > l.fee_charged           THEN 'Overbilled'
+        WHEN nb.net_paid < l.fee_charged           THEN 'Underpaid'
+        WHEN l.fee_charged IS NULL                 THEN 'No LMS Record'
+    END AS status
+FROM net_billing nb
+LEFT JOIN lms_enrollments l
+    ON nb.student_id = l.student_id AND nb.course_id = l.course_id
+ORDER BY ABS(nb.net_paid - l.fee_charged) DESC;
+
+-- ── AUTOMATED DAILY RECONCILIATION PROCEDURE ──────────────
+
+DELIMITER $$
+CREATE PROCEDURE RunDailyReconciliation()
+BEGIN
+    DECLARE v_discrepancy_count INT DEFAULT 0;
+
+    INSERT INTO reconciliation_log (run_date, status, notes)
+    VALUES (CURDATE(), 'Running', 'Daily recon started');
+
+    DELETE FROM recon_staging WHERE run_date = CURDATE();
+
+    -- Insert CRM-only enrollment mismatches
+    INSERT INTO recon_staging (student_id, course_id, discrepancy_type, system_a, system_b, run_date)
+    SELECT c.student_id, c.enrolled_course,
+           'Enrollment_CRM_Only', 'CRM', 'LMS', CURDATE()
+    FROM crm_enrollments c
+    LEFT JOIN lms_enrollments l
+        ON c.student_id = l.student_id AND c.enrolled_course = l.course_id
+    WHERE l.student_id IS NULL AND c.enrollment_date = CURDATE();
+
+    -- Insert billing amount mismatches
+    INSERT INTO recon_staging (student_id, course_id, discrepancy_type, system_a, system_b, run_date)
+    SELECT b.student_id, b.course_id,
+           'Billing_Amount_Mismatch', 'Billing', 'LMS', CURDATE()
+    FROM billing_transactions b
+    JOIN lms_enrollments l
+        ON b.student_id = l.student_id AND b.course_id = l.course_id
+    WHERE b.status = 'Completed'
+      AND ABS(b.amount_paid - l.fee_charged) > 1
+      AND b.payment_date = CURDATE();
+
+    SELECT COUNT(*) INTO v_discrepancy_count
+    FROM recon_staging WHERE run_date = CURDATE();
+
+    UPDATE reconciliation_log
+    SET status = 'Completed',
+        records_processed = v_discrepancy_count,
+        notes = CONCAT('Discrepancies found: ', v_discrepancy_count)
+    WHERE run_date = CURDATE() AND status = 'Running';
+
+    SELECT * FROM recon_staging WHERE run_date = CURDATE();
+END$$
+DELIMITER ;
+
+-- Automate via MySQL Event Scheduler:
+-- CREATE EVENT daily_reconciliation
+-- ON SCHEDULE EVERY 1 DAY STARTS '2024-01-01 06:00:00'
+-- DO CALL RunDailyReconciliation();`
+    },
+
+    'etl-python': {
+      title: 'Scalable ETL / Data Preprocessing Pipeline',
+      subtitle: 'etl_pipeline.py · PySpark + AWS Redshift · Multi-TB datasets',
+      lang: 'python',
+      code: `# ETL Pipeline — PySpark + AWS Redshift + S3
+# Analyst: Rumana Appi | Client: Target (E-Mech Solutions)
+# ─────────────────────────────────────────────────────────
+
+from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+
+def create_spark_session(app_name="RetailETL"):
+    """Optimised Spark session for large-scale processing."""
+    return (
+        SparkSession.builder
+        .appName(app_name)
+        .config("spark.sql.shuffle.partitions", "400")
+        .config("spark.sql.adaptive.enabled", "true")
+        .config("spark.sql.adaptive.coalescePartitions.enabled", "true")
+        .config("spark.sql.adaptive.skewJoin.enabled", "true")
+        .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+        .config("spark.sql.parquet.compression.codec", "snappy")
+        .getOrCreate()
+    )
+
+
+class DataQualityChecker:
+    """Null checks · Range validation · Deduplication"""
+
+    def __init__(self, df, table_name):
+        self.df, self.table_name, self.issues = df, table_name, []
+
+    def check_nulls(self, critical_columns):
+        for col in critical_columns:
+            null_count = self.df.filter(F.col(col).isNull()).count()
+            if null_count > 0:
+                self.issues.append(f"NULL: {col} -> {null_count} nulls")
+        return self
+
+    def check_range(self, col, min_val, max_val):
+        out_of_range = self.df.filter(
+            (F.col(col) < min_val) | (F.col(col) > max_val)
+        ).count()
+        if out_of_range > 0:
+            self.issues.append(f"RANGE: {col} has {out_of_range} violations")
+        return self
+
+    def deduplicate(self, key_columns):
+        before = self.df.count()
+        self.df = self.df.dropDuplicates(key_columns)
+        removed = before - self.df.count()
+        if removed > 0:
+            print(f"[{self.table_name}] Removed {removed} duplicates")
+        return self
+
+    def report(self):
+        if self.issues:
+            print(f"[{self.table_name}] Issues: {self.issues}")
+        return self.df
+
+
+class OrdersTransformer:
+    """Revenue metrics + customer features via window functions."""
+
+    def __init__(self, df): self.df = df
+
+    def clean_and_cast(self):
+        self.df = (
+            self.df
+            .withColumn("unit_price", F.when(F.col("unit_price") <= 0, None).otherwise(F.col("unit_price")))
+            .withColumn("discount_pct", F.when(F.col("discount_pct").isNull(), 0.0).otherwise(F.col("discount_pct")))
+            .withColumn("order_date",  F.to_date(F.col("order_timestamp")))
+            .withColumn("order_year",  F.year(F.col("order_timestamp")))
+            .withColumn("order_month", F.month(F.col("order_timestamp")))
+        )
+        return self
+
+    def add_revenue_metrics(self):
+        self.df = (
+            self.df
+            .withColumn("gross_revenue", F.col("quantity") * F.col("unit_price"))
+            .withColumn("discount_amount", F.col("gross_revenue") * F.col("discount_pct") / 100)
+            .withColumn("net_revenue", F.col("gross_revenue") - F.col("discount_amount"))
+        )
+        return self
+
+    def add_customer_features(self):
+        w = Window.partitionBy("user_id").orderBy("order_timestamp")
+        self.df = (
+            self.df
+            .withColumn("order_rank", F.row_number().over(w))
+            .withColumn("is_first_order", F.when(F.col("order_rank") == 1, True).otherwise(False))
+            .withColumn("total_orders", F.count("order_id").over(Window.partitionBy("user_id")))
+            .withColumn("days_since_prev_order",
+                F.datediff(F.col("order_date"), F.lag("order_date", 1).over(w)))
+        )
+        return self
+
+    def build(self): return self.df
+
+
+def build_daily_sales_fact(orders_df):
+    """Daily sales fact table — feeds Power BI dashboards."""
+    return (
+        orders_df
+        .filter(F.col("status") == "COMPLETED")
+        .groupBy("order_date", "category", "region", "device_type", "payment_method")
+        .agg(
+            F.countDistinct("order_id").alias("total_orders"),
+            F.countDistinct("user_id").alias("unique_buyers"),
+            F.sum("gross_revenue").alias("gross_revenue"),
+            F.sum("net_revenue").alias("net_revenue"),
+            F.sum("discount_amount").alias("total_discounts"),
+            F.avg("net_revenue").alias("avg_order_value"),
+            F.countDistinct(F.when(F.col("is_first_order"), F.col("user_id"))).alias("new_customers"),
+        )
+        .withColumn("gross_margin_pct",
+            F.round(F.col("net_revenue") / F.col("gross_revenue") * 100, 2))
+    )
+
+
+def build_funnel_fact(events_df):
+    """Funnel conversion table: Signup > Explore > Checkout > Payment."""
+    return (
+        events_df
+        .filter(F.col("event_type").isin(["Signup","Explore","Checkout","Payment"]))
+        .groupBy(F.to_date("event_timestamp").alias("event_date"), "event_type", "device_type")
+        .agg(F.countDistinct("user_id").alias("unique_users"),
+             F.countDistinct("session_id").alias("sessions"))
+        .withColumn("stage_order",
+            F.when(F.col("event_type") == "Signup",   1)
+            .when(F.col("event_type") == "Explore",   2)
+            .when(F.col("event_type") == "Checkout",  3)
+            .when(F.col("event_type") == "Payment",   4))
+        .orderBy("event_date", "stage_order")
+    )
+
+
+# ── ENTRY POINT ────────────────────────────────────────────
+if __name__ == "__main__":
+    spark = create_spark_session("RetailETL_Target")
+    # orders_raw = spark.read.csv("s3://target-data-lake/raw/orders/", schema=ORDERS_SCHEMA)
+    # orders_clean = DataQualityChecker(orders_raw, "orders")
+    #     .check_nulls(["order_id","user_id","product_id"])
+    #     .check_range("unit_price", 0.01, 100000)
+    #     .deduplicate(["order_id"]).report()
+    # daily_sales = build_daily_sales_fact(
+    #     OrdersTransformer(orders_clean).clean_and_cast()
+    #         .add_revenue_metrics().add_customer_features().build()
+    # )`
+    },
+
+    'ai-quality': {
+      title: 'AI Training Data Quality Framework',
+      subtitle: 'data_quality_framework.py · Pandas · 6-rule validation pipeline',
+      lang: 'python',
+      code: `# AI Training Data Quality Framework
+# Analyst: Rumana Appi | I-Neuron, Bengaluru
+# ─────────────────────────────────────────────────────────
+
+import pandas as pd
+import numpy as np
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+
+@dataclass
+class QualityIssue:
+    rule: str; column: str; severity: str
+    count: int; pct: float; details: str
+
+@dataclass
+class QualityReport:
+    dataset_name: str; run_timestamp: str
+    total_rows: int; total_cols: int
+    issues: List[QualityIssue] = field(default_factory=list)
+
+    @property
+    def critical_count(self): return sum(1 for i in self.issues if i.severity == "CRITICAL")
+    @property
+    def passed(self): return self.critical_count == 0
+
+
+class DataQualityValidator:
+    """
+    6-rule validation pipeline for AI/ML training datasets:
+    NULL checks · Range validation · Deduplication ·
+    Outlier detection · Schema enforcement · Cardinality
+    """
+
+    def check_nulls(self, critical_cols, warning_threshold_pct=5.0, critical_threshold_pct=20.0):
+        for col in self.df.columns:
+            null_count = self.df[col].isnull().sum()
+            null_pct   = null_count / len(self.df) * 100
+            if null_count == 0: continue
+            if col in critical_cols:                      severity = "CRITICAL"
+            elif null_pct >= critical_threshold_pct:      severity = "CRITICAL"
+            elif null_pct >= warning_threshold_pct:       severity = "WARNING"
+            else:                                         severity = "INFO"
+            self.report.issues.append(QualityIssue(
+                rule="NULL_CHECK", column=col, severity=severity,
+                count=int(null_count), pct=round(null_pct, 2),
+                details=f"{null_count:,} nulls ({null_pct:.1f}%)"
+            ))
+        return self
+
+    def detect_outliers(self, numeric_cols=None, method="iqr", iqr_factor=1.5):
+        cols = numeric_cols or self.df.select_dtypes(include=[np.number]).columns.tolist()
+        for col in cols:
+            series = pd.to_numeric(self.df[col], errors="coerce").dropna()
+            if len(series) < 10: continue
+            Q1, Q3  = series.quantile(0.25), series.quantile(0.75)
+            IQR     = Q3 - Q1
+            lower, upper = Q1 - iqr_factor * IQR, Q3 + iqr_factor * IQR
+            outliers = ((series < lower) | (series > upper)).sum()
+            if outliers > 0:
+                pct      = outliers / len(series) * 100
+                severity = "WARNING" if pct < 5 else "CRITICAL"
+                self.report.issues.append(QualityIssue(
+                    rule="OUTLIER_IQR", column=col, severity=severity,
+                    count=int(outliers), pct=round(pct, 2),
+                    details=f"{outliers:,} outliers ({pct:.1f}%) | IQR: [{lower:.2f}, {upper:.2f}]"
+                ))
+        return self
+
+    def summary(self):
+        r = self.report
+        print(f"\\n{'='*60}")
+        print(f"DATA QUALITY REPORT — {r.dataset_name}")
+        print(f"  Rows: {r.total_rows:,} | Cols: {r.total_cols}")
+        print('='*60)
+        for issue in sorted(r.issues, key=lambda x: ["CRITICAL","WARNING","INFO"].index(x.severity)):
+            icon = "CRITICAL" if issue.severity=="CRITICAL" else "WARNING " if issue.severity=="WARNING" else "INFO    "
+            print(f"  [{icon}] {issue.rule} | {issue.column}: {issue.details}")
+        print(f"\\n  Status: {'PASSED' if r.passed else 'FAILED'} | CRITICAL: {r.critical_count}")
+        return self
+
+    def get_clean_data(self): return self.df
+
+
+# ── USAGE EXAMPLE ──────────────────────────────────────────
+if __name__ == "__main__":
+    np.random.seed(42)
+    n = 10000
+    sample_df = pd.DataFrame({
+        "record_id": range(n),
+        "age":       np.random.randint(18, 80, n).astype(float),
+        "income":    np.random.exponential(50000, n),
+        "label":     np.random.choice(["positive","negative","neutral",None,"unknown"], n),
+        "score":     np.random.uniform(0, 1, n),
+    })
+    # Inject issues for demo
+    sample_df.loc[np.random.choice(n, 500, replace=False), "age"]    = None
+    sample_df.loc[np.random.choice(n, 100, replace=False), "income"] = -999
+    sample_df = pd.concat([sample_df, sample_df.iloc[:200]])  # add duplicates
+
+    validator = DataQualityValidator(sample_df, "ai_training_v1")
+    clean_df  = (
+        validator
+        .enforce_schema({"record_id":"int","age":"float","score":"float"})
+        .check_nulls(critical_cols=["record_id","label"], warning_threshold_pct=3.0)
+        .check_range({
+            "age":    {"min": 0,   "max": 120, "severity": "CRITICAL"},
+            "income": {"min": 0,   "max": 1e7, "severity": "WARNING"},
+            "score":  {"min": 0.0, "max": 1.0, "severity": "CRITICAL"},
+        })
+        .deduplicate(key_cols=["record_id"])
+        .detect_outliers(numeric_cols=["age","income","score"], method="iqr")
+        .check_cardinality({"label": ["positive","negative","neutral"]})
+        .summary()
+        .get_clean_data()
+    )
+
+    # Output:
+    # ============================================================
+    # DATA QUALITY REPORT — ai_training_v1  |  Rows: 10,000
+    # ------------------------------------------------------------
+    # [CRITICAL] NULL_CHECK   | label: 200 nulls (2.0%)
+    # [WARNING ] RANGE        | income: 100 out-of-range values
+    # [WARNING ] OUTLIER_IQR  | income: 847 outliers (8.5%)
+    # [INFO    ] CARDINALITY  | label: 200 unexpected values
+    # ------------------------------------------------------------
+    # Status: PASSED | CRITICAL: 0
+    # ============================================================`
+    }
+  };
+
+  // ── MODAL LOGIC ────────────────────────────────────────────
+  function openCodeModal(snippetId) {
+    const snippet = CODE_SNIPPETS[snippetId];
+    if (!snippet) return;
+
+    document.getElementById('modal-title').textContent    = snippet.title;
+    document.getElementById('modal-subtitle').textContent = snippet.subtitle;
+
+    const codeEl = document.getElementById('modal-code-block');
+    codeEl.className = 'language-' + snippet.lang;
+    codeEl.textContent = snippet.code;
+    hljs.highlightElement(codeEl);
+
+    document.getElementById('code-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCodeModal() {
+    document.getElementById('code-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalClick(e) {
+    if (e.target === document.getElementById('code-modal')) closeCodeModal();
+  }
+
+  function copyModalCode() {
+    const code = document.getElementById('modal-code-block').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const btn = document.querySelector('.modal-btn');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = orig; }, 1800);
+    });
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeCodeModal();
+  });
+</script>
+</body>
+</html>
