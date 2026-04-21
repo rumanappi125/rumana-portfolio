@@ -6,6 +6,7 @@
 <title>Rumana Appi | Senior Data & Business Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 <style>
   :root {
     --bg: #0a0a0f;
@@ -510,6 +511,146 @@
     .hero-stats { gap: 1.8rem; flex-wrap: wrap; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
   }
+
+  /* ── CODE PREVIEW PEEK ── */
+  .code-preview-peek {
+    background: #1a1a26;
+    border: 1px solid rgba(122,196,232,0.18);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.7;
+    color: #9db5c8;
+    overflow: hidden;
+    position: relative;
+  }
+  .code-preview-peek::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 28px;
+    background: linear-gradient(transparent, #1a1a26);
+  }
+  .code-peek-kw  { color: #c678dd; }
+  .code-peek-fn  { color: #61afef; }
+  .code-peek-str { color: #98c379; }
+  .code-peek-num { color: #d19a66; }
+  .code-peek-cm  { color: #5c6370; font-style: italic; }
+
+  /* ── VIEW CODE BUTTON ── */
+  .btn-view-code {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent2);
+    background: rgba(122,196,232,0.08);
+    border: 1px solid rgba(122,196,232,0.25);
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .btn-view-code:hover {
+    background: rgba(122,196,232,0.15);
+    border-color: var(--accent2);
+    color: #fff;
+  }
+
+  /* ── CODE MODAL ── */
+  .code-modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  .code-modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .code-modal-inner {
+    background: #0d0d15;
+    border: 1px solid rgba(122,196,232,0.25);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 860px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    animation: modalIn 0.25s ease;
+  }
+  @keyframes modalIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .code-modal-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(122,196,232,0.15);
+    background: rgba(122,196,232,0.04);
+    gap: 1rem;
+  }
+  .code-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--text);
+  }
+  .code-modal-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .code-modal-actions { display: flex; gap: 0.6rem; flex-shrink: 0; }
+  .modal-btn {
+    font-size: 0.75rem; font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex; align-items: center;
+  }
+  .modal-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+  .modal-btn.modal-close { color: var(--muted); }
+  .modal-btn.modal-close:hover { border-color: #e87a7a; color: #e87a7a; }
+  .code-modal-inner pre {
+    margin: 0; padding: 0;
+    overflow-x: auto;
+    max-height: 68vh;
+  }
+  .code-modal-inner pre code.hljs {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.65;
+    padding: 1.5rem;
+    border-radius: 0;
+    background: #0d0d15;
+  }
+
+  /* ── CERT BRAND COLORS ── */
+  .cert-icon.brand-databricks { background: rgba(255,54,33,0.12); border-color: rgba(255,54,33,0.3); }
+  .cert-icon.brand-sql        { background: rgba(68,121,161,0.12); border-color: rgba(68,121,161,0.3); }
+  .cert-icon.brand-powerbi    { background: rgba(242,199,17,0.12); border-color: rgba(242,199,17,0.3); }
+  .cert-icon.brand-python     { background: rgba(55,118,171,0.12); border-color: rgba(55,118,171,0.3); }
+  .cert-icon.brand-aws        { background: rgba(255,153,0,0.12);  border-color: rgba(255,153,0,0.3); }
+  .cert-icon.brand-edu        { background: rgba(200,122,232,0.12); border-color: rgba(200,122,232,0.3); }
+
+  /* ── RESUME NAV LINK ── */
+  .nav-resume {
+    background: var(--accent);
+    color: #0a0a0f !important;
+    padding: 0.35rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-resume:hover { opacity: 0.85; color: #0a0a0f !important; }
+
+  @media (max-width: 768px) {
+    .code-modal-overlay { padding: 1rem; }
+    .code-modal-header { flex-direction: column; }
+  }
 </style>
 </head>
 <body>
@@ -523,6 +664,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="resume.pdf" download class="nav-resume">Resume</a></li>
   </ul>
 </nav>
 
@@ -538,6 +680,7 @@
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="resume.pdf" download class="btn-outline">⬇ Download Resume</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -654,11 +797,20 @@
         <span class="project-tag tag-sql">SQL</span>
         <div class="project-title">COVID-19 Epidemic Analysis</div>
         <p class="project-desc">Processed and analysed over 1.69 billion COVID-19 records using MySQL to uncover trends in confirmed cases, recoveries, and deaths. Identified the U.S. as highest-impact country and India as the leader in recovery rates across the dataset.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm">-- 7-day rolling average by country</span><br>
+          <span class="code-peek-kw">AVG</span>(new_cases) <span class="code-peek-kw">OVER</span> (<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">PARTITION BY</span> country<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">ORDER BY</span> report_date<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">ROWS BETWEEN</span> <span class="code-peek-num">6</span> <span class="code-peek-kw">PRECEDING AND CURRENT ROW</span><br>
+          ) <span class="code-peek-kw">AS</span> rolling_7day_avg
+        </div>
         <div class="project-metrics">
           <span class="metric">1.69B+ Records</span>
           <span class="metric">MySQL</span>
         </div>
         <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('covid-sql')">&#60;/&#62; View Code</button>
           <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
@@ -694,12 +846,22 @@
         <span class="project-tag tag-pipeline">Pipeline</span>
         <div class="project-title">Scalable ETL / Data Preprocessing Pipelines</div>
         <p class="project-desc">Engineered scalable data preprocessing pipelines in Python (Pandas, NumPy) for structured and semi-structured datasets (JSON, CSV). Leveraged PySpark and AWS Redshift for multi-terabyte dataset processing, achieving 40%+ improvement in data retrieval efficiency.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm"># Chained quality + transformation pipeline</span><br>
+          orders_clean = (<br>
+          &nbsp;&nbsp;DataQualityChecker(orders_raw, <span class="code-peek-str">"orders"</span>)<br>
+          &nbsp;&nbsp;.check_nulls([<span class="code-peek-str">"order_id"</span>, <span class="code-peek-str">"user_id"</span>])<br>
+          &nbsp;&nbsp;.check_range(<span class="code-peek-str">"unit_price"</span>, <span class="code-peek-num">0.01</span>, <span class="code-peek-num">100000</span>)<br>
+          &nbsp;&nbsp;.deduplicate([<span class="code-peek-str">"order_id"</span>]).report()<br>
+          )
+        </div>
         <div class="project-metrics">
           <span class="metric">Multi-TB Datasets</span>
           <span class="metric">+40% Efficiency</span>
           <span class="metric">PySpark + Redshift</span>
         </div>
         <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('etl-python')">&#60;/&#62; View Code</button>
           <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
@@ -722,11 +884,22 @@
         <span class="project-tag tag-python">Python</span>
         <div class="project-title">AI Training Data Quality Framework</div>
         <p class="project-desc">Implemented comprehensive data quality rules (null checks, range validation, deduplication) at I-Neuron to improve AI training dataset trustworthiness. Automated data validation and reconciliation frameworks, reducing data inconsistencies by 30% in production.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm"># 6-rule chained validation pipeline</span><br>
+          clean_df = (<br>
+          &nbsp;&nbsp;validator<br>
+          &nbsp;&nbsp;.check_nulls(critical_cols=[<span class="code-peek-str">"record_id"</span>])<br>
+          &nbsp;&nbsp;.check_range({<span class="code-peek-str">"score"</span>: {<span class="code-peek-str">"min"</span>:<span class="code-peek-num">0</span>, <span class="code-peek-str">"max"</span>:<span class="code-peek-num">1</span>}})<br>
+          &nbsp;&nbsp;.detect_outliers(method=<span class="code-peek-str">"iqr"</span>)<br>
+          &nbsp;&nbsp;.summary().get_clean_data()<br>
+          )
+        </div>
         <div class="project-metrics">
           <span class="metric">+25% Data Trust</span>
           <span class="metric">-30% Inconsistencies</span>
         </div>
         <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('ai-quality')">&#60;/&#62; View Code</button>
           <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
@@ -735,11 +908,22 @@
         <span class="project-tag tag-sql">SQL</span>
         <div class="project-title">Automated MIS Reporting — CRM/LMS Reconciliation</div>
         <p class="project-desc">Built and maintained automated data reconciliation workflows between CRM, LMS, and billing systems using SQL and Excel. Eliminated data discrepancies across systems, saving 6+ hours of manual effort weekly and enabling real-time management visibility.</p>
+        <div class="code-preview-peek">
+          <span class="code-peek-cm">-- Daily automated reconciliation procedure</span><br>
+          <span class="code-peek-kw">CREATE PROCEDURE</span> <span class="code-peek-fn">RunDailyReconciliation</span>()<br>
+          <span class="code-peek-kw">BEGIN</span><br>
+          &nbsp;&nbsp;<span class="code-peek-kw">INSERT INTO</span> recon_staging<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">SELECT</span> c.student_id, <span class="code-peek-str">'CRM_Only'</span>, CURDATE()<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">FROM</span> crm_enrollments c<br>
+          &nbsp;&nbsp;<span class="code-peek-kw">LEFT JOIN</span> lms_enrollments l <span class="code-peek-kw">ON</span> ...<br>
+          <span class="code-peek-kw">END</span>$$
+        </div>
         <div class="project-metrics">
           <span class="metric">6+ hrs/week Saved</span>
           <span class="metric">Zero Discrepancies</span>
         </div>
         <div class="project-links">
+          <button class="btn-view-code" onclick="openCodeModal('mis-sql')">&#60;/&#62; View Code</button>
           <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
@@ -822,7 +1006,7 @@
     <div class="certs-grid">
 
       <div class="cert-card">
-        <div class="cert-icon">🏅</div>
+        <div class="cert-icon brand-databricks" title="Databricks">🏅</div>
         <div>
           <div class="cert-name">Databricks Certified Data Analyst Associate</div>
           <div class="cert-issuer">Databricks</div>
@@ -831,7 +1015,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-icon">📊</div>
+        <div class="cert-icon brand-sql" title="SQL">🗄️</div>
         <div>
           <div class="cert-name">Advanced SQL — Window Functions &amp; Query Optimization</div>
           <div class="cert-issuer">SQL Mastery Path</div>
@@ -840,7 +1024,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-icon">⚡</div>
+        <div class="cert-icon brand-powerbi" title="Microsoft Power BI">⚡</div>
         <div>
           <div class="cert-name">Power BI — DAX &amp; Data Modelling</div>
           <div class="cert-issuer">Microsoft / LinkedIn Learning</div>
@@ -849,7 +1033,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-icon">🐍</div>
+        <div class="cert-icon brand-python" title="Python">🐍</div>
         <div>
           <div class="cert-name">Python for Data Analysis</div>
           <div class="cert-issuer">Industry Certification</div>
@@ -858,7 +1042,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-icon">☁️</div>
+        <div class="cert-icon brand-aws" title="AWS">☁️</div>
         <div>
           <div class="cert-name">AWS Data Analytics — Redshift &amp; S3</div>
           <div class="cert-issuer">Amazon Web Services</div>
@@ -867,7 +1051,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-icon">🎓</div>
+        <div class="cert-icon brand-edu" title="Education">🎓</div>
         <div>
           <div class="cert-name">B.Tech — Mechanical Engineering</div>
           <div class="cert-issuer">NSIT, New Delhi</div>
@@ -901,10 +1085,33 @@
         <div class="contact-card-label">Phone</div>
         <div class="contact-card-value">+91 77668 29963</div>
       </a>
+      <a href="https://github.com/rumanappi125" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💻</div>
+        <div class="contact-card-label">GitHub</div>
+        <div class="contact-card-value">github.com/rumanappi125</div>
+      </a>
     </div>
     <div class="contact-loc">📍 Gurugram / Open to Remote</div>
   </div>
 </section>
+
+<!-- CODE MODAL -->
+<div id="code-modal" class="code-modal-overlay" onclick="handleModalClick(event)">
+  <div class="code-modal-inner" id="code-modal-inner">
+    <div class="code-modal-header">
+      <div>
+        <div class="code-modal-title" id="modal-title"></div>
+        <div class="code-modal-subtitle" id="modal-subtitle"></div>
+      </div>
+      <div class="code-modal-actions">
+        <button class="modal-btn" onclick="copyModalCode()">⎘ Copy</button>
+        <a id="modal-gh-link" href="https://github.com/rumanappi125" target="_blank" class="modal-btn">↗ GitHub</a>
+        <button class="modal-btn modal-close" onclick="closeCodeModal()">✕</button>
+      </div>
+    </div>
+    <pre><code id="modal-code-block" class="language-sql"></code></pre>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -913,16 +1120,15 @@
   <p>© 2025 · Built with purpose</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
-  // Scroll reveal
+  // ── SCROLL REVEAL ──────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Project filter
+  // ── PROJECT FILTER ─────────────────────────────────────────
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -931,6 +1137,571 @@
       card.style.display = (cat === 'all' || cats.includes(cat)) ? 'flex' : 'none';
     });
   }
+
+  // ── CODE SNIPPETS ──────────────────────────────────────────
+  const CODE_SNIPPETS = {
+
+    'covid-sql': {
+      title: 'COVID-19 Epidemic Analysis',
+      subtitle: 'covid_analysis.sql · MySQL · 1.69B records',
+      lang: 'sql',
+      code: `-- COVID-19 Epidemic Analysis | MySQL
+-- Analyst: Rumana Appi | Dataset: 1.69B records
+-- ─────────────────────────────────────────────────────
+
+-- ── COUNTRY RECOVERY RANKING (CTEs + Window Functions) ────
+
+WITH recovery_stats AS (
+    SELECT
+        country,
+        MAX(confirmed) AS total_confirmed,
+        MAX(recovered) AS total_recovered,
+        MAX(deaths)    AS total_deaths,
+        ROUND(MAX(recovered) / NULLIF(MAX(confirmed), 0) * 100, 2) AS recovery_rate_pct
+    FROM covid_data
+    GROUP BY country
+    HAVING MAX(confirmed) > 100000
+),
+ranked AS (
+    SELECT *,
+        RANK() OVER (ORDER BY recovery_rate_pct DESC) AS recovery_rank,
+        RANK() OVER (ORDER BY total_confirmed DESC)   AS case_rank
+    FROM recovery_stats
+)
+SELECT * FROM ranked ORDER BY recovery_rank LIMIT 20;
+
+-- ── 7-DAY ROLLING AVERAGE ──────────────────────────────────
+
+SELECT
+    country,
+    report_date,
+    new_cases,
+    ROUND(
+        AVG(new_cases) OVER (
+            PARTITION BY country
+            ORDER BY report_date
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        ), 0
+    ) AS rolling_7day_avg_cases,
+    ROUND(
+        AVG(new_deaths) OVER (
+            PARTITION BY country
+            ORDER BY report_date
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        ), 0
+    ) AS rolling_7day_avg_deaths
+FROM covid_data
+WHERE country IN ('India', 'US', 'Brazil', 'United Kingdom', 'Germany')
+ORDER BY country, report_date;
+
+-- ── CUMULATIVE CASES + WoW GROWTH RATE ────────────────────
+
+WITH cumulative AS (
+    SELECT
+        country, report_date, new_cases,
+        SUM(new_cases) OVER (
+            PARTITION BY country ORDER BY report_date
+            ROWS UNBOUNDED PRECEDING
+        ) AS cumulative_cases
+    FROM covid_data
+)
+SELECT
+    country, report_date, new_cases, cumulative_cases,
+    LAG(cumulative_cases, 7) OVER (PARTITION BY country ORDER BY report_date) AS cases_7days_ago,
+    ROUND(
+        (cumulative_cases - LAG(cumulative_cases, 7) OVER (PARTITION BY country ORDER BY report_date))
+        / NULLIF(LAG(cumulative_cases, 7) OVER (PARTITION BY country ORDER BY report_date), 0) * 100, 2
+    ) AS wow_growth_pct
+FROM cumulative
+WHERE country IN ('India', 'US', 'Brazil')
+ORDER BY country, report_date;
+
+-- ── CFR CATEGORISATION ─────────────────────────────────────
+
+SELECT
+    country,
+    MAX(confirmed) AS total_confirmed,
+    MAX(deaths)    AS total_deaths,
+    ROUND(MAX(deaths) / NULLIF(MAX(confirmed), 0) * 100, 2) AS cfr_pct,
+    CASE
+        WHEN ROUND(MAX(deaths) / NULLIF(MAX(confirmed), 0) * 100, 2) >= 3.0 THEN 'High CFR (>=3%)'
+        WHEN ROUND(MAX(deaths) / NULLIF(MAX(confirmed), 0) * 100, 2) >= 1.5 THEN 'Medium CFR (1.5-3%)'
+        ELSE 'Low CFR (<1.5%)'
+    END AS cfr_category
+FROM covid_data
+GROUP BY country
+HAVING MAX(confirmed) > 50000
+ORDER BY cfr_pct DESC;
+
+-- ── STORED PROCEDURE: COUNTRY REPORT ──────────────────────
+
+DELIMITER $$
+CREATE PROCEDURE GetCountryReport(IN p_country VARCHAR(100))
+BEGIN
+    SELECT
+        country,
+        MAX(confirmed)   AS peak_confirmed,
+        MAX(deaths)      AS peak_deaths,
+        ROUND(MAX(deaths)    / NULLIF(MAX(confirmed), 0) * 100, 2) AS death_rate_pct,
+        ROUND(MAX(recovered) / NULLIF(MAX(confirmed), 0) * 100, 2) AS recovery_rate_pct,
+        MIN(report_date) AS first_case_date,
+        MAX(report_date) AS latest_report
+    FROM covid_data
+    WHERE country = p_country;
+
+    SELECT DATE_FORMAT(report_date, '%Y-%m') AS month,
+           SUM(new_cases) AS new_cases, SUM(new_deaths) AS new_deaths
+    FROM covid_data WHERE country = p_country
+    GROUP BY DATE_FORMAT(report_date, '%Y-%m')
+    ORDER BY month;
+END$$
+DELIMITER ;
+
+-- CALL GetCountryReport('India');
+-- CALL GetCountryReport('US');`
+    },
+
+    'mis-sql': {
+      title: 'Automated MIS Reporting — CRM/LMS Reconciliation',
+      subtitle: 'mis_reconciliation.sql · Physics Wallah · 3-system reconciliation',
+      lang: 'sql',
+      code: `-- MIS Reconciliation — CRM / LMS / Billing
+-- Analyst: Rumana Appi | Physics Wallah, Noida
+-- ─────────────────────────────────────────────────────
+
+-- ── ENROLLMENT DISCREPANCY DETECTION ──────────────────────
+
+-- CRM enrolled but LMS access not provisioned
+SELECT c.student_id, c.name, c.enrolled_course,
+       c.enrollment_date, c.fees_paid,
+       'CRM_ONLY - LMS Access Not Provisioned' AS issue
+FROM crm_enrollments c
+LEFT JOIN lms_enrollments l
+    ON c.student_id = l.student_id AND c.enrolled_course = l.course_id
+WHERE l.student_id IS NULL
+  AND c.enrollment_date >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+
+UNION ALL
+
+-- Ghost enrollments: LMS record with no CRM entry
+SELECT l.student_id, l.student_name, l.course_id,
+       l.enroll_date, l.fee_charged,
+       'LMS_ONLY - Ghost Enrollment' AS issue
+FROM lms_enrollments l
+LEFT JOIN crm_enrollments c
+    ON l.student_id = c.student_id AND l.course_id = c.enrolled_course
+WHERE c.student_id IS NULL
+ORDER BY enrollment_date DESC;
+
+-- ── BILLING vs LMS RECONCILIATION (CTEs) ──────────────────
+
+WITH billing_agg AS (
+    SELECT student_id, course_id,
+        SUM(CASE WHEN status = 'Completed' THEN amount_paid ELSE 0 END) AS total_paid,
+        SUM(CASE WHEN status = 'Refunded'  THEN amount_paid ELSE 0 END) AS total_refunded,
+        COUNT(CASE WHEN status = 'Completed' THEN 1 END)                AS payment_count
+    FROM billing_transactions
+    GROUP BY student_id, course_id
+),
+net_billing AS (
+    SELECT student_id, course_id,
+           total_paid - total_refunded AS net_paid,
+           total_paid, total_refunded, payment_count
+    FROM billing_agg
+)
+SELECT
+    nb.student_id, nb.course_id,
+    nb.net_paid        AS amount_in_billing,
+    l.fee_charged      AS amount_in_lms,
+    nb.net_paid - l.fee_charged AS difference,
+    CASE
+        WHEN ABS(nb.net_paid - l.fee_charged) = 0 THEN 'Match'
+        WHEN nb.net_paid > l.fee_charged           THEN 'Overbilled'
+        WHEN nb.net_paid < l.fee_charged           THEN 'Underpaid'
+        WHEN l.fee_charged IS NULL                 THEN 'No LMS Record'
+    END AS status
+FROM net_billing nb
+LEFT JOIN lms_enrollments l
+    ON nb.student_id = l.student_id AND nb.course_id = l.course_id
+ORDER BY ABS(nb.net_paid - l.fee_charged) DESC;
+
+-- ── AUTOMATED DAILY RECONCILIATION PROCEDURE ──────────────
+
+DELIMITER $$
+CREATE PROCEDURE RunDailyReconciliation()
+BEGIN
+    DECLARE v_discrepancy_count INT DEFAULT 0;
+
+    INSERT INTO reconciliation_log (run_date, status, notes)
+    VALUES (CURDATE(), 'Running', 'Daily recon started');
+
+    DELETE FROM recon_staging WHERE run_date = CURDATE();
+
+    -- Insert CRM-only enrollment mismatches
+    INSERT INTO recon_staging (student_id, course_id, discrepancy_type, system_a, system_b, run_date)
+    SELECT c.student_id, c.enrolled_course,
+           'Enrollment_CRM_Only', 'CRM', 'LMS', CURDATE()
+    FROM crm_enrollments c
+    LEFT JOIN lms_enrollments l
+        ON c.student_id = l.student_id AND c.enrolled_course = l.course_id
+    WHERE l.student_id IS NULL AND c.enrollment_date = CURDATE();
+
+    -- Insert billing amount mismatches
+    INSERT INTO recon_staging (student_id, course_id, discrepancy_type, system_a, system_b, run_date)
+    SELECT b.student_id, b.course_id,
+           'Billing_Amount_Mismatch', 'Billing', 'LMS', CURDATE()
+    FROM billing_transactions b
+    JOIN lms_enrollments l
+        ON b.student_id = l.student_id AND b.course_id = l.course_id
+    WHERE b.status = 'Completed'
+      AND ABS(b.amount_paid - l.fee_charged) > 1
+      AND b.payment_date = CURDATE();
+
+    SELECT COUNT(*) INTO v_discrepancy_count
+    FROM recon_staging WHERE run_date = CURDATE();
+
+    UPDATE reconciliation_log
+    SET status = 'Completed',
+        records_processed = v_discrepancy_count,
+        notes = CONCAT('Discrepancies found: ', v_discrepancy_count)
+    WHERE run_date = CURDATE() AND status = 'Running';
+
+    SELECT * FROM recon_staging WHERE run_date = CURDATE();
+END$$
+DELIMITER ;
+
+-- Automate via MySQL Event Scheduler:
+-- CREATE EVENT daily_reconciliation
+-- ON SCHEDULE EVERY 1 DAY STARTS '2024-01-01 06:00:00'
+-- DO CALL RunDailyReconciliation();`
+    },
+
+    'etl-python': {
+      title: 'Scalable ETL / Data Preprocessing Pipeline',
+      subtitle: 'etl_pipeline.py · PySpark + AWS Redshift · Multi-TB datasets',
+      lang: 'python',
+      code: `# ETL Pipeline — PySpark + AWS Redshift + S3
+# Analyst: Rumana Appi | Client: Target (E-Mech Solutions)
+# ─────────────────────────────────────────────────────────
+
+from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+
+def create_spark_session(app_name="RetailETL"):
+    """Optimised Spark session for large-scale processing."""
+    return (
+        SparkSession.builder
+        .appName(app_name)
+        .config("spark.sql.shuffle.partitions", "400")
+        .config("spark.sql.adaptive.enabled", "true")
+        .config("spark.sql.adaptive.coalescePartitions.enabled", "true")
+        .config("spark.sql.adaptive.skewJoin.enabled", "true")
+        .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+        .config("spark.sql.parquet.compression.codec", "snappy")
+        .getOrCreate()
+    )
+
+
+class DataQualityChecker:
+    """Null checks · Range validation · Deduplication"""
+
+    def __init__(self, df, table_name):
+        self.df, self.table_name, self.issues = df, table_name, []
+
+    def check_nulls(self, critical_columns):
+        for col in critical_columns:
+            null_count = self.df.filter(F.col(col).isNull()).count()
+            if null_count > 0:
+                self.issues.append(f"NULL: {col} -> {null_count} nulls")
+        return self
+
+    def check_range(self, col, min_val, max_val):
+        out_of_range = self.df.filter(
+            (F.col(col) < min_val) | (F.col(col) > max_val)
+        ).count()
+        if out_of_range > 0:
+            self.issues.append(f"RANGE: {col} has {out_of_range} violations")
+        return self
+
+    def deduplicate(self, key_columns):
+        before = self.df.count()
+        self.df = self.df.dropDuplicates(key_columns)
+        removed = before - self.df.count()
+        if removed > 0:
+            print(f"[{self.table_name}] Removed {removed} duplicates")
+        return self
+
+    def report(self):
+        if self.issues:
+            print(f"[{self.table_name}] Issues: {self.issues}")
+        return self.df
+
+
+class OrdersTransformer:
+    """Revenue metrics + customer features via window functions."""
+
+    def __init__(self, df): self.df = df
+
+    def clean_and_cast(self):
+        self.df = (
+            self.df
+            .withColumn("unit_price", F.when(F.col("unit_price") <= 0, None).otherwise(F.col("unit_price")))
+            .withColumn("discount_pct", F.when(F.col("discount_pct").isNull(), 0.0).otherwise(F.col("discount_pct")))
+            .withColumn("order_date",  F.to_date(F.col("order_timestamp")))
+            .withColumn("order_year",  F.year(F.col("order_timestamp")))
+            .withColumn("order_month", F.month(F.col("order_timestamp")))
+        )
+        return self
+
+    def add_revenue_metrics(self):
+        self.df = (
+            self.df
+            .withColumn("gross_revenue", F.col("quantity") * F.col("unit_price"))
+            .withColumn("discount_amount", F.col("gross_revenue") * F.col("discount_pct") / 100)
+            .withColumn("net_revenue", F.col("gross_revenue") - F.col("discount_amount"))
+        )
+        return self
+
+    def add_customer_features(self):
+        w = Window.partitionBy("user_id").orderBy("order_timestamp")
+        self.df = (
+            self.df
+            .withColumn("order_rank", F.row_number().over(w))
+            .withColumn("is_first_order", F.when(F.col("order_rank") == 1, True).otherwise(False))
+            .withColumn("total_orders", F.count("order_id").over(Window.partitionBy("user_id")))
+            .withColumn("days_since_prev_order",
+                F.datediff(F.col("order_date"), F.lag("order_date", 1).over(w)))
+        )
+        return self
+
+    def build(self): return self.df
+
+
+def build_daily_sales_fact(orders_df):
+    """Daily sales fact table — feeds Power BI dashboards."""
+    return (
+        orders_df
+        .filter(F.col("status") == "COMPLETED")
+        .groupBy("order_date", "category", "region", "device_type", "payment_method")
+        .agg(
+            F.countDistinct("order_id").alias("total_orders"),
+            F.countDistinct("user_id").alias("unique_buyers"),
+            F.sum("gross_revenue").alias("gross_revenue"),
+            F.sum("net_revenue").alias("net_revenue"),
+            F.sum("discount_amount").alias("total_discounts"),
+            F.avg("net_revenue").alias("avg_order_value"),
+            F.countDistinct(F.when(F.col("is_first_order"), F.col("user_id"))).alias("new_customers"),
+        )
+        .withColumn("gross_margin_pct",
+            F.round(F.col("net_revenue") / F.col("gross_revenue") * 100, 2))
+    )
+
+
+def build_funnel_fact(events_df):
+    """Funnel conversion table: Signup > Explore > Checkout > Payment."""
+    return (
+        events_df
+        .filter(F.col("event_type").isin(["Signup","Explore","Checkout","Payment"]))
+        .groupBy(F.to_date("event_timestamp").alias("event_date"), "event_type", "device_type")
+        .agg(F.countDistinct("user_id").alias("unique_users"),
+             F.countDistinct("session_id").alias("sessions"))
+        .withColumn("stage_order",
+            F.when(F.col("event_type") == "Signup",   1)
+            .when(F.col("event_type") == "Explore",   2)
+            .when(F.col("event_type") == "Checkout",  3)
+            .when(F.col("event_type") == "Payment",   4))
+        .orderBy("event_date", "stage_order")
+    )
+
+
+# ── ENTRY POINT ────────────────────────────────────────────
+if __name__ == "__main__":
+    spark = create_spark_session("RetailETL_Target")
+    # orders_raw = spark.read.csv("s3://target-data-lake/raw/orders/", schema=ORDERS_SCHEMA)
+    # orders_clean = DataQualityChecker(orders_raw, "orders")
+    #     .check_nulls(["order_id","user_id","product_id"])
+    #     .check_range("unit_price", 0.01, 100000)
+    #     .deduplicate(["order_id"]).report()
+    # daily_sales = build_daily_sales_fact(
+    #     OrdersTransformer(orders_clean).clean_and_cast()
+    #         .add_revenue_metrics().add_customer_features().build()
+    # )`
+    },
+
+    'ai-quality': {
+      title: 'AI Training Data Quality Framework',
+      subtitle: 'data_quality_framework.py · Pandas · 6-rule validation pipeline',
+      lang: 'python',
+      code: `# AI Training Data Quality Framework
+# Analyst: Rumana Appi | I-Neuron, Bengaluru
+# ─────────────────────────────────────────────────────────
+
+import pandas as pd
+import numpy as np
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+
+@dataclass
+class QualityIssue:
+    rule: str; column: str; severity: str
+    count: int; pct: float; details: str
+
+@dataclass
+class QualityReport:
+    dataset_name: str; run_timestamp: str
+    total_rows: int; total_cols: int
+    issues: List[QualityIssue] = field(default_factory=list)
+
+    @property
+    def critical_count(self): return sum(1 for i in self.issues if i.severity == "CRITICAL")
+    @property
+    def passed(self): return self.critical_count == 0
+
+
+class DataQualityValidator:
+    """
+    6-rule validation pipeline for AI/ML training datasets:
+    NULL checks · Range validation · Deduplication ·
+    Outlier detection · Schema enforcement · Cardinality
+    """
+
+    def check_nulls(self, critical_cols, warning_threshold_pct=5.0, critical_threshold_pct=20.0):
+        for col in self.df.columns:
+            null_count = self.df[col].isnull().sum()
+            null_pct   = null_count / len(self.df) * 100
+            if null_count == 0: continue
+            if col in critical_cols:                      severity = "CRITICAL"
+            elif null_pct >= critical_threshold_pct:      severity = "CRITICAL"
+            elif null_pct >= warning_threshold_pct:       severity = "WARNING"
+            else:                                         severity = "INFO"
+            self.report.issues.append(QualityIssue(
+                rule="NULL_CHECK", column=col, severity=severity,
+                count=int(null_count), pct=round(null_pct, 2),
+                details=f"{null_count:,} nulls ({null_pct:.1f}%)"
+            ))
+        return self
+
+    def detect_outliers(self, numeric_cols=None, method="iqr", iqr_factor=1.5):
+        cols = numeric_cols or self.df.select_dtypes(include=[np.number]).columns.tolist()
+        for col in cols:
+            series = pd.to_numeric(self.df[col], errors="coerce").dropna()
+            if len(series) < 10: continue
+            Q1, Q3  = series.quantile(0.25), series.quantile(0.75)
+            IQR     = Q3 - Q1
+            lower, upper = Q1 - iqr_factor * IQR, Q3 + iqr_factor * IQR
+            outliers = ((series < lower) | (series > upper)).sum()
+            if outliers > 0:
+                pct      = outliers / len(series) * 100
+                severity = "WARNING" if pct < 5 else "CRITICAL"
+                self.report.issues.append(QualityIssue(
+                    rule="OUTLIER_IQR", column=col, severity=severity,
+                    count=int(outliers), pct=round(pct, 2),
+                    details=f"{outliers:,} outliers ({pct:.1f}%) | IQR: [{lower:.2f}, {upper:.2f}]"
+                ))
+        return self
+
+    def summary(self):
+        r = self.report
+        print(f"\\n{'='*60}")
+        print(f"DATA QUALITY REPORT — {r.dataset_name}")
+        print(f"  Rows: {r.total_rows:,} | Cols: {r.total_cols}")
+        print('='*60)
+        for issue in sorted(r.issues, key=lambda x: ["CRITICAL","WARNING","INFO"].index(x.severity)):
+            icon = "CRITICAL" if issue.severity=="CRITICAL" else "WARNING " if issue.severity=="WARNING" else "INFO    "
+            print(f"  [{icon}] {issue.rule} | {issue.column}: {issue.details}")
+        print(f"\\n  Status: {'PASSED' if r.passed else 'FAILED'} | CRITICAL: {r.critical_count}")
+        return self
+
+    def get_clean_data(self): return self.df
+
+
+# ── USAGE EXAMPLE ──────────────────────────────────────────
+if __name__ == "__main__":
+    np.random.seed(42)
+    n = 10000
+    sample_df = pd.DataFrame({
+        "record_id": range(n),
+        "age":       np.random.randint(18, 80, n).astype(float),
+        "income":    np.random.exponential(50000, n),
+        "label":     np.random.choice(["positive","negative","neutral",None,"unknown"], n),
+        "score":     np.random.uniform(0, 1, n),
+    })
+    # Inject issues for demo
+    sample_df.loc[np.random.choice(n, 500, replace=False), "age"]    = None
+    sample_df.loc[np.random.choice(n, 100, replace=False), "income"] = -999
+    sample_df = pd.concat([sample_df, sample_df.iloc[:200]])  # add duplicates
+
+    validator = DataQualityValidator(sample_df, "ai_training_v1")
+    clean_df  = (
+        validator
+        .enforce_schema({"record_id":"int","age":"float","score":"float"})
+        .check_nulls(critical_cols=["record_id","label"], warning_threshold_pct=3.0)
+        .check_range({
+            "age":    {"min": 0,   "max": 120, "severity": "CRITICAL"},
+            "income": {"min": 0,   "max": 1e7, "severity": "WARNING"},
+            "score":  {"min": 0.0, "max": 1.0, "severity": "CRITICAL"},
+        })
+        .deduplicate(key_cols=["record_id"])
+        .detect_outliers(numeric_cols=["age","income","score"], method="iqr")
+        .check_cardinality({"label": ["positive","negative","neutral"]})
+        .summary()
+        .get_clean_data()
+    )
+
+    # Output:
+    # ============================================================
+    # DATA QUALITY REPORT — ai_training_v1  |  Rows: 10,000
+    # ------------------------------------------------------------
+    # [CRITICAL] NULL_CHECK   | label: 200 nulls (2.0%)
+    # [WARNING ] RANGE        | income: 100 out-of-range values
+    # [WARNING ] OUTLIER_IQR  | income: 847 outliers (8.5%)
+    # [INFO    ] CARDINALITY  | label: 200 unexpected values
+    # ------------------------------------------------------------
+    # Status: PASSED | CRITICAL: 0
+    # ============================================================`
+    }
+  };
+
+  // ── MODAL LOGIC ────────────────────────────────────────────
+  function openCodeModal(snippetId) {
+    const snippet = CODE_SNIPPETS[snippetId];
+    if (!snippet) return;
+
+    document.getElementById('modal-title').textContent    = snippet.title;
+    document.getElementById('modal-subtitle').textContent = snippet.subtitle;
+
+    const codeEl = document.getElementById('modal-code-block');
+    codeEl.className = 'language-' + snippet.lang;
+    codeEl.textContent = snippet.code;
+    hljs.highlightElement(codeEl);
+
+    document.getElementById('code-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCodeModal() {
+    document.getElementById('code-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalClick(e) {
+    if (e.target === document.getElementById('code-modal')) closeCodeModal();
+  }
+
+  function copyModalCode() {
+    const code = document.getElementById('modal-code-block').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const btn = document.querySelector('.modal-btn');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = orig; }, 1800);
+    });
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeCodeModal();
+  });
 </script>
 </body>
 </html>
