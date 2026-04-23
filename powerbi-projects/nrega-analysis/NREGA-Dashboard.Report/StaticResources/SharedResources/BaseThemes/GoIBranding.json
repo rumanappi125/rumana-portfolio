@@ -17,9 +17,9 @@
     "#006400",
     "#4169E1"
   ],
-  "foreground": "#1A1A2E",
-  "foregroundNeutralSecondary": "#5A5A7A",
-  "foregroundNeutralTertiary": "#9090AA",
+  "foreground": "#F0F0FF",
+  "foregroundNeutralSecondary": "#B0B0CC",
+  "foregroundNeutralTertiary": "#7070A0",
   "background": "#0D1628",
   "backgroundLight": "#162040",
   "backgroundNeutral": "#2A3A5A",
@@ -162,19 +162,40 @@
         "tooltip": [
           {
             "show": true,
-            "background": { "solid": { "color": "#FFFFFF" } },
+            "background": { "solid": { "color": "#1E2C48" } },
+            "backgroundColor": { "solid": { "color": "#1E2C48" } },
             "transparency": 0,
-            "fontColor": { "solid": { "color": "#1A1A2E" } },
+            "fontColor": { "solid": { "color": "#FFFFFF" } },
+            "labelColor": { "solid": { "color": "#FF9933" } },
             "fontSize": 12,
-            "fontFamily": "Segoe UI"
+            "fontFamily": "Segoe UI",
+            "bold": false
           }
         ],
         "outspacePane": [
           {
-            "backgroundColor": { "solid": { "color": "#FFFFFF" } },
+            "backgroundColor": { "solid": { "color": "#1E2C48" } },
+            "foregroundColor": { "solid": { "color": "#FFFFFF" } },
             "transparency": 0,
             "border": true,
             "borderColor": { "solid": { "color": "#FF9933" } }
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Applied",
+            "backgroundColor": { "solid": { "color": "#1E2C48" } },
+            "foregroundColor": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0,
+            "border": true,
+            "borderColor": { "solid": { "color": "#FF9933" } }
+          },
+          {
+            "$id": "Available",
+            "backgroundColor": { "solid": { "color": "#1E2C48" } },
+            "foregroundColor": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0,
+            "border": false
           }
         ]
       }
