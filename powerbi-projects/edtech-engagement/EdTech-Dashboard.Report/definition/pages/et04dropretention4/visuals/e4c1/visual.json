@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e4c1",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 0,
+    "width": 290,
+    "height": 90,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Course Completion Rate"
+                }
+              },
+              "queryRef": "_Measures.Course Completion Rate",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

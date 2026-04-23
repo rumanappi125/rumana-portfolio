@@ -1,0 +1,93 @@
+table dim_students
+	lineageTag: 3fa61a7f-5ddd-4cd9-b9e2-8c2263cce456
+
+	column student_id
+		dataType: string
+		lineageTag: d452c955-66f8-46ea-8902-ebb43e5bd424
+		summarizeBy: none
+		sourceColumn: student_id
+		annotation SummarizationSetBy = Automatic
+
+	column grade
+		dataType: string
+		lineageTag: 716e666d-a76b-41b1-abb2-bfbf66ed065a
+		summarizeBy: none
+		sourceColumn: grade
+		annotation SummarizationSetBy = Automatic
+
+	column state_code
+		dataType: string
+		lineageTag: 8a5ce549-5927-4354-95cb-d8915e50f645
+		summarizeBy: none
+		sourceColumn: state_code
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 881f78f8-05a3-46d6-8223-2d91f5ef9528
+		summarizeBy: none
+		sourceColumn: state_name
+		annotation SummarizationSetBy = Automatic
+
+	column city_tier
+		dataType: string
+		lineageTag: dd9c5339-2b05-41a2-8c4f-393f7e52d096
+		summarizeBy: none
+		sourceColumn: city_tier
+		annotation SummarizationSetBy = Automatic
+
+	column subscription_type
+		dataType: string
+		lineageTag: c2e68305-08d7-4fff-8ed0-3e1581747816
+		summarizeBy: none
+		sourceColumn: subscription_type
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: c9128904-c798-43cc-a31e-c39f0a3d5db7
+		summarizeBy: none
+		sourceColumn: gender
+		annotation SummarizationSetBy = Automatic
+
+	column age_group
+		dataType: string
+		lineageTag: 9c62372f-d5d9-4c28-b20c-762aedebb85f
+		summarizeBy: none
+		sourceColumn: age_group
+		annotation SummarizationSetBy = Automatic
+
+	column enrollment_cohort
+		dataType: string
+		lineageTag: a1c7359e-c481-49db-9e88-a30d2cc4936a
+		summarizeBy: none
+		sourceColumn: enrollment_cohort
+		annotation SummarizationSetBy = Automatic
+
+	column is_jee_aspirant
+		dataType: boolean
+		lineageTag: 02389438-d2a4-4e17-99ec-a189c24cf93c
+		summarizeBy: none
+		sourceColumn: is_jee_aspirant
+		annotation SummarizationSetBy = Automatic
+
+	column is_neet_aspirant
+		dataType: boolean
+		lineageTag: 84b81896-570c-4266-a07a-86bf11259e8a
+		summarizeBy: none
+		sourceColumn: is_neet_aspirant
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_students = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\edtech-engagement\\data\\dim_students.csv"),
+				        [Delimiter=",", Columns=11, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"student_id", type text}, {"grade", type text}, {"state_code", type text}, {"state_name", type text}, {"city_tier", type text}, {"subscription_type", type text}, {"gender", type text}, {"age_group", type text}, {"enrollment_cohort", type text}, {"is_jee_aspirant", type logical}, {"is_neet_aspirant", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

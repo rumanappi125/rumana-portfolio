@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e5sh",
+  "position": {
+    "x": 20,
+    "y": 410,
+    "z": 0,
+    "width": 820,
+    "height": 195,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_courses"
+                    }
+                  },
+                  "Property": "subject"
+                }
+              },
+              "queryRef": "dim_courses.subject",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Content Hours"
+                }
+              },
+              "queryRef": "_Measures.Total Content Hours",
+              "active": true
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Content Completion %"
+                }
+              },
+              "queryRef": "_Measures.Avg Content Completion %",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

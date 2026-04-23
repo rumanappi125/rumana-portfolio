@@ -1,0 +1,78 @@
+table fact_content
+	lineageTag: 84d77441-496e-4a97-89b5-93ffca941bff
+
+	column course_id
+		dataType: string
+		lineageTag: 3ded6252-e1fe-4aa1-acd0-64ff92a711fb
+		summarizeBy: none
+		sourceColumn: course_id
+		annotation SummarizationSetBy = Automatic
+
+	column content_type
+		dataType: string
+		lineageTag: 16e2501b-c6c5-4ba5-907d-c8cf1510e078
+		summarizeBy: none
+		sourceColumn: content_type
+		annotation SummarizationSetBy = Automatic
+
+	column pieces_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 23972fe1-3d24-4275-8fd0-ccef5d7c1edf
+		summarizeBy: sum
+		sourceColumn: pieces_count
+		annotation SummarizationSetBy = Automatic
+
+	column avg_duration_mins
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 170d8a11-79d3-4eb0-bd87-ca6e0ba3459c
+		summarizeBy: average
+		sourceColumn: avg_duration_mins
+		annotation SummarizationSetBy = Automatic
+
+	column total_duration_hrs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5209dfd5-0804-4bbd-8320-c2c7a35f23d1
+		summarizeBy: sum
+		sourceColumn: total_duration_hrs
+		annotation SummarizationSetBy = Automatic
+
+	column avg_completion_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 106540d9-5477-4f42-95d1-4f17108af68e
+		summarizeBy: average
+		sourceColumn: avg_completion_pct
+		annotation SummarizationSetBy = Automatic
+
+	column avg_rating
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5d2f86c4-77c7-4dfd-83b1-54245d8dd5bc
+		summarizeBy: average
+		sourceColumn: avg_rating
+		annotation SummarizationSetBy = Automatic
+
+	column total_views
+		dataType: int64
+		formatString: 0
+		lineageTag: fb9ad3be-c151-418c-a00a-979d812d82f2
+		summarizeBy: sum
+		sourceColumn: total_views
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_content = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\edtech-engagement\\data\\fact_content.csv"),
+				        [Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"course_id", type text}, {"content_type", type text}, {"pieces_count", Int64.Type}, {"avg_duration_mins", type number}, {"total_duration_hrs", type number}, {"avg_completion_pct", type number}, {"avg_rating", type number}, {"total_views", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

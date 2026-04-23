@@ -1,0 +1,109 @@
+table fact_weekly_engagement
+	lineageTag: 025de2e6-9c4f-4dab-947e-77692ed669fc
+
+	column course_id
+		dataType: string
+		lineageTag: c42a502c-d60d-449b-bd12-27c7e0c69306
+		summarizeBy: none
+		sourceColumn: course_id
+		annotation SummarizationSetBy = Automatic
+
+	column week_start_date
+		dataType: dateTime
+		lineageTag: c1d871e3-3b2c-481e-ab3f-5cc66124d1b1
+		summarizeBy: none
+		sourceColumn: week_start_date
+		annotation SummarizationSetBy = Automatic
+
+	column city_tier
+		dataType: string
+		lineageTag: c70be2fb-7a87-4f8e-9745-52d10f239550
+		summarizeBy: none
+		sourceColumn: city_tier
+		annotation SummarizationSetBy = Automatic
+
+	column enrolled_students
+		dataType: int64
+		formatString: 0
+		lineageTag: 54d2bb5e-3a59-45b7-bf3f-adab120dc6ae
+		summarizeBy: sum
+		sourceColumn: enrolled_students
+		annotation SummarizationSetBy = Automatic
+
+	column active_students
+		dataType: int64
+		formatString: 0
+		lineageTag: aa226544-8157-4934-ba2d-8cf121c0045c
+		summarizeBy: sum
+		sourceColumn: active_students
+		annotation SummarizationSetBy = Automatic
+
+	column new_enrollments
+		dataType: int64
+		formatString: 0
+		lineageTag: d055b556-8412-4187-b6b0-dc7005ad354f
+		summarizeBy: sum
+		sourceColumn: new_enrollments
+		annotation SummarizationSetBy = Automatic
+
+	column total_sessions
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d53ba19-0615-4644-9b1b-4a46aa7241f3
+		summarizeBy: sum
+		sourceColumn: total_sessions
+		annotation SummarizationSetBy = Automatic
+
+	column total_watch_mins
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e15b311-22f4-4fe2-a1f7-94953fc15fc3
+		summarizeBy: sum
+		sourceColumn: total_watch_mins
+		annotation SummarizationSetBy = Automatic
+
+	column videos_watched
+		dataType: int64
+		formatString: 0
+		lineageTag: 8863cc53-9868-4d28-a689-abffb701d3f5
+		summarizeBy: sum
+		sourceColumn: videos_watched
+		annotation SummarizationSetBy = Automatic
+
+	column quizzes_submitted
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a6a6c50-08f6-4252-939e-c8245ee9f728
+		summarizeBy: sum
+		sourceColumn: quizzes_submitted
+		annotation SummarizationSetBy = Automatic
+
+	column avg_engagement_score
+		dataType: double
+		formatString: #,0.00
+		lineageTag: aa98c49d-fa05-469e-9968-1402bad18c96
+		summarizeBy: average
+		sourceColumn: avg_engagement_score
+		annotation SummarizationSetBy = Automatic
+
+	column dropouts_this_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bbc9858-ba93-4167-a7f0-0a7fd1ba8669
+		summarizeBy: sum
+		sourceColumn: dropouts_this_week
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_weekly_engagement = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\edtech-engagement\\data\\fact_weekly_engagement.csv"),
+				        [Delimiter=",", Columns=12, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"course_id", type text}, {"week_start_date", type date}, {"city_tier", type text}, {"enrolled_students", Int64.Type}, {"active_students", Int64.Type}, {"new_enrollments", Int64.Type}, {"total_sessions", Int64.Type}, {"total_watch_mins", Int64.Type}, {"videos_watched", Int64.Type}, {"quizzes_submitted", Int64.Type}, {"avg_engagement_score", type number}, {"dropouts_this_week", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

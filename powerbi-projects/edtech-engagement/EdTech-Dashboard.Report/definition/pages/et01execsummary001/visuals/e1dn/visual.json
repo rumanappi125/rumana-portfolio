@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e1dn",
+  "position": {
+    "x": 860,
+    "y": 120,
+    "z": 0,
+    "width": 400,
+    "height": 280,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_courses"
+                    }
+                  },
+                  "Property": "subject"
+                }
+              },
+              "queryRef": "dim_courses.subject",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Students"
+                }
+              },
+              "queryRef": "_Measures.Total Students",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

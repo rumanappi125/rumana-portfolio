@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e3mx",
+  "position": {
+    "x": 640,
+    "y": 410,
+    "z": 0,
+    "width": 620,
+    "height": 195,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "matrix",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_courses"
+                    }
+                  },
+                  "Property": "subject"
+                }
+              },
+              "queryRef": "dim_courses.subject",
+              "active": true
+            }
+          ]
+        },
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_students"
+                    }
+                  },
+                  "Property": "grade"
+                }
+              },
+              "queryRef": "dim_students.grade",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Score %"
+                }
+              },
+              "queryRef": "_Measures.Avg Score %",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

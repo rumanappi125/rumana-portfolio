@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["_Measures","dim_date","dim_courses","dim_students","fact_enrollment","fact_weekly_engagement","fact_assessments","fact_content"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table _Measures
+ref table dim_date
+ref table dim_courses
+ref table dim_students
+ref table fact_enrollment
+ref table fact_weekly_engagement
+ref table fact_assessments
+ref table fact_content
+
+ref cultureInfo en-US
+

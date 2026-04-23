@@ -1,0 +1,152 @@
+table _Measures
+	lineageTag: 17434abf-0a6c-4554-950d-d1d38a95b232
+
+	measure 'Total Students' = DISTINCTCOUNT(fact_enrollment[student_id])
+		lineageTag: c677707b-aa20-4f5e-ba33-efc6c81f8d59
+		formatString: #,0
+
+	measure 'Total Enrollments' = COUNTROWS(fact_enrollment)
+		lineageTag: 4c1b0867-f0d1-4d80-8ddd-92cc67e3b246
+		formatString: #,0
+
+	measure 'Active Students' =
+			CALCULATE(DISTINCTCOUNT(fact_enrollment[student_id]),
+			    fact_enrollment[is_active] = TRUE())
+		lineageTag: cf5c3f3c-5d22-4483-9744-f84efa9fcd8e
+		formatString: #,0
+
+	measure 'Completed Students' =
+			CALCULATE(DISTINCTCOUNT(fact_enrollment[student_id]),
+			    fact_enrollment[is_completed] = TRUE())
+		lineageTag: af4d7011-2aae-4f1d-8d11-31f5e2b6a082
+		formatString: #,0
+
+	measure 'At-Risk Students' =
+			CALCULATE(DISTINCTCOUNT(fact_enrollment[student_id]),
+			    fact_enrollment[is_at_risk] = TRUE())
+		lineageTag: 192796e3-b038-4fce-a9dc-8fdb7308ba89
+		formatString: #,0
+
+	measure 'Course Completion Rate' =
+			DIVIDE([Completed Students], [Total Students], 0)
+		lineageTag: 507294e2-607d-4dbe-80ea-6e16a376af6c
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Active Rate' =
+			DIVIDE([Active Students], [Total Students], 0)
+		lineageTag: 508b3d80-8a97-454e-9a63-2d3c5f1cb95b
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Drop-off Rate' =
+			1 - [Course Completion Rate]
+		lineageTag: 20db03c2-8f27-452d-8e08-292bccae1885
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Avg Completion %' = AVERAGE(fact_enrollment[completion_pct])
+		lineageTag: 7d8bf63c-24c0-44e7-88a6-ddf022d5cc04
+		formatString: 0.0
+
+	measure 'Avg Score %' = AVERAGE(fact_enrollment[avg_score_pct])
+		lineageTag: c53eedb4-cbf4-4d45-a27c-8f5422863717
+		formatString: 0.0
+
+	measure 'Avg Score (Assessments)' = AVERAGE(fact_assessments[avg_score_pct])
+		lineageTag: ec5cbd28-0470-4e63-81ef-389f9a1a11b3
+		formatString: 0.0
+
+	measure 'Pass Rate' = AVERAGE(fact_assessments[pass_rate])
+		lineageTag: 3e6827ad-4b33-4b75-9fb7-e0572632dd85
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Top Scorer Rate' = AVERAGE(fact_assessments[top_scorers_pct])
+		lineageTag: 5695f193-ddaf-4c0d-bd77-1cf5ae708b92
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Avg Attempts' = AVERAGE(fact_assessments[avg_attempts])
+		lineageTag: d60ebd48-acc2-43c3-a0d6-4291821984c3
+		formatString: 0.0
+
+	measure 'Total Watch Hours' =
+			ROUND(DIVIDE(SUM(fact_enrollment[total_watch_mins]), 60), 0)
+		lineageTag: d8dd514b-89ee-4567-ac35-79ca58b8cd37
+		formatString: #,0
+
+	measure 'Avg Watch Hours per Student' =
+			ROUND(DIVIDE([Total Watch Hours], [Total Students], 0), 1)
+		lineageTag: bcdad4a4-e1c2-410c-a61f-75680b7042d1
+		formatString: #,0.0
+
+	measure 'Total Sessions' = SUM(fact_enrollment[total_sessions])
+		lineageTag: 1a294203-04e0-4170-9bcb-19d2d9ddcd6b
+		formatString: #,0
+
+	measure 'Avg Sessions per Student' =
+			DIVIDE([Total Sessions], [Total Students], 0)
+		lineageTag: 610b9b2c-45da-48a8-a607-cf64b2be92b1
+		formatString: 0.0
+
+	measure 'Total Videos Watched' = SUM(fact_enrollment[videos_watched])
+		lineageTag: 2bc4e412-139e-4e94-9510-7a6ecefdaf92
+		formatString: #,0
+
+	measure 'Videos per Student' =
+			DIVIDE([Total Videos Watched], [Total Students], 0)
+		lineageTag: d7ae8805-ce68-4529-91cc-68e41320eb6f
+		formatString: 0.0
+
+	measure 'Total Quizzes Attempted' = SUM(fact_enrollment[quizzes_attempted])
+		lineageTag: 3315e5e2-25ca-4eb9-95fb-a0d3971ec4a1
+		formatString: #,0
+
+	measure 'Total Revenue (Lakhs)' =
+			ROUND(DIVIDE(SUM(fact_enrollment[fees_paid]), 100000), 2)
+		lineageTag: 815d335e-0b8c-422a-8e27-b91f89f2595e
+		formatString: #,0.00
+
+	measure 'Weekly Active Students' = SUM(fact_weekly_engagement[active_students])
+		lineageTag: cef60c5b-876e-4074-bcde-d79ccdede1e9
+		formatString: #,0
+
+	measure 'Weekly New Enrollments' = SUM(fact_weekly_engagement[new_enrollments])
+		lineageTag: 84c5ac3f-328c-4b9a-8306-abb2e598cc78
+		formatString: #,0
+
+	measure 'Avg Engagement Score' = AVERAGE(fact_weekly_engagement[avg_engagement_score])
+		lineageTag: 4eae21ab-200e-4207-b3ee-3cc8b206fa30
+		formatString: 0.0
+
+	measure 'Total Dropouts' = SUM(fact_weekly_engagement[dropouts_this_week])
+		lineageTag: 82229945-68c3-492e-8a85-cf3bcf20b8be
+		formatString: #,0
+
+	measure 'Avg Content Completion %' = AVERAGE(fact_content[avg_completion_pct])
+		lineageTag: e05e6aaf-95b4-4d07-a05d-208ba3ba01c3
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Total Content Hours' = SUM(fact_content[total_duration_hrs])
+		lineageTag: fa86b4d3-defb-4ee1-a22d-345855de0334
+		formatString: #,0.0
+
+	measure 'Avg Content Rating' = AVERAGE(fact_content[avg_rating])
+		lineageTag: df233a3a-18e0-47be-bc80-1062003e0f62
+		formatString: 0.00
+
+	measure 'Total Content Views' = SUM(fact_content[total_views])
+		lineageTag: bbf928cc-8751-497e-a1c3-57e0f32589d3
+		formatString: #,0
+
+	measure 'JEE Aspirants' =
+			CALCULATE(COUNTROWS(dim_students), dim_students[is_jee_aspirant] = TRUE())
+		lineageTag: 4fef36de-6f08-4aaa-befa-1c5fcad64eaa
+		formatString: #,0
+
+	measure 'NEET Aspirants' =
+			CALCULATE(COUNTROWS(dim_students), dim_students[is_neet_aspirant] = TRUE())
+		lineageTag: 3b22b2fb-c61a-4e26-9f89-8fd6cbae3f04
+		formatString: #,0
+
+	partition _Measures = calculated
+		mode: import
+		source = ""
+
+	annotation PBI_ResultType = Table

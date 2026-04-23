@@ -1,0 +1,144 @@
+table fact_enrollment
+	lineageTag: 6cbb15a4-48f1-408e-9b3e-93b4e8b7e816
+
+	column student_id
+		dataType: string
+		lineageTag: a2af42b0-9bf1-485a-b8b2-66475af06608
+		summarizeBy: none
+		sourceColumn: student_id
+		annotation SummarizationSetBy = Automatic
+
+	column course_id
+		dataType: string
+		lineageTag: 0ea0c548-279f-4e86-bf8c-29796e4997e0
+		summarizeBy: none
+		sourceColumn: course_id
+		annotation SummarizationSetBy = Automatic
+
+	column enrollment_date
+		dataType: dateTime
+		lineageTag: 793965d4-c11a-4bc4-aaab-e3377194bc59
+		summarizeBy: none
+		sourceColumn: enrollment_date
+		annotation SummarizationSetBy = Automatic
+
+	column subscription_type
+		dataType: string
+		lineageTag: 120d4af0-76c5-4405-a152-95ba0ad586b4
+		summarizeBy: none
+		sourceColumn: subscription_type
+		annotation SummarizationSetBy = Automatic
+
+	column fees_paid
+		dataType: int64
+		formatString: 0
+		lineageTag: b54fcb17-3c63-41aa-bf63-ce2cbf8c21a1
+		summarizeBy: sum
+		sourceColumn: fees_paid
+		annotation SummarizationSetBy = Automatic
+
+	column completion_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9c445fcd-3cec-4631-8c53-a2d792671192
+		summarizeBy: average
+		sourceColumn: completion_pct
+		annotation SummarizationSetBy = Automatic
+
+	column total_sessions
+		dataType: int64
+		formatString: 0
+		lineageTag: 808153b2-2a55-466d-b26e-601a4468fe01
+		summarizeBy: sum
+		sourceColumn: total_sessions
+		annotation SummarizationSetBy = Automatic
+
+	column total_watch_mins
+		dataType: int64
+		formatString: 0
+		lineageTag: 351884fe-fc49-4dca-9117-6d6f1e02eab4
+		summarizeBy: sum
+		sourceColumn: total_watch_mins
+		annotation SummarizationSetBy = Automatic
+
+	column avg_score_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: dd784d89-89b1-49fa-b60c-d1f94f008e77
+		summarizeBy: average
+		sourceColumn: avg_score_pct
+		annotation SummarizationSetBy = Automatic
+
+	column videos_watched
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f0a6c83-5c1f-4b25-b04d-1c4b23c54c90
+		summarizeBy: sum
+		sourceColumn: videos_watched
+		annotation SummarizationSetBy = Automatic
+
+	column quizzes_attempted
+		dataType: int64
+		formatString: 0
+		lineageTag: 01b1196f-e54b-45bb-bd64-68caf72e8f49
+		summarizeBy: sum
+		sourceColumn: quizzes_attempted
+		annotation SummarizationSetBy = Automatic
+
+	column last_active_date
+		dataType: dateTime
+		lineageTag: 3ddc116b-171b-435c-9048-cac835193faa
+		summarizeBy: none
+		sourceColumn: last_active_date
+		annotation SummarizationSetBy = Automatic
+
+	column days_enrolled
+		dataType: int64
+		formatString: 0
+		lineageTag: d2a09271-a17f-4e8e-9506-2fafdf3138b1
+		summarizeBy: average
+		sourceColumn: days_enrolled
+		annotation SummarizationSetBy = Automatic
+
+	column is_completed
+		dataType: boolean
+		lineageTag: 90494e63-9265-4da6-98cd-5f233c0952da
+		summarizeBy: none
+		sourceColumn: is_completed
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		lineageTag: 892741cb-44dd-44d1-9e8a-4d12bab6630e
+		summarizeBy: none
+		sourceColumn: is_active
+		annotation SummarizationSetBy = Automatic
+
+	column is_at_risk
+		dataType: boolean
+		lineageTag: f7d23628-1013-47e8-86f8-3d49c8e11202
+		summarizeBy: none
+		sourceColumn: is_at_risk
+		annotation SummarizationSetBy = Automatic
+
+	column drop_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 70ad49a8-ef5f-4e31-907f-11ba1be1588a
+		summarizeBy: none
+		sourceColumn: drop_week
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_enrollment = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\edtech-engagement\\data\\fact_enrollment.csv"),
+				        [Delimiter=",", Columns=17, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"student_id", type text}, {"course_id", type text}, {"enrollment_date", type date}, {"subscription_type", type text}, {"fees_paid", Int64.Type}, {"completion_pct", type number}, {"total_sessions", Int64.Type}, {"total_watch_mins", Int64.Type}, {"avg_score_pct", type number}, {"videos_watched", Int64.Type}, {"quizzes_attempted", Int64.Type}, {"last_active_date", type date}, {"days_enrolled", Int64.Type}, {"is_completed", type logical}, {"is_active", type logical}, {"is_at_risk", type logical}, {"drop_week", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

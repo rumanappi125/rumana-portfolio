@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e1tr",
+  "position": {
+    "x": 640,
+    "y": 410,
+    "z": 0,
+    "width": 620,
+    "height": 195,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_students"
+                    }
+                  },
+                  "Property": "city_tier"
+                }
+              },
+              "queryRef": "dim_students.city_tier",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Course Completion Rate"
+                }
+              },
+              "queryRef": "_Measures.Course Completion Rate",
+              "active": true
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Score %"
+                }
+              },
+              "queryRef": "_Measures.Avg Score %",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

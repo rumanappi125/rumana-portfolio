@@ -1,0 +1,16 @@
+course_id,course_name,subject,grade_level,difficulty,total_videos,total_hours,instructor,target_completion_rate,avg_score_benchmark
+PH01,Physics Foundation,Physics,9-10,Foundation,120,60,Dr. Alakh Pandey,0.42,68
+PH02,Physics Standard,Physics,11-12,Standard,180,90,Dr. Alakh Pandey,0.42,68
+PH03,Physics JEE Advanced,Physics,12+,Advanced,240,140,Dr. Alakh Pandey,0.42,68
+CH01,Chemistry Foundation,Chemistry,9-10,Foundation,100,55,Dr. Sachin Singh,0.48,71
+CH02,Chemistry Standard,Chemistry,11-12,Standard,160,85,Dr. Sachin Singh,0.48,71
+CH03,Chemistry JEE Advanced,Chemistry,12+,Advanced,210,130,Dr. Sachin Singh,0.48,71
+MA01,Mathematics Foundation,Mathematics,9-10,Foundation,130,70,Vinay Sir,0.38,65
+MA02,Mathematics Standard,Mathematics,11-12,Standard,190,100,Vinay Sir,0.38,65
+MA03,Mathematics JEE Advanced,Mathematics,12+,Advanced,260,150,Vinay Sir,0.38,65
+BI01,Biology Foundation,Biology,9-10,Foundation,110,58,Dr. Anita Gupta,0.55,74
+BI02,Biology NEET Prep,Biology,11-12,Standard,200,110,Dr. Anita Gupta,0.55,74
+BI03,Biology Advanced NEET,Biology,12+,Advanced,230,135,Dr. Anita Gupta,0.55,74
+CS01,Programming Basics,Computer Science,9-10,Foundation,80,40,Saurabh Sir,0.62,78
+CS02,Data Structures,Computer Science,11-12,Standard,120,65,Saurabh Sir,0.62,78
+CS03,Web Development,Computer Science,12+,Advanced,100,55,Saurabh Sir,0.62,78

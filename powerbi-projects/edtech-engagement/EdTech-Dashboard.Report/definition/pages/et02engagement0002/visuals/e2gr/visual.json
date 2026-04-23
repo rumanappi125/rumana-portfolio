@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e2gr",
+  "position": {
+    "x": 20,
+    "y": 410,
+    "z": 0,
+    "width": 400,
+    "height": 195,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_students"
+                    }
+                  },
+                  "Property": "grade"
+                }
+              },
+              "queryRef": "dim_students.grade",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Sessions per Student"
+                }
+              },
+              "queryRef": "_Measures.Avg Sessions per Student",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

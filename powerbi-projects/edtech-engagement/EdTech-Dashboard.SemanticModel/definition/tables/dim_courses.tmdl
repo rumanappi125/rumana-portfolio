@@ -1,0 +1,90 @@
+table dim_courses
+	lineageTag: 9feb6417-25a3-489d-b83b-0fd7fd747cd9
+
+	column course_id
+		dataType: string
+		lineageTag: a9309649-b4da-439d-b54a-c9ac849771bc
+		summarizeBy: none
+		sourceColumn: course_id
+		annotation SummarizationSetBy = Automatic
+
+	column course_name
+		dataType: string
+		lineageTag: 0c81e02e-1910-4979-9e3e-f9cf451b7062
+		summarizeBy: none
+		sourceColumn: course_name
+		annotation SummarizationSetBy = Automatic
+
+	column subject
+		dataType: string
+		lineageTag: 6987d73a-8b4f-47fe-b553-80770be34010
+		summarizeBy: none
+		sourceColumn: subject
+		annotation SummarizationSetBy = Automatic
+
+	column grade_level
+		dataType: string
+		lineageTag: 8fc8b63b-56d4-4fee-b02a-72bc2fae7799
+		summarizeBy: none
+		sourceColumn: grade_level
+		annotation SummarizationSetBy = Automatic
+
+	column difficulty
+		dataType: string
+		lineageTag: ae7c8fb6-a8fa-415b-a3a1-ac5e28b131d9
+		summarizeBy: none
+		sourceColumn: difficulty
+		annotation SummarizationSetBy = Automatic
+
+	column total_videos
+		dataType: int64
+		formatString: 0
+		lineageTag: 31c9c656-6f71-4595-943b-a1ba57cbe448
+		summarizeBy: sum
+		sourceColumn: total_videos
+		annotation SummarizationSetBy = Automatic
+
+	column total_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6aec50f7-6135-4419-9e84-90b2f4cf2c69
+		summarizeBy: sum
+		sourceColumn: total_hours
+		annotation SummarizationSetBy = Automatic
+
+	column instructor
+		dataType: string
+		lineageTag: 238fd87a-269c-4e42-a07c-98194fc1570d
+		summarizeBy: none
+		sourceColumn: instructor
+		annotation SummarizationSetBy = Automatic
+
+	column target_completion_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 53a15bba-b82a-4d5a-b1e8-8c1c7b604a4f
+		summarizeBy: none
+		sourceColumn: target_completion_rate
+		annotation SummarizationSetBy = Automatic
+
+	column avg_score_benchmark
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a0ad0b3a-bfdc-4484-a2db-b14fbf0fac1e
+		summarizeBy: none
+		sourceColumn: avg_score_benchmark
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_courses = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\edtech-engagement\\data\\dim_courses.csv"),
+				        [Delimiter=",", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"course_id", type text}, {"course_name", type text}, {"subject", type text}, {"grade_level", type text}, {"difficulty", type text}, {"total_videos", Int64.Type}, {"total_hours", type number}, {"instructor", type text}, {"target_completion_rate", type number}, {"avg_score_benchmark", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

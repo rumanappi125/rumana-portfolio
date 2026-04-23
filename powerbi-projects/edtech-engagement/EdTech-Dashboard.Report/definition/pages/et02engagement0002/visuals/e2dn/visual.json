@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e2dn",
+  "position": {
+    "x": 860,
+    "y": 120,
+    "z": 0,
+    "width": 400,
+    "height": 280,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_students"
+                    }
+                  },
+                  "Property": "city_tier"
+                }
+              },
+              "queryRef": "dim_students.city_tier",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Active Students"
+                }
+              },
+              "queryRef": "_Measures.Weekly Active Students",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

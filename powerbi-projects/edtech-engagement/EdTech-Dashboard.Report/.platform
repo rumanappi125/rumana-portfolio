@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "EdTech-Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "10156a27-9c17-434d-b975-1bd3eba81c78"
+  }
+}

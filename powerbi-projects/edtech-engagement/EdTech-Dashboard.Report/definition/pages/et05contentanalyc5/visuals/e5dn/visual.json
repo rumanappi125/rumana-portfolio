@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e5dn",
+  "position": {
+    "x": 640,
+    "y": 120,
+    "z": 0,
+    "width": 400,
+    "height": 280,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_content"
+                    }
+                  },
+                  "Property": "content_type"
+                }
+              },
+              "queryRef": "fact_content.content_type",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Content Views"
+                }
+              },
+              "queryRef": "_Measures.Total Content Views",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+table dim_date
+	lineageTag: 153c92f3-c025-4e0f-bb71-dfde63f7e395
+
+	column date
+		dataType: dateTime
+		lineageTag: 7251493e-9e5d-47fe-97bb-77ebbce8945e
+		summarizeBy: none
+		sourceColumn: date
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 88121549-9288-434d-a5ee-916d22faafa5
+		summarizeBy: none
+		sourceColumn: year
+		annotation SummarizationSetBy = Automatic
+
+	column month_num
+		dataType: int64
+		formatString: 0
+		lineageTag: a9586a54-b750-467f-ac58-674946adbacd
+		summarizeBy: none
+		sourceColumn: month_num
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: e300fe18-8186-43d2-afc1-0d8b7f7f7dbc
+		summarizeBy: none
+		sourceColumn: month_name
+		annotation SummarizationSetBy = Automatic
+
+	column month_short
+		dataType: string
+		lineageTag: 16974214-5e8b-4ab0-8ca3-72d3448c5c4f
+		summarizeBy: none
+		sourceColumn: month_short
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 85516883-5623-491b-885e-b06f8a788edf
+		summarizeBy: none
+		sourceColumn: quarter
+		annotation SummarizationSetBy = Automatic
+
+	column week_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f2138a5-5f85-43dd-aef2-593e8ad8598e
+		summarizeBy: none
+		sourceColumn: week_num
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		lineageTag: 30da9d71-fba5-4111-ae38-101b70ebf2b6
+		summarizeBy: none
+		sourceColumn: day_of_week
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: 5d889c36-4c27-4e55-bb0b-2ce646cbd56d
+		summarizeBy: none
+		sourceColumn: is_weekend
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: 260ac017-1d3f-44cf-b950-f357303e7f46
+		summarizeBy: none
+		sourceColumn: year_month
+		annotation SummarizationSetBy = Automatic
+
+	column academic_year
+		dataType: string
+		lineageTag: 1ddd6799-4b9a-463e-bed5-4d3d12f2dc05
+		summarizeBy: none
+		sourceColumn: academic_year
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\edtech-engagement\\data\\dim_date.csv"),
+				        [Delimiter=",", Columns=11, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"year", Int64.Type}, {"month_num", Int64.Type}, {"month_name", type text}, {"month_short", type text}, {"quarter", Int64.Type}, {"week_num", Int64.Type}, {"day_of_week", type text}, {"is_weekend", type logical}, {"year_month", type text}, {"academic_year", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

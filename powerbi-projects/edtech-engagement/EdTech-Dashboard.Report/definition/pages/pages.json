@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "et01execsummary001",
+    "et02engagement0002",
+    "et03performance003",
+    "et04dropretention4",
+    "et05contentanalyc5"
+  ],
+  "activePageName": "et01execsummary001"
+}

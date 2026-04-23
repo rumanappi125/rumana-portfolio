@@ -1,0 +1,32 @@
+relationship rel_date_enrollment
+	fromColumn: fact_enrollment.enrollment_date
+	toColumn: dim_date.date
+
+relationship rel_date_engagement
+	fromColumn: fact_weekly_engagement.week_start_date
+	toColumn: dim_date.date
+
+relationship rel_date_assessment
+	fromColumn: fact_assessments.assessment_date
+	toColumn: dim_date.date
+
+relationship rel_course_enrollment
+	fromColumn: fact_enrollment.course_id
+	toColumn: dim_courses.course_id
+
+relationship rel_course_engagement
+	fromColumn: fact_weekly_engagement.course_id
+	toColumn: dim_courses.course_id
+
+relationship rel_course_assessment
+	fromColumn: fact_assessments.course_id
+	toColumn: dim_courses.course_id
+
+relationship rel_course_content
+	fromColumn: fact_content.course_id
+	toColumn: dim_courses.course_id
+
+relationship rel_student_enrollment
+	fromColumn: fact_enrollment.student_id
+	toColumn: dim_students.student_id
+
