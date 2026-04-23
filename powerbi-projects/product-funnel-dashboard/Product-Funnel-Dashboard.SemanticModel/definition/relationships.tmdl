@@ -27,9 +27,6 @@ relationship AutoDetected_aca415e4-8c3a-4913-b9ec-69c25703813a
 	fromColumn: fact_orders.product_id
 	toColumn: dim_products.product_id
 
-relationship AutoDetected_e14c7f6f-5b81-4d53-b93d-f3a401625cb8
-	fromColumn: dim_users.region
-	toColumn: dim_regions.region
 
 relationship AutoDetected_e6e276db-e5df-41c8-9b61-e8d7661825df
 	fromColumn: fact_funnel_events.region
