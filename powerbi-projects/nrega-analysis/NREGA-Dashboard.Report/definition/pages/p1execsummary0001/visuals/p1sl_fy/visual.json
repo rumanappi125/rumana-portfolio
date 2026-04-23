@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "p1sl",
+  "name": "p1sl_fy",
   "position": {
-    "x": 20,
-    "y": 620,
+    "x": 10,
+    "y": 627,
     "z": 0,
-    "width": 1240,
-    "height": 70,
-    "tabOrder": 10
+    "width": 240,
+    "height": 68,
+    "tabOrder": 20
   },
   "visual": {
     "visualType": "slicer",
@@ -34,13 +34,50 @@
       }
     },
     "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FF9933'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
       "general": [
         {
           "properties": {
             "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "'Horizontal'"
+                  "Value": "'Vertical'"
                 }
               }
             }
