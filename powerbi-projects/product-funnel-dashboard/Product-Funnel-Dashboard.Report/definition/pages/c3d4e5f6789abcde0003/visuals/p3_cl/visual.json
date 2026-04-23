@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "p3_cl",
+  "position": {
+    "x": 860,
+    "y": 120,
+    "z": 0,
+    "width": 400,
+    "height": 270,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_funnel_events"
+                    }
+                  },
+                  "Property": "device_type"
+                }
+              },
+              "queryRef": "fact_funnel_events.device_type",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Signup Users"
+                }
+              },
+              "queryRef": "_Measures.Signup Users",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

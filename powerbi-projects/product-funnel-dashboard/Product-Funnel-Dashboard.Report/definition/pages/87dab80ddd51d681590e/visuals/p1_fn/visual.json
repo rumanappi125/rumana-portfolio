@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "p1_fn",
+  "position": {
+    "x": 20,
+    "y": 220,
+    "z": 0,
+    "width": 730,
+    "height": 370,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "funnel",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_funnel_events"
+                    }
+                  },
+                  "Property": "event_type"
+                }
+              },
+              "queryRef": "fact_funnel_events.event_type",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_funnel_events"
+                        }
+                      },
+                      "Property": "user_id"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Count(fact_funnel_events.user_id)",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

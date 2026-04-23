@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "p1_bar",
+  "position": {
+    "x": 770,
+    "y": 540,
+    "z": 0,
+    "width": 490,
+    "height": 150,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_funnel_events"
+                    }
+                  },
+                  "Property": "region"
+                }
+              },
+              "queryRef": "fact_funnel_events.region",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Checkout Drop-off"
+                }
+              },
+              "queryRef": "_Measures.Checkout Drop-off",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

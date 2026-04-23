@@ -195,15 +195,24 @@ def matrix(vid, x, y, w, h, row_entity, row_prop, col_entity, col_prop, val_meas
         }
     }
 
-def make_page(page_id, display_name, visuals):
+def make_page(page_id, display_name):
+    """Page metadata only — visuals go in separate visual.json files."""
     return {
         "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
         "name": page_id,
         "displayName": display_name,
         "displayOption": "FitToPage",
         "height": 720,
-        "width": 1280,
-        "visualContainers": visuals
+        "width": 1280
+    }
+
+def make_visual(visual_def):
+    """Wrap a visual container definition for writing as its own visual.json file."""
+    return {
+        "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+        "name": visual_def["id"],
+        "position": visual_def["position"],
+        "visual": visual_def["visual"]
     }
 
 
@@ -336,12 +345,23 @@ pages = [
 ]
 
 for pid, name, visuals in pages:
-    folder = os.path.join(PAGES_DIR, pid)
-    os.makedirs(folder, exist_ok=True)
-    path = os.path.join(folder, "page.json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(make_page(pid, name, visuals), f, indent=2)
-    print(f"  Written: {name} -> {path}")
+    page_folder = os.path.join(PAGES_DIR, pid)
+    os.makedirs(page_folder, exist_ok=True)
+
+    # Write page.json (metadata only — no visualContainers)
+    page_path = os.path.join(page_folder, "page.json")
+    with open(page_path, "w", encoding="utf-8") as f:
+        json.dump(make_page(pid, name), f, indent=2)
+
+    # Write each visual as its own file: visuals/{visualId}/visual.json
+    for v in visuals:
+        vis_folder = os.path.join(page_folder, "visuals", v["id"])
+        os.makedirs(vis_folder, exist_ok=True)
+        vis_path = os.path.join(vis_folder, "visual.json")
+        with open(vis_path, "w", encoding="utf-8") as f:
+            json.dump(make_visual(v), f, indent=2)
+
+    print(f"  Written: {name} ({len(visuals)} visuals) -> {page_folder}")
 
 # Update pages.json
 pages_meta = {
