@@ -1,0 +1,160 @@
+table _Measures
+	lineageTag: c3d4e5f6-a7b8-9012-cdef-012345678902
+
+	measure 'Signup Users' = CALCULATE(DISTINCTCOUNT(fact_funnel_events[user_id]), fact_funnel_events[event_type] = "Signup")
+		lineageTag: m0001
+
+	measure 'Explore Users' = CALCULATE(DISTINCTCOUNT(fact_funnel_events[user_id]), fact_funnel_events[event_type] = "Explore")
+		lineageTag: m0002
+
+	measure 'Checkout Users' = CALCULATE(DISTINCTCOUNT(fact_funnel_events[user_id]), fact_funnel_events[event_type] = "Checkout")
+		lineageTag: m0003
+
+	measure 'Payment Users' = CALCULATE(DISTINCTCOUNT(fact_funnel_events[user_id]), fact_funnel_events[event_type] = "Payment")
+		lineageTag: m0004
+
+	measure 'Signup to Explore Rate' =
+			DIVIDE([Explore Users], [Signup Users], 0)
+		lineageTag: m0005
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'Explore to Checkout Rate' =
+			DIVIDE([Checkout Users], [Explore Users], 0)
+		lineageTag: m0006
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'Checkout to Payment Rate' =
+			DIVIDE([Payment Users], [Checkout Users], 0)
+		lineageTag: m0007
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'Overall Conversion Rate' =
+			DIVIDE([Payment Users], [Signup Users], 0)
+		lineageTag: m0008
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'Explore Drop-off' = [Signup Users] - [Explore Users]
+		lineageTag: m0009
+
+	measure 'Checkout Drop-off' = [Explore Users] - [Checkout Users]
+		lineageTag: m0010
+
+	measure 'Payment Drop-off' = [Checkout Users] - [Payment Users]
+		lineageTag: m0011
+
+	measure 'Total Orders' =
+			CALCULATE(COUNTROWS(fact_orders), fact_orders[status] = "Completed")
+		lineageTag: m0012
+
+	measure 'Gross Revenue' =
+			CALCULATE(SUM(fact_orders[gross_revenue]), fact_orders[status] = "Completed")
+		lineageTag: m0013
+		formatString: #,0.00
+
+	measure 'Net Revenue' =
+			CALCULATE(SUM(fact_orders[net_revenue]), fact_orders[status] = "Completed")
+		lineageTag: m0014
+		formatString: #,0.00
+
+	measure 'Total Discounts' =
+			CALCULATE(SUM(fact_orders[discount_amount]), fact_orders[status] = "Completed")
+		lineageTag: m0015
+		formatString: #,0.00
+
+	measure 'Average Order Value' =
+			DIVIDE([Net Revenue], [Total Orders], 0)
+		lineageTag: m0016
+		formatString: #,0.00
+
+	measure 'Gross Margin %' =
+			DIVIDE([Net Revenue], [Gross Revenue], 0)
+		lineageTag: m0017
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'New Customer Revenue' =
+			CALCULATE([Net Revenue], fact_orders[is_first_order] = TRUE())
+		lineageTag: m0018
+		formatString: #,0.00
+
+	measure 'Returning Customer Revenue' =
+			CALCULATE([Net Revenue], fact_orders[is_first_order] = FALSE())
+		lineageTag: m0019
+		formatString: #,0.00
+
+	measure 'New Customer %' =
+			DIVIDE([New Customer Revenue], [Net Revenue], 0)
+		lineageTag: m0020
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure MAU =
+			CALCULATE(
+			    DISTINCTCOUNT(fact_funnel_events[user_id]),
+			    DATESINPERIOD(dim_date[date], LASTDATE(dim_date[date]), -30, DAY)
+			)
+		lineageTag: m0021
+
+	measure WAU =
+			CALCULATE(
+			    DISTINCTCOUNT(fact_funnel_events[user_id]),
+			    DATESINPERIOD(dim_date[date], LASTDATE(dim_date[date]), -7, DAY)
+			)
+		lineageTag: m0022
+
+	measure 'MoM Revenue Growth' =
+			VAR CurrentMonth = [Net Revenue]
+			VAR PrevMonth = CALCULATE([Net Revenue], DATEADD(dim_date[date], -1, MONTH))
+			RETURN DIVIDE(CurrentMonth - PrevMonth, PrevMonth, 0)
+		lineageTag: m0023
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'Revenue 7-Day Rolling Avg' =
+			AVERAGEX(
+			    DATESINPERIOD(dim_date[date], LASTDATE(dim_date[date]), -7, DAY),
+			    [Net Revenue]
+			)
+		lineageTag: m0024
+		formatString: #,0.00
+
+	measure 'Cancellation Rate' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_orders), fact_orders[status] = "Cancelled"),
+			    COUNTROWS(fact_orders),
+			    0
+			)
+		lineageTag: m0025
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'WoW Checkout Rate Change' =
+			VAR CurrentWeek = [Checkout to Payment Rate]
+			VAR PrevWeek = CALCULATE([Checkout to Payment Rate], DATEADD(dim_date[date], -7, DAY))
+			RETURN CurrentWeek - PrevWeek
+		lineageTag: m0026
+		formatString: 0.00%;-0.00%;0.00%
+
+	measure 'Total Sessions' =
+			DISTINCTCOUNT(fact_funnel_events[session_id])
+		lineageTag: m0027
+
+	measure 'Unique Buyers' =
+			CALCULATE(DISTINCTCOUNT(fact_orders[user_id]), fact_orders[status] = "Completed")
+		lineageTag: m0028
+
+	measure 'Units Sold' =
+			CALCULATE(SUM(fact_orders[quantity]), fact_orders[status] = "Completed")
+		lineageTag: m0029
+
+	measure 'Return Rate' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_orders), fact_orders[status] = "Returned"),
+			    COUNTROWS(fact_orders),
+			    0
+			)
+		lineageTag: m0030
+		formatString: 0.00%;-0.00%;0.00%
+
+	partition _Measures = calculated
+		mode: import
+		source = ""
+
+	annotation PBI_ResultType = Table
+

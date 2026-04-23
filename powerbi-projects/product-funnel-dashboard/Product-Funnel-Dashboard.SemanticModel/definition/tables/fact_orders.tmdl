@@ -1,0 +1,165 @@
+table fact_orders
+	lineageTag: 98f8feaa-4ba9-4511-8bdc-2885379305c0
+
+	column order_id
+		dataType: string
+		lineageTag: 4a95a4fc-3e0a-4279-b6dd-aecfefc1343d
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_id
+		dataType: string
+		lineageTag: 8b13dc55-186c-4b66-af62-069fd90c51d5
+		summarizeBy: none
+		sourceColumn: user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: cdd6b00b-61fe-442b-812d-2e49d17ece0a
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: bf78457b-79f2-4d75-90f6-7fe16f2a0192
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3af47f49-652e-40e3-8b8b-24e544012ab0
+		summarizeBy: none
+		sourceColumn: order_date
+
+		variation Variation
+			isDefault
+			relationship: 27b16c7c-a48e-48ee-b3ca-b070ef84a448
+			defaultHierarchy: LocalDateTable_eec103df-36c8-4889-a772-ae5ccc8466af.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column region
+		dataType: string
+		lineageTag: c14a6be6-6a3e-406d-8385-53e3605d5700
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_type
+		dataType: string
+		lineageTag: 0d6e659f-7553-4b86-9360-27fe46825054
+		summarizeBy: none
+		sourceColumn: device_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: 16ee5652-9f0d-47f3-9234-db3803b1781c
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 7922face-4e35-4106-867d-1a5d25c23e10
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_revenue
+		dataType: double
+		lineageTag: 28f32ac9-19cd-4b9d-aade-007b7d426072
+		summarizeBy: sum
+		sourceColumn: gross_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_pct
+		dataType: double
+		lineageTag: 1ee2b332-93e2-41c6-a032-2ea74315c528
+		summarizeBy: sum
+		sourceColumn: discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_amount
+		dataType: double
+		lineageTag: a7c19c79-54e2-4c7a-81a2-c866160ee00d
+		summarizeBy: sum
+		sourceColumn: discount_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_revenue
+		dataType: double
+		lineageTag: 2031227a-8859-4e4d-a67b-5d386f132481
+		summarizeBy: sum
+		sourceColumn: net_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column status
+		dataType: string
+		lineageTag: 1883a62e-84e6-4580-a595-88865ccaeef0
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 843ee60a-f7ad-47a5-82f8-3d375c5edb30
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_first_order
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3fa9ee5e-3c8d-4c19-8b7f-c7c8280d00ff
+		summarizeBy: none
+		sourceColumn: is_first_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_orders = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\DevOps\rumana-portfolio\powerbi-projects\product-funnel-dashboard\data\fact_orders.csv"),[Delimiter=",", Columns=16, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_id", type text}, {"user_id", type text}, {"product_id", type text}, {"category", type text}, {"order_date", type date}, {"region", type text}, {"device_type", type text}, {"unit_price", type number}, {"quantity", Int64.Type}, {"gross_revenue", type number}, {"discount_pct", type number}, {"discount_amount", type number}, {"net_revenue", type number}, {"status", type text}, {"payment_method", type text}, {"is_first_order", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

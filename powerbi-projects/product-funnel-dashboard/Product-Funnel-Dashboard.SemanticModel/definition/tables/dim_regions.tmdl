@@ -1,0 +1,50 @@
+table dim_regions
+	lineageTag: 7b100ac3-2219-428d-bb36-d2e1f39f6d86
+
+	column region
+		dataType: string
+		lineageTag: 70a8fc4b-40c7-46ba-9b02-bfbc2abff1fa
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_email
+		dataType: string
+		lineageTag: 2edf5b93-f0ca-485a-b056-3bb82f24de64
+		summarizeBy: none
+		sourceColumn: manager_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_head
+		dataType: string
+		lineageTag: 1f8d8ae7-b366-4871-b792-6c532fbc91c9
+		summarizeBy: none
+		sourceColumn: region_head
+
+		annotation SummarizationSetBy = Automatic
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f244deee-c7af-4ce4-8f2f-d04d3a7ee18d
+		summarizeBy: none
+		sourceColumn: active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_regions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\DevOps\rumana-portfolio\powerbi-projects\product-funnel-dashboard\data\dim_regions.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"region", type text}, {"manager_email", type text}, {"region_head", type text}, {"active", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

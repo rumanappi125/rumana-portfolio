@@ -1,0 +1,98 @@
+table fact_funnel_events
+	lineageTag: 6bfe85f4-2ac2-4f1a-af2e-f029775ef03d
+
+	column event_id
+		dataType: string
+		lineageTag: 24c43740-69ff-4534-86e0-4101274ec054
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_id
+		dataType: string
+		lineageTag: e2c840a2-8a93-4f37-adc8-9ad0f52a5c71
+		summarizeBy: none
+		sourceColumn: user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column session_id
+		dataType: string
+		lineageTag: fc64707c-8864-4f67-8d10-a4165ff4ab2e
+		summarizeBy: none
+		sourceColumn: session_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type
+		dataType: string
+		lineageTag: f61f44e1-ef53-481f-9810-9c2b1174b2cd
+		summarizeBy: none
+		sourceColumn: event_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a5c4005b-4538-4442-ba49-e01ad53e2b50
+		summarizeBy: none
+		sourceColumn: event_date
+
+		variation Variation
+			isDefault
+			relationship: 9686e42b-38cc-4904-a842-73132b8579cd
+			defaultHierarchy: LocalDateTable_144bc8d4-21d3-474b-8e4c-b69000b28480.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column device_type
+		dataType: string
+		lineageTag: 255953de-9174-45b7-8190-492701302d64
+		summarizeBy: none
+		sourceColumn: device_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: fa9c4342-5c29-4e01-800f-0c03caf21f41
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category
+		dataType: string
+		lineageTag: 255b0f5f-a95b-428b-a509-9d79e135db40
+		summarizeBy: none
+		sourceColumn: product_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column page_time_sec
+		dataType: int64
+		formatString: 0
+		lineageTag: db6ee09e-5682-41f2-93b3-78d130274379
+		summarizeBy: sum
+		sourceColumn: page_time_sec
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_funnel_events = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\DevOps\rumana-portfolio\powerbi-projects\product-funnel-dashboard\data\fact_funnel_events.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"event_id", type text}, {"user_id", type text}, {"session_id", type text}, {"event_type", type text}, {"event_date", type date}, {"device_type", type text}, {"region", type text}, {"product_category", type text}, {"page_time_sec", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

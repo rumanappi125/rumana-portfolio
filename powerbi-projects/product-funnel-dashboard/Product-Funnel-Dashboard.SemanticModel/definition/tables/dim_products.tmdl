@@ -1,0 +1,76 @@
+table dim_products
+	lineageTag: 577d2d77-5117-4806-b6ac-934490e36397
+
+	column product_id
+		dataType: string
+		lineageTag: 94e3dd77-f65a-4fd8-b6ca-491641269ec4
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: d765ba9f-32b1-4d60-a4d7-11bb74086b05
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 9b7c03b3-7a18-44ec-80e4-7554fedad2a0
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcategory
+		dataType: string
+		lineageTag: c7d4806f-d722-4f16-92c9-c5285eeb717a
+		summarizeBy: none
+		sourceColumn: subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_range
+		dataType: string
+		lineageTag: 67473bbf-dc65-4a85-950c-f355c1e49409
+		summarizeBy: none
+		sourceColumn: price_range
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_price
+		dataType: double
+		lineageTag: 5506dee9-958c-469b-84d1-31fea2d43a88
+		summarizeBy: none
+		sourceColumn: avg_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9fc4b197-b4ed-4758-ac56-4758ee295aa5
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_products = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\DevOps\rumana-portfolio\powerbi-projects\product-funnel-dashboard\data\dim_products.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"product_id", type text}, {"product_name", type text}, {"category", type text}, {"subcategory", type text}, {"price_range", type text}, {"avg_price", type number}, {"is_active", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
