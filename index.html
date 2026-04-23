@@ -539,6 +539,39 @@
   .code-peek-num { color: #d19a66; }
   .code-peek-cm  { color: #5c6370; font-style: italic; }
 
+  /* ── DASHBOARD PAGE PILLS ── */
+  .dashboard-pages {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .dash-page {
+    font-size: 0.7rem; color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 0.22rem 0.65rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  /* ── DOWNLOAD PBIP BUTTON ── */
+  .btn-download-pbix {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #F2C811;
+    background: rgba(242,199,17,0.10);
+    border: 1px solid rgba(242,199,17,0.28);
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .btn-download-pbix:hover {
+    background: rgba(242,199,17,0.20);
+    border-color: #F2C811;
+    color: #fff;
+  }
+
   /* ── VIEW CODE BUTTON ── */
   .btn-view-code {
     font-size: 0.78rem; font-weight: 500;
@@ -783,12 +816,20 @@
         <span class="project-tag tag-powerbi">Power BI</span>
         <div class="project-title">Product Funnel Dashboard — Target</div>
         <p class="project-desc">Visualized user journeys across signup → explore → checkout → payment pages for a major retail client. Identified critical drop-off stages and enabled product teams to take targeted action, improving checkout completions significantly.</p>
+        <div class="dashboard-pages">
+          <span class="dash-page">📊 Funnel Analysis</span>
+          <span class="dash-page">💰 Revenue & Orders</span>
+          <span class="dash-page">📈 Engagement Trends</span>
+          <span class="dash-page">🎯 KPI Scorecard</span>
+        </div>
         <div class="project-metrics">
           <span class="metric">+15% Checkout Completion</span>
           <span class="metric">100+ KPIs</span>
+          <span class="metric">4 Pages · 45 Visuals</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link">🔒 Internal Project</a>
+          <a href="https://download-directory.github.io/?url=https://github.com/rumanappi125/rumana-portfolio/tree/master/powerbi-projects/product-funnel-dashboard" target="_blank" class="btn-download-pbix">⬇ Download .pbip</a>
+          <a href="https://github.com/rumanappi125/rumana-portfolio/tree/master/powerbi-projects/product-funnel-dashboard" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
 
@@ -817,13 +858,22 @@
       <div class="project-card" data-cat="powerbi sql">
         <span class="project-tag tag-powerbi">Power BI</span>
         <div class="project-title">NREGA Employment Analytics</div>
-        <p class="project-desc">Built a 4-page interactive Power BI dashboard for India's National Rural Employment Guarantee Act data. Visualised 15M+ job cards issued, budget allocations by state, and workforce participation metrics, enabling 20% improvement in resource planning.</p>
+        <p class="project-desc">Built a 5-page interactive Power BI dashboard for India's National Rural Employment Guarantee Act data. Visualised employment, wages, social equity (SC/ST/Women), and works completion across 15 states and 75 districts, enabling 20% improvement in resource planning.</p>
+        <div class="dashboard-pages">
+          <span class="dash-page">🏛 Executive Summary</span>
+          <span class="dash-page">👷 Employment & Demand</span>
+          <span class="dash-page">⚖️ Social Equity</span>
+          <span class="dash-page">💵 Wages & Payment</span>
+          <span class="dash-page">🏗 Works & Assets</span>
+        </div>
         <div class="project-metrics">
           <span class="metric">15M+ Job Cards</span>
           <span class="metric">+20% Resource Planning</span>
+          <span class="metric">5 Pages · 53 Visuals</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+          <a href="https://download-directory.github.io/?url=https://github.com/rumanappi125/rumana-portfolio/tree/master/powerbi-projects/nrega-analysis" target="_blank" class="btn-download-pbix">⬇ Download .pbip</a>
+          <a href="https://github.com/rumanappi125/rumana-portfolio/tree/master/powerbi-projects/nrega-analysis" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
 
@@ -869,13 +919,21 @@
         <span class="project-tag tag-powerbi">Power BI</span>
         <div class="project-title">EdTech Student Engagement Dashboard</div>
         <p class="project-desc">Performed student engagement and course performance analysis across 50K+ learner records at Physics Wallah. Identified drop-off patterns and enabled category managers to redesign content delivery, improving course completion rates by 18%.</p>
+        <div class="dashboard-pages">
+          <span class="dash-page">📋 Executive Summary</span>
+          <span class="dash-page">🎯 Student Engagement</span>
+          <span class="dash-page">📝 Course Performance</span>
+          <span class="dash-page">⚠️ Drop-off & Retention</span>
+          <span class="dash-page">🎬 Content Analytics</span>
+        </div>
         <div class="project-metrics">
           <span class="metric">50K+ Learners</span>
           <span class="metric">+18% Completion Rate</span>
-          <span class="metric">Qlik Sense</span>
+          <span class="metric">5 Pages · 66 Visuals</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/rumanappi125" target="_blank" class="project-link">↗ GitHub</a>
+          <a href="https://download-directory.github.io/?url=https://github.com/rumanappi125/rumana-portfolio/tree/master/powerbi-projects/edtech-engagement" target="_blank" class="btn-download-pbix">⬇ Download .pbip</a>
+          <a href="https://github.com/rumanappi125/rumana-portfolio/tree/master/powerbi-projects/edtech-engagement" target="_blank" class="project-link">↗ GitHub</a>
         </div>
       </div>
 
