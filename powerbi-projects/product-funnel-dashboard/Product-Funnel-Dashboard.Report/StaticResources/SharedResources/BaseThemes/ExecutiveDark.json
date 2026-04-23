@@ -68,7 +68,9 @@
         "plotArea": [{ "transparency": 100 }],
         "categoryAxis": [{ "gridlineStyle": "dotted", "gridlineColor": { "solid": { "color": "#2a2a4a" } }, "labelColor": { "solid": { "color": "#9090BB" } }, "fontSize": 10, "showAxisTitle": false }],
         "valueAxis": [{ "gridlineStyle": "dotted", "gridlineColor": { "solid": { "color": "#2a2a4a" } }, "labelColor": { "solid": { "color": "#9090BB" } }, "fontSize": 10, "showAxisTitle": false }],
-        "legend": [{ "show": true, "labelColor": { "solid": { "color": "#9090BB" } }, "fontSize": 10 }]
+        "legend": [{ "show": true, "labelColor": { "solid": { "color": "#9090BB" } }, "fontSize": 10 }],
+        "tooltip": [{ "show": true, "background": { "solid": { "color": "#FFFFFF" } }, "transparency": 0, "fontColor": { "solid": { "color": "#111122" } }, "fontSize": 12, "fontFamily": "Segoe UI" }],
+        "outspacePane": [{ "backgroundColor": { "solid": { "color": "#FFFFFF" } }, "transparency": 0, "border": true, "borderColor": { "solid": { "color": "#8B7CF5" } } }]
       }
     },
     "card": {

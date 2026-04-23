@@ -158,6 +158,24 @@
             },
             "fontSize": 10
           }
+        ],
+        "tooltip": [
+          {
+            "show": true,
+            "background": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0,
+            "fontColor": { "solid": { "color": "#1A1A2E" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI"
+          }
+        ],
+        "outspacePane": [
+          {
+            "backgroundColor": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0,
+            "border": true,
+            "borderColor": { "solid": { "color": "#FF9933" } }
+          }
         ]
       }
     },
