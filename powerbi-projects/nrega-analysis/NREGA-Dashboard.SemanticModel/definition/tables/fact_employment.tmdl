@@ -1,0 +1,140 @@
+table fact_employment
+	lineageTag: 3d8c687e-37c7-468f-b8f3-add30b000db7
+
+	column state_code
+		dataType: string
+		lineageTag: 8940d980-84ea-4fad-8001-bad8210840f1
+		summarizeBy: none
+		sourceColumn: state_code
+		annotation SummarizationSetBy = Automatic
+
+	column district_code
+		dataType: string
+		lineageTag: dc58bc74-82be-40a3-a255-ad7af51f5fae
+		summarizeBy: none
+		sourceColumn: district_code
+		annotation SummarizationSetBy = Automatic
+
+	column report_date
+		dataType: dateTime
+		lineageTag: ff7d6b73-0428-449f-8d3a-319028303747
+		summarizeBy: none
+		sourceColumn: report_date
+		annotation SummarizationSetBy = Automatic
+
+	column financial_year
+		dataType: string
+		lineageTag: d6e15899-ad23-4dfd-b0a1-3517934baa26
+		summarizeBy: none
+		sourceColumn: financial_year
+		annotation SummarizationSetBy = Automatic
+
+	column month_num
+		dataType: int64
+		formatString: 0
+		lineageTag: b57af736-b39a-43ab-835c-66d2f5a42b86
+		summarizeBy: none
+		sourceColumn: month_num
+		annotation SummarizationSetBy = Automatic
+
+	column job_cards_issued
+		dataType: int64
+		formatString: 0
+		lineageTag: f29c0dde-c962-48b4-9cc1-f3c45c382d4c
+		summarizeBy: sum
+		sourceColumn: job_cards_issued
+		annotation SummarizationSetBy = Automatic
+
+	column active_job_cards
+		dataType: int64
+		formatString: 0
+		lineageTag: ffaf9c9a-1508-4082-b029-8592f7ca7e40
+		summarizeBy: sum
+		sourceColumn: active_job_cards
+		annotation SummarizationSetBy = Automatic
+
+	column households_demanded
+		dataType: int64
+		formatString: 0
+		lineageTag: ccf86663-ddbe-44ed-b3ea-a541fad19d0f
+		summarizeBy: sum
+		sourceColumn: households_demanded
+		annotation SummarizationSetBy = Automatic
+
+	column households_employed
+		dataType: int64
+		formatString: 0
+		lineageTag: 31e59f4f-8c57-436f-a727-50b1c3888362
+		summarizeBy: sum
+		sourceColumn: households_employed
+		annotation SummarizationSetBy = Automatic
+
+	column households_100days
+		dataType: int64
+		formatString: 0
+		lineageTag: 6dbdef3e-5fce-4a92-ace3-02a39c48fa8a
+		summarizeBy: sum
+		sourceColumn: households_100days
+		annotation SummarizationSetBy = Automatic
+
+	column person_days_total
+		dataType: int64
+		formatString: 0
+		lineageTag: aecad125-ec31-415f-b3f3-e9e8a00dd70d
+		summarizeBy: sum
+		sourceColumn: person_days_total
+		annotation SummarizationSetBy = Automatic
+
+	column person_days_sc
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f4fdcf9-2484-45ec-a9ca-25e58fe9468e
+		summarizeBy: sum
+		sourceColumn: person_days_sc
+		annotation SummarizationSetBy = Automatic
+
+	column person_days_st
+		dataType: int64
+		formatString: 0
+		lineageTag: a0239d0d-9342-4472-ae04-443dc0de988e
+		summarizeBy: sum
+		sourceColumn: person_days_st
+		annotation SummarizationSetBy = Automatic
+
+	column person_days_women
+		dataType: int64
+		formatString: 0
+		lineageTag: fc1a9615-c924-48fe-a695-49684a1dcab3
+		summarizeBy: sum
+		sourceColumn: person_days_women
+		annotation SummarizationSetBy = Automatic
+
+	column person_days_pwd
+		dataType: int64
+		formatString: 0
+		lineageTag: 74d5e8a6-9074-407d-8e28-056650e36344
+		summarizeBy: sum
+		sourceColumn: person_days_pwd
+		annotation SummarizationSetBy = Automatic
+
+	column avg_days_per_hh
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b3b9a85b-64e5-4eb9-a12e-c6902e819886
+		summarizeBy: average
+		sourceColumn: avg_days_per_hh
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_employment = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\nrega-analysis\\data\\fact_employment.csv"),
+				        [Delimiter=",", Columns=16, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"state_code", type text}, {"district_code", type text}, {"report_date", type date}, {"financial_year", type text}, {"month_num", Int64.Type}, {"job_cards_issued", Int64.Type}, {"active_job_cards", Int64.Type}, {"households_demanded", Int64.Type}, {"households_employed", Int64.Type}, {"households_100days", Int64.Type}, {"person_days_total", Int64.Type}, {"person_days_sc", Int64.Type}, {"person_days_st", Int64.Type}, {"person_days_women", Int64.Type}, {"person_days_pwd", Int64.Type}, {"avg_days_per_hh", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

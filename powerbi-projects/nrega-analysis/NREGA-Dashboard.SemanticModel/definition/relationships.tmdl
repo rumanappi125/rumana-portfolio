@@ -1,0 +1,28 @@
+relationship rel_date_employment
+	fromColumn: fact_employment.report_date
+	toColumn: dim_date.date
+
+relationship rel_date_wages
+	fromColumn: fact_wages.report_date
+	toColumn: dim_date.date
+
+relationship rel_date_works
+	fromColumn: fact_works.report_date
+	toColumn: dim_date.date
+
+relationship rel_geo_employment
+	fromColumn: fact_employment.district_code
+	toColumn: dim_geography.district_code
+
+relationship rel_geo_wages
+	fromColumn: fact_wages.district_code
+	toColumn: dim_geography.district_code
+
+relationship rel_geo_works
+	fromColumn: fact_works.district_code
+	toColumn: dim_geography.district_code
+
+relationship rel_cat_works
+	fromColumn: fact_works.category_id
+	toColumn: dim_work_category.category_id
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "NREGA-Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "15917a86-f730-467f-85a1-61e0e062ab09"
+  }
+}

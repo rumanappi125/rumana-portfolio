@@ -1,0 +1,76 @@
+state_code,state_name,state_hindi,district_code,district_name,region,zone
+RJ,Rajasthan,राजस्थान,RJ_D01,Barmer,North,North
+RJ,Rajasthan,राजस्थान,RJ_D02,Jaisalmer,North,North
+RJ,Rajasthan,राजस्थान,RJ_D03,Nagaur,North,North
+RJ,Rajasthan,राजस्थान,RJ_D04,Bikaner,North,North
+RJ,Rajasthan,राजस्थान,RJ_D05,Jodhpur,North,North
+UP,Uttar Pradesh,उत्तर प्रदेश,UP_D01,Sonbhadra,North,North
+UP,Uttar Pradesh,उत्तर प्रदेश,UP_D02,Mirzapur,North,North
+UP,Uttar Pradesh,उत्तर प्रदेश,UP_D03,Chitrakoot,North,North
+UP,Uttar Pradesh,उत्तर प्रदेश,UP_D04,Banda,North,North
+UP,Uttar Pradesh,उत्तर प्रदेश,UP_D05,Bahraich,North,North
+WB,West Bengal,पश्चिम बंगाल,WB_D01,Murshidabad,East,East
+WB,West Bengal,पश्चिम बंगाल,WB_D02,Purulia,East,East
+WB,West Bengal,पश्चिम बंगाल,WB_D03,Bankura,East,East
+WB,West Bengal,पश्चिम बंगाल,WB_D04,Birbhum,East,East
+WB,West Bengal,पश्चिम बंगाल,WB_D05,Malda,East,East
+MP,Madhya Pradesh,मध्य प्रदेश,MP_D01,Sheopur,Central,Central
+MP,Madhya Pradesh,मध्य प्रदेश,MP_D02,Tikamgarh,Central,Central
+MP,Madhya Pradesh,मध्य प्रदेश,MP_D03,Panna,Central,Central
+MP,Madhya Pradesh,मध्य प्रदेश,MP_D04,Satna,Central,Central
+MP,Madhya Pradesh,मध्य प्रदेश,MP_D05,Mandla,Central,Central
+AP,Andhra Pradesh,आंध्र प्रदेश,AP_D01,Kurnool,South,South
+AP,Andhra Pradesh,आंध्र प्रदेश,AP_D02,Anantapur,South,South
+AP,Andhra Pradesh,आंध्र प्रदेश,AP_D03,Prakasam,South,South
+AP,Andhra Pradesh,आंध्र प्रदेश,AP_D04,Guntur,South,South
+AP,Andhra Pradesh,आंध्र प्रदेश,AP_D05,YSR Kadapa,South,South
+TN,Tamil Nadu,तमिलनाडु,TN_D01,Tirunelveli,South,South
+TN,Tamil Nadu,तमिलनाडु,TN_D02,Virudhunagar,South,South
+TN,Tamil Nadu,तमिलनाडु,TN_D03,Ramanathapuram,South,South
+TN,Tamil Nadu,तमिलनाडु,TN_D04,Dindigul,South,South
+TN,Tamil Nadu,तमिलनाडु,TN_D05,Madurai,South,South
+BR,Bihar,बिहार,BR_D01,Gaya,East,East
+BR,Bihar,बिहार,BR_D02,Nawada,East,East
+BR,Bihar,बिहार,BR_D03,Jamui,East,East
+BR,Bihar,बिहार,BR_D04,Araria,East,East
+BR,Bihar,बिहार,BR_D05,Sitamarhi,East,East
+JH,Jharkhand,झारखंड,JH_D01,Gumla,East,East
+JH,Jharkhand,झारखंड,JH_D02,Simdega,East,East
+JH,Jharkhand,झारखंड,JH_D03,Lohardaga,East,East
+JH,Jharkhand,झारखंड,JH_D04,Pakur,East,East
+JH,Jharkhand,झारखंड,JH_D05,Dumka,East,East
+OD,Odisha,ओडिशा,OD_D01,Koraput,East,East
+OD,Odisha,ओडिशा,OD_D02,Kalahandi,East,East
+OD,Odisha,ओडिशा,OD_D03,Nuapada,East,East
+OD,Odisha,ओडिशा,OD_D04,Bolangir,East,East
+OD,Odisha,ओडिशा,OD_D05,Kandhamal,East,East
+CG,Chhattisgarh,छत्तीसगढ़,CG_D01,Bastar,Central,Central
+CG,Chhattisgarh,छत्तीसगढ़,CG_D02,Dantewada,Central,Central
+CG,Chhattisgarh,छत्तीसगढ़,CG_D03,Narayanpur,Central,Central
+CG,Chhattisgarh,छत्तीसगढ़,CG_D04,Bijapur,Central,Central
+CG,Chhattisgarh,छत्तीसगढ़,CG_D05,Sukma,Central,Central
+MH,Maharashtra,महाराष्ट्र,MH_D01,Gadchiroli,West,West
+MH,Maharashtra,महाराष्ट्र,MH_D02,Nandurbar,West,West
+MH,Maharashtra,महाराष्ट्र,MH_D03,Dhule,West,West
+MH,Maharashtra,महाराष्ट्र,MH_D04,Washim,West,West
+MH,Maharashtra,महाराष्ट्र,MH_D05,Yavatmal,West,West
+GJ,Gujarat,गुजरात,GJ_D01,Dahod,West,West
+GJ,Gujarat,गुजरात,GJ_D02,Panchmahal,West,West
+GJ,Gujarat,गुजरात,GJ_D03,Narmada,West,West
+GJ,Gujarat,गुजरात,GJ_D04,Tapi,West,West
+GJ,Gujarat,गुजरात,GJ_D05,Kutch,West,West
+KA,Karnataka,कर्नाटक,KA_D01,Yadgir,South,South
+KA,Karnataka,कर्नाटक,KA_D02,Raichur,South,South
+KA,Karnataka,कर्नाटक,KA_D03,Koppal,South,South
+KA,Karnataka,कर्नाटक,KA_D04,Bellary,South,South
+KA,Karnataka,कर्नाटक,KA_D05,Kalaburagi,South,South
+TG,Telangana,तेलंगाना,TG_D01,Adilabad,South,South
+TG,Telangana,तेलंगाना,TG_D02,Asifabad,South,South
+TG,Telangana,तेलंगाना,TG_D03,Nirmal,South,South
+TG,Telangana,तेलंगाना,TG_D04,Nizamabad,South,South
+TG,Telangana,तेलंगाना,TG_D05,Karimnagar,South,South
+AS,Assam,असम,AS_D01,Dhubri,NE,NE
+AS,Assam,असम,AS_D02,Barpeta,NE,NE
+AS,Assam,असम,AS_D03,Nalbari,NE,NE
+AS,Assam,असम,AS_D04,Goalpara,NE,NE
+AS,Assam,असम,AS_D05,Kokrajhar,NE,NE

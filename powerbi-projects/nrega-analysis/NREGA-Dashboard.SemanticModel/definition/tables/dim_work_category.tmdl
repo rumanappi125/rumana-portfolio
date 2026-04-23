@@ -1,0 +1,44 @@
+table dim_work_category
+	lineageTag: 4e96761a-69da-4bc8-b5b8-b0c196cae60c
+
+	column category_id
+		dataType: string
+		lineageTag: 6a2beeb6-3fbc-4d6c-a9a7-cfbec523e599
+		summarizeBy: none
+		sourceColumn: category_id
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: ed4fc860-9f70-4880-ac38-a46e42e4ca79
+		summarizeBy: none
+		sourceColumn: category_name
+		annotation SummarizationSetBy = Automatic
+
+	column category_hindi
+		dataType: string
+		lineageTag: 22e9bafa-f1a2-4612-b7fd-774430c50bae
+		summarizeBy: none
+		sourceColumn: category_hindi
+		annotation SummarizationSetBy = Automatic
+
+	column major_category
+		dataType: string
+		lineageTag: 9e693476-48f9-487b-aa2f-8a218feff732
+		summarizeBy: none
+		sourceColumn: major_category
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_work_category = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\nrega-analysis\\data\\dim_work_category.csv"),
+				        [Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"category_id", type text}, {"category_name", type text}, {"category_hindi", type text}, {"major_category", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

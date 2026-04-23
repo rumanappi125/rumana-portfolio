@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "p1c3",
+  "position": {
+    "x": 480,
+    "y": 20,
+    "z": 0,
+    "width": 220,
+    "height": 90,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% HH Completing 100 Days"
+                }
+              },
+              "queryRef": "_Measures.% HH Completing 100 Days",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

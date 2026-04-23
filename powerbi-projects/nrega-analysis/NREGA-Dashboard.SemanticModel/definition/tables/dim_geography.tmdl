@@ -1,0 +1,65 @@
+table dim_geography
+	lineageTag: a5c9ae9c-902e-4a28-9221-998e50a6c4ed
+
+	column state_code
+		dataType: string
+		lineageTag: 3eb7d1e0-7dfe-4836-b72f-3ee7d6453804
+		summarizeBy: none
+		sourceColumn: state_code
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 71c73c70-2749-4396-9147-59b89971ca06
+		summarizeBy: none
+		sourceColumn: state_name
+		annotation SummarizationSetBy = Automatic
+
+	column state_hindi
+		dataType: string
+		lineageTag: a9662973-138f-4aa2-a163-0504b53931ca
+		summarizeBy: none
+		sourceColumn: state_hindi
+		annotation SummarizationSetBy = Automatic
+
+	column district_code
+		dataType: string
+		lineageTag: a98d2fa6-1119-4100-8bfe-fc72e1a16b99
+		summarizeBy: none
+		sourceColumn: district_code
+		annotation SummarizationSetBy = Automatic
+
+	column district_name
+		dataType: string
+		lineageTag: 569c4361-822c-4fc3-9f0a-7ea7efcc5ef3
+		summarizeBy: none
+		sourceColumn: district_name
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: e7c7c249-7cb4-438e-b03e-e00bf0e92932
+		summarizeBy: none
+		sourceColumn: region
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: 593f11ce-073f-4097-97e4-ca6e4b4f2e9c
+		summarizeBy: none
+		sourceColumn: zone
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_geography = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\nrega-analysis\\data\\dim_geography.csv"),
+				        [Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"state_code", type text}, {"state_name", type text}, {"state_hindi", type text}, {"district_code", type text}, {"district_name", type text}, {"region", type text}, {"zone", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

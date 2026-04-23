@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "p2fn",
+  "position": {
+    "x": 20,
+    "y": 120,
+    "z": 0,
+    "width": 520,
+    "height": 340,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "funnel",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_employment"
+                    }
+                  },
+                  "Property": "financial_year"
+                }
+              },
+              "queryRef": "fact_employment.financial_year",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_employment"
+                        }
+                      },
+                      "Property": "households_employed"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact_employment.households_employed)",
+              "active": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

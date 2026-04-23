@@ -1,0 +1,96 @@
+table dim_date
+	lineageTag: 12af33ca-fd29-43b1-ba5c-63bc6c363054
+
+	column date
+		dataType: dateTime
+		lineageTag: db36b3e3-77c1-4ec5-8ccf-e1889c713816
+		summarizeBy: none
+		sourceColumn: date
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bd5a9b1-4fad-4656-aef5-4374183f4e22
+		summarizeBy: none
+		sourceColumn: year
+		annotation SummarizationSetBy = Automatic
+
+	column month_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ff575fa-85fb-44a4-a14c-a2ea1074fd4c
+		summarizeBy: none
+		sourceColumn: month_num
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 138a3b02-fcde-4a06-a8b4-5b051abb6171
+		summarizeBy: none
+		sourceColumn: month_name
+		annotation SummarizationSetBy = Automatic
+
+	column month_short
+		dataType: string
+		lineageTag: 42f86f1e-8342-4143-be00-0e322b4a2959
+		summarizeBy: none
+		sourceColumn: month_short
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ffacfaf-5676-4d77-8b55-0aa50f01bcd4
+		summarizeBy: none
+		sourceColumn: quarter
+		annotation SummarizationSetBy = Automatic
+
+	column financial_year
+		dataType: string
+		lineageTag: 2ec0a109-f63b-4772-9996-839858af9081
+		summarizeBy: none
+		sourceColumn: financial_year
+		annotation SummarizationSetBy = Automatic
+
+	column financial_quarter
+		dataType: string
+		lineageTag: f287d75a-6c21-4f0e-8b26-24d3c836ce47
+		summarizeBy: none
+		sourceColumn: financial_quarter
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		lineageTag: 566b2242-3273-427e-a429-a14ea65aee51
+		summarizeBy: none
+		sourceColumn: day_of_week
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: 3820a352-0944-49de-ac6f-37e918d0262f
+		summarizeBy: none
+		sourceColumn: is_weekend
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: 44d33b14-a8e7-4684-8a0c-e926cb9aef9c
+		summarizeBy: none
+		sourceColumn: year_month
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\DevOps\\rumana-portfolio\\powerbi-projects\\nrega-analysis\\data\\dim_date.csv"),
+				        [Delimiter=",", Columns=11, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"year", Int64.Type}, {"month_num", Int64.Type}, {"month_name", type text}, {"month_short", type text}, {"quarter", Int64.Type}, {"financial_year", type text}, {"financial_quarter", type text}, {"day_of_week", type text}, {"is_weekend", type logical}, {"year_month", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+	annotation PBI_ResultType = Table

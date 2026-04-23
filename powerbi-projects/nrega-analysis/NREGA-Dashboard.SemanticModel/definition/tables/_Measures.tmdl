@@ -1,0 +1,143 @@
+table _Measures
+	lineageTag: 273cf9bf-b1cf-4ad7-bb83-328dd14e1795
+
+	measure 'Total Person Days' = SUM(fact_employment[person_days_total])
+		lineageTag: 3704e9b0-bcb9-4f72-bb20-ac45383f55fe
+		formatString: #,0
+
+	measure 'SC Person Days' = SUM(fact_employment[person_days_sc])
+		lineageTag: ab6777cb-b3dd-4996-8d2a-1d61c7b2dcfb
+		formatString: #,0
+
+	measure 'ST Person Days' = SUM(fact_employment[person_days_st])
+		lineageTag: 345f0b28-04fa-438d-a580-a7cc6026b7f1
+		formatString: #,0
+
+	measure 'Women Person Days' = SUM(fact_employment[person_days_women])
+		lineageTag: bcf54293-2048-4fbe-ab81-19a9891b7e89
+		formatString: #,0
+
+	measure 'PwD Person Days' = SUM(fact_employment[person_days_pwd])
+		lineageTag: f895ff97-3c51-4f48-b7e2-bd4bf28894a8
+		formatString: #,0
+
+	measure '% SC Person Days' = DIVIDE([SC Person Days], [Total Person Days], 0)
+		lineageTag: 2f573c9e-e949-46d9-8295-c9d022af153e
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure '% ST Person Days' = DIVIDE([ST Person Days], [Total Person Days], 0)
+		lineageTag: 9372798c-4f7d-4376-af48-e4fc475533f9
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure '% Women Person Days' = DIVIDE([Women Person Days], [Total Person Days], 0)
+		lineageTag: f0fd36cd-14a2-4abe-88be-3d367bfad67b
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure '% PwD Person Days' = DIVIDE([PwD Person Days], [Total Person Days], 0)
+		lineageTag: bf9ce939-427a-474e-8ae4-1f202becc114
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Households Demanded' = SUM(fact_employment[households_demanded])
+		lineageTag: 994218f9-9ed7-400f-b3b5-7e160d78ff74
+		formatString: #,0
+
+	measure 'Households Employed' = SUM(fact_employment[households_employed])
+		lineageTag: 05f021e9-b30d-46a1-9d79-6784a1a0c217
+		formatString: #,0
+
+	measure 'Households 100 Days' = SUM(fact_employment[households_100days])
+		lineageTag: f95a6c9b-83c1-43d5-a258-528ae9f6291e
+		formatString: #,0
+
+	measure 'Demand Fulfilment Rate' = DIVIDE([Households Employed], [Households Demanded], 0)
+		lineageTag: 28d3d14b-d6a8-404a-a1a5-bbaab645a54b
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure '% HH Completing 100 Days' = DIVIDE([Households 100 Days], [Households Employed], 0)
+		lineageTag: 0dc021f2-b7b0-40fe-baf6-0e375d239a98
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Avg Days per Household' = DIVIDE([Total Person Days], [Households Employed], 0)
+		lineageTag: 9b6c090c-039f-458c-8a03-99bd5eca39f3
+		formatString: #,0.0
+
+	measure 'Job Cards Issued' = SUM(fact_employment[job_cards_issued])
+		lineageTag: 21ad45ae-5141-4788-bbd0-60ed38ce579b
+		formatString: #,0
+
+	measure 'Active Job Cards' = SUM(fact_employment[active_job_cards])
+		lineageTag: 36bdbae1-6a03-4441-a342-f0581055a708
+		formatString: #,0
+
+	measure 'Job Card Utilisation' = DIVIDE([Households Demanded], [Job Cards Issued], 0)
+		lineageTag: b46b708d-625b-4c3f-83e1-c4e9474f332d
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Total Wages (Lakhs)' = SUM(fact_wages[total_wages_lakhs])
+		lineageTag: 51c1c30d-75b4-47cd-bf36-0b788f3c34a5
+		formatString: #,0.00
+
+	measure 'Wages Within 15 Days (Lakhs)' = SUM(fact_wages[wages_within_15days_lakhs])
+		lineageTag: a573a99f-82e3-4b9f-bd71-9c2a9b38ce19
+		formatString: #,0.00
+
+	measure '% Wages Within 15 Days' = DIVIDE([Wages Within 15 Days (Lakhs)], [Total Wages (Lakhs)], 0)
+		lineageTag: 4b3fdea0-e133-4858-92e6-6df52b5669fd
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Pending Wages (Lakhs)' = SUM(fact_wages[pending_wages_lakhs])
+		lineageTag: b5d51f09-e666-43cb-84cb-02e5d52d5bdc
+		formatString: #,0.00
+
+	measure 'Avg Wage Rate' = AVERAGE(fact_wages[avg_wage_rate])
+		lineageTag: 0560f549-6fb7-456c-bc72-5171ca191bb8
+		formatString: #,0.00
+
+	measure 'Notified Wage Rate' = AVERAGE(fact_wages[notified_wage_rate])
+		lineageTag: 8c5967da-e988-4b40-8055-97c9449e8db5
+		formatString: #,0.00
+
+	measure 'Wage Compliance %' = DIVIDE([Avg Wage Rate], [Notified Wage Rate], 0)
+		lineageTag: 405ca0ba-d28b-40a8-97ce-f6e35b8b476a
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Works Taken Up' = SUM(fact_works[works_taken_up])
+		lineageTag: 52013d15-7c06-4cee-8048-f5bbaa835c64
+		formatString: #,0
+
+	measure 'Works Completed' = SUM(fact_works[works_completed])
+		lineageTag: ce496cdc-99f2-43a2-9f8a-cc4374208b90
+		formatString: #,0
+
+	measure 'Works In Progress' = SUM(fact_works[works_in_progress])
+		lineageTag: 4e9575a8-f843-4c70-83c8-80eeceddc732
+		formatString: #,0
+
+	measure 'Works Completion Rate' = DIVIDE([Works Completed], [Works Taken Up], 0)
+		lineageTag: ef728daa-f745-4ec3-a0d0-34054264dec7
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Total Expenditure (Lakhs)' = SUM(fact_works[expenditure_lakhs])
+		lineageTag: 716d2243-5513-49e3-bd65-55fa231d172b
+		formatString: #,0.00
+
+	measure 'Assets Created' = SUM(fact_works[assets_created])
+		lineageTag: aea44f68-8d81-46cb-baac-1d882388a4f9
+		formatString: #,0
+
+	measure 'YoY Person Days Growth' =
+			VAR CY = [Total Person Days]
+			VAR PY = CALCULATE([Total Person Days], DATEADD(dim_date[date], -1, YEAR))
+			RETURN DIVIDE(CY - PY, PY, 0)
+		lineageTag: cf7e6e25-9c8a-4c70-8725-ea6538c23e05
+		formatString: +0.0%;-0.0%;0.0%
+
+	measure 'Person Days (Crore)' = DIVIDE([Total Person Days], 10000000)
+		lineageTag: 9e6b5da1-572e-4875-aa6d-f467125b38d2
+		formatString: #,0.00
+
+	partition _Measures = calculated
+		mode: import
+		source = ""
+
+	annotation PBI_ResultType = Table
