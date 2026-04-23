@@ -1,0 +1,201 @@
+product_id,product_name,category,subcategory,price_range,avg_price,is_active
+PRD-ELE-001,Electronics Item 1,Electronics,Electronics Sub 2,Budget (<₹500),944.97,True
+PRD-ELE-002,Electronics Item 2,Electronics,Electronics Sub 3,Budget (<₹500),3893.22,True
+PRD-ELE-003,Electronics Item 3,Electronics,Electronics Sub 1,Premium (>₹2000),2611.92,True
+PRD-ELE-004,Electronics Item 4,Electronics,Electronics Sub 2,Mid (₹500–2000),460.18,True
+PRD-ELE-005,Electronics Item 5,Electronics,Electronics Sub 3,Mid (₹500–2000),2848.36,True
+PRD-ELE-006,Electronics Item 6,Electronics,Electronics Sub 1,Mid (₹500–2000),4657.86,True
+PRD-ELE-007,Electronics Item 7,Electronics,Electronics Sub 2,Mid (₹500–2000),6242.33,True
+PRD-ELE-008,Electronics Item 8,Electronics,Electronics Sub 3,Budget (<₹500),4156.05,True
+PRD-ELE-009,Electronics Item 9,Electronics,Electronics Sub 1,Mid (₹500–2000),3606.45,True
+PRD-ELE-010,Electronics Item 10,Electronics,Electronics Sub 2,Mid (₹500–2000),7581.95,True
+PRD-ELE-011,Electronics Item 11,Electronics,Electronics Sub 3,Budget (<₹500),1169.37,True
+PRD-ELE-012,Electronics Item 12,Electronics,Electronics Sub 1,Mid (₹500–2000),2098.62,True
+PRD-ELE-013,Electronics Item 13,Electronics,Electronics Sub 2,Premium (>₹2000),852.13,True
+PRD-ELE-014,Electronics Item 14,Electronics,Electronics Sub 3,Mid (₹500–2000),5812.1,True
+PRD-ELE-015,Electronics Item 15,Electronics,Electronics Sub 1,Mid (₹500–2000),5431.66,True
+PRD-ELE-016,Electronics Item 16,Electronics,Electronics Sub 2,Budget (<₹500),2741.33,True
+PRD-ELE-017,Electronics Item 17,Electronics,Electronics Sub 3,Budget (<₹500),5329.44,True
+PRD-ELE-018,Electronics Item 18,Electronics,Electronics Sub 1,Budget (<₹500),4489.83,True
+PRD-ELE-019,Electronics Item 19,Electronics,Electronics Sub 2,Premium (>₹2000),879.09,True
+PRD-ELE-020,Electronics Item 20,Electronics,Electronics Sub 3,Premium (>₹2000),3764.13,True
+PRD-ELE-021,Electronics Item 21,Electronics,Electronics Sub 1,Mid (₹500–2000),6463.52,True
+PRD-ELE-022,Electronics Item 22,Electronics,Electronics Sub 2,Mid (₹500–2000),446.24,True
+PRD-ELE-023,Electronics Item 23,Electronics,Electronics Sub 3,Mid (₹500–2000),7702.17,True
+PRD-ELE-024,Electronics Item 24,Electronics,Electronics Sub 1,Mid (₹500–2000),7339.07,True
+PRD-ELE-025,Electronics Item 25,Electronics,Electronics Sub 2,Budget (<₹500),5672.99,True
+PRD-CLO-001,Clothing Item 1,Clothing,Clothing Sub 2,Mid (₹500–2000),1225.09,True
+PRD-CLO-002,Clothing Item 2,Clothing,Clothing Sub 3,Budget (<₹500),5661.65,True
+PRD-CLO-003,Clothing Item 3,Clothing,Clothing Sub 1,Budget (<₹500),5179.68,True
+PRD-CLO-004,Clothing Item 4,Clothing,Clothing Sub 2,Premium (>₹2000),2620.91,True
+PRD-CLO-005,Clothing Item 5,Clothing,Clothing Sub 3,Budget (<₹500),4404.06,True
+PRD-CLO-006,Clothing Item 6,Clothing,Clothing Sub 1,Premium (>₹2000),777.26,True
+PRD-CLO-007,Clothing Item 7,Clothing,Clothing Sub 2,Premium (>₹2000),1390.38,True
+PRD-CLO-008,Clothing Item 8,Clothing,Clothing Sub 3,Mid (₹500–2000),6612.82,True
+PRD-CLO-009,Clothing Item 9,Clothing,Clothing Sub 1,Mid (₹500–2000),2340.65,True
+PRD-CLO-010,Clothing Item 10,Clothing,Clothing Sub 2,Budget (<₹500),5127.58,True
+PRD-CLO-011,Clothing Item 11,Clothing,Clothing Sub 3,Premium (>₹2000),3942.51,True
+PRD-CLO-012,Clothing Item 12,Clothing,Clothing Sub 1,Mid (₹500–2000),4582.81,True
+PRD-CLO-013,Clothing Item 13,Clothing,Clothing Sub 2,Mid (₹500–2000),7372.41,True
+PRD-CLO-014,Clothing Item 14,Clothing,Clothing Sub 3,Mid (₹500–2000),5903.54,True
+PRD-CLO-015,Clothing Item 15,Clothing,Clothing Sub 1,Premium (>₹2000),1950.55,True
+PRD-CLO-016,Clothing Item 16,Clothing,Clothing Sub 2,Premium (>₹2000),3448.69,True
+PRD-CLO-017,Clothing Item 17,Clothing,Clothing Sub 3,Budget (<₹500),1919.11,True
+PRD-CLO-018,Clothing Item 18,Clothing,Clothing Sub 1,Premium (>₹2000),4527.63,True
+PRD-CLO-019,Clothing Item 19,Clothing,Clothing Sub 2,Premium (>₹2000),4381.86,True
+PRD-CLO-020,Clothing Item 20,Clothing,Clothing Sub 3,Budget (<₹500),5622.93,True
+PRD-CLO-021,Clothing Item 21,Clothing,Clothing Sub 1,Mid (₹500–2000),808.56,True
+PRD-CLO-022,Clothing Item 22,Clothing,Clothing Sub 2,Budget (<₹500),1360.58,True
+PRD-CLO-023,Clothing Item 23,Clothing,Clothing Sub 3,Mid (₹500–2000),2554.79,True
+PRD-CLO-024,Clothing Item 24,Clothing,Clothing Sub 1,Budget (<₹500),5251.92,True
+PRD-CLO-025,Clothing Item 25,Clothing,Clothing Sub 2,Premium (>₹2000),7694.89,True
+PRD-HOM-001,Home & Living Item 1,Home & Living,Home & Living Sub 2,Mid (₹500–2000),2260.83,True
+PRD-HOM-002,Home & Living Item 2,Home & Living,Home & Living Sub 3,Mid (₹500–2000),3038.56,True
+PRD-HOM-003,Home & Living Item 3,Home & Living,Home & Living Sub 1,Premium (>₹2000),3254.36,True
+PRD-HOM-004,Home & Living Item 4,Home & Living,Home & Living Sub 2,Mid (₹500–2000),7906.84,True
+PRD-HOM-005,Home & Living Item 5,Home & Living,Home & Living Sub 3,Budget (<₹500),2698.8,True
+PRD-HOM-006,Home & Living Item 6,Home & Living,Home & Living Sub 1,Budget (<₹500),7664.63,True
+PRD-HOM-007,Home & Living Item 7,Home & Living,Home & Living Sub 2,Mid (₹500–2000),2733.88,True
+PRD-HOM-008,Home & Living Item 8,Home & Living,Home & Living Sub 3,Premium (>₹2000),3621.51,True
+PRD-HOM-009,Home & Living Item 9,Home & Living,Home & Living Sub 1,Budget (<₹500),4576.38,True
+PRD-HOM-010,Home & Living Item 10,Home & Living,Home & Living Sub 2,Budget (<₹500),7880.91,True
+PRD-HOM-011,Home & Living Item 11,Home & Living,Home & Living Sub 3,Premium (>₹2000),6054.14,True
+PRD-HOM-012,Home & Living Item 12,Home & Living,Home & Living Sub 1,Mid (₹500–2000),541.01,True
+PRD-HOM-013,Home & Living Item 13,Home & Living,Home & Living Sub 2,Budget (<₹500),3485.46,True
+PRD-HOM-014,Home & Living Item 14,Home & Living,Home & Living Sub 3,Mid (₹500–2000),1293.51,True
+PRD-HOM-015,Home & Living Item 15,Home & Living,Home & Living Sub 1,Mid (₹500–2000),4866.98,True
+PRD-HOM-016,Home & Living Item 16,Home & Living,Home & Living Sub 2,Mid (₹500–2000),7382.47,True
+PRD-HOM-017,Home & Living Item 17,Home & Living,Home & Living Sub 3,Mid (₹500–2000),2320.82,True
+PRD-HOM-018,Home & Living Item 18,Home & Living,Home & Living Sub 1,Mid (₹500–2000),5337.57,True
+PRD-HOM-019,Home & Living Item 19,Home & Living,Home & Living Sub 2,Budget (<₹500),1350.48,True
+PRD-HOM-020,Home & Living Item 20,Home & Living,Home & Living Sub 3,Premium (>₹2000),2281.8,True
+PRD-HOM-021,Home & Living Item 21,Home & Living,Home & Living Sub 1,Mid (₹500–2000),1132.5,True
+PRD-HOM-022,Home & Living Item 22,Home & Living,Home & Living Sub 2,Budget (<₹500),1008.7,True
+PRD-HOM-023,Home & Living Item 23,Home & Living,Home & Living Sub 3,Mid (₹500–2000),4507.58,True
+PRD-HOM-024,Home & Living Item 24,Home & Living,Home & Living Sub 1,Budget (<₹500),2268.52,True
+PRD-HOM-025,Home & Living Item 25,Home & Living,Home & Living Sub 2,Budget (<₹500),4598.87,True
+PRD-BEA-001,Beauty Item 1,Beauty,Beauty Sub 2,Budget (<₹500),1748.99,True
+PRD-BEA-002,Beauty Item 2,Beauty,Beauty Sub 3,Premium (>₹2000),940.66,True
+PRD-BEA-003,Beauty Item 3,Beauty,Beauty Sub 1,Mid (₹500–2000),2132.49,True
+PRD-BEA-004,Beauty Item 4,Beauty,Beauty Sub 2,Mid (₹500–2000),995.19,True
+PRD-BEA-005,Beauty Item 5,Beauty,Beauty Sub 3,Mid (₹500–2000),3752.12,True
+PRD-BEA-006,Beauty Item 6,Beauty,Beauty Sub 1,Mid (₹500–2000),1915.82,True
+PRD-BEA-007,Beauty Item 7,Beauty,Beauty Sub 2,Budget (<₹500),6502.11,True
+PRD-BEA-008,Beauty Item 8,Beauty,Beauty Sub 3,Budget (<₹500),3590.87,True
+PRD-BEA-009,Beauty Item 9,Beauty,Beauty Sub 1,Budget (<₹500),1580.08,True
+PRD-BEA-010,Beauty Item 10,Beauty,Beauty Sub 2,Budget (<₹500),5600.69,True
+PRD-BEA-011,Beauty Item 11,Beauty,Beauty Sub 3,Mid (₹500–2000),6946.87,True
+PRD-BEA-012,Beauty Item 12,Beauty,Beauty Sub 1,Budget (<₹500),7071.23,True
+PRD-BEA-013,Beauty Item 13,Beauty,Beauty Sub 2,Budget (<₹500),7253.94,True
+PRD-BEA-014,Beauty Item 14,Beauty,Beauty Sub 3,Mid (₹500–2000),290.9,True
+PRD-BEA-015,Beauty Item 15,Beauty,Beauty Sub 1,Mid (₹500–2000),4856.97,True
+PRD-BEA-016,Beauty Item 16,Beauty,Beauty Sub 2,Mid (₹500–2000),7494.32,True
+PRD-BEA-017,Beauty Item 17,Beauty,Beauty Sub 3,Mid (₹500–2000),3961.39,True
+PRD-BEA-018,Beauty Item 18,Beauty,Beauty Sub 1,Premium (>₹2000),373.41,True
+PRD-BEA-019,Beauty Item 19,Beauty,Beauty Sub 2,Mid (₹500–2000),5623.44,True
+PRD-BEA-020,Beauty Item 20,Beauty,Beauty Sub 3,Mid (₹500–2000),4214.3,True
+PRD-BEA-021,Beauty Item 21,Beauty,Beauty Sub 1,Mid (₹500–2000),5295.97,True
+PRD-BEA-022,Beauty Item 22,Beauty,Beauty Sub 2,Budget (<₹500),7487.86,True
+PRD-BEA-023,Beauty Item 23,Beauty,Beauty Sub 3,Premium (>₹2000),4064.4,True
+PRD-BEA-024,Beauty Item 24,Beauty,Beauty Sub 1,Mid (₹500–2000),7996.49,True
+PRD-BEA-025,Beauty Item 25,Beauty,Beauty Sub 2,Mid (₹500–2000),7071.25,True
+PRD-SPO-001,Sports Item 1,Sports,Sports Sub 2,Budget (<₹500),3257.28,True
+PRD-SPO-002,Sports Item 2,Sports,Sports Sub 3,Mid (₹500–2000),7421.31,True
+PRD-SPO-003,Sports Item 3,Sports,Sports Sub 1,Budget (<₹500),6245.38,True
+PRD-SPO-004,Sports Item 4,Sports,Sports Sub 2,Mid (₹500–2000),3249.71,True
+PRD-SPO-005,Sports Item 5,Sports,Sports Sub 3,Mid (₹500–2000),4605.06,True
+PRD-SPO-006,Sports Item 6,Sports,Sports Sub 1,Mid (₹500–2000),781.89,True
+PRD-SPO-007,Sports Item 7,Sports,Sports Sub 2,Mid (₹500–2000),2694.43,True
+PRD-SPO-008,Sports Item 8,Sports,Sports Sub 3,Mid (₹500–2000),7642.22,True
+PRD-SPO-009,Sports Item 9,Sports,Sports Sub 1,Mid (₹500–2000),3596.2,True
+PRD-SPO-010,Sports Item 10,Sports,Sports Sub 2,Mid (₹500–2000),1038.8,True
+PRD-SPO-011,Sports Item 11,Sports,Sports Sub 3,Mid (₹500–2000),3522.29,True
+PRD-SPO-012,Sports Item 12,Sports,Sports Sub 1,Mid (₹500–2000),7818.07,True
+PRD-SPO-013,Sports Item 13,Sports,Sports Sub 2,Mid (₹500–2000),5048.25,True
+PRD-SPO-014,Sports Item 14,Sports,Sports Sub 3,Budget (<₹500),2998.55,True
+PRD-SPO-015,Sports Item 15,Sports,Sports Sub 1,Mid (₹500–2000),1394.52,True
+PRD-SPO-016,Sports Item 16,Sports,Sports Sub 2,Budget (<₹500),6602.38,True
+PRD-SPO-017,Sports Item 17,Sports,Sports Sub 3,Mid (₹500–2000),7518.45,True
+PRD-SPO-018,Sports Item 18,Sports,Sports Sub 1,Mid (₹500–2000),2668.33,True
+PRD-SPO-019,Sports Item 19,Sports,Sports Sub 2,Budget (<₹500),7540.28,True
+PRD-SPO-020,Sports Item 20,Sports,Sports Sub 3,Mid (₹500–2000),4148.66,True
+PRD-SPO-021,Sports Item 21,Sports,Sports Sub 1,Budget (<₹500),4223.99,True
+PRD-SPO-022,Sports Item 22,Sports,Sports Sub 2,Budget (<₹500),5861.34,True
+PRD-SPO-023,Sports Item 23,Sports,Sports Sub 3,Premium (>₹2000),7783.65,True
+PRD-SPO-024,Sports Item 24,Sports,Sports Sub 1,Budget (<₹500),1815.95,True
+PRD-SPO-025,Sports Item 25,Sports,Sports Sub 2,Budget (<₹500),936.94,True
+PRD-FOO-001,Food & Grocery Item 1,Food & Grocery,Food & Grocery Sub 2,Premium (>₹2000),3412.74,True
+PRD-FOO-002,Food & Grocery Item 2,Food & Grocery,Food & Grocery Sub 3,Budget (<₹500),4121.24,True
+PRD-FOO-003,Food & Grocery Item 3,Food & Grocery,Food & Grocery Sub 1,Budget (<₹500),6774.56,True
+PRD-FOO-004,Food & Grocery Item 4,Food & Grocery,Food & Grocery Sub 2,Budget (<₹500),577.87,True
+PRD-FOO-005,Food & Grocery Item 5,Food & Grocery,Food & Grocery Sub 3,Premium (>₹2000),6103.43,True
+PRD-FOO-006,Food & Grocery Item 6,Food & Grocery,Food & Grocery Sub 1,Mid (₹500–2000),5730.78,True
+PRD-FOO-007,Food & Grocery Item 7,Food & Grocery,Food & Grocery Sub 2,Budget (<₹500),5732.33,True
+PRD-FOO-008,Food & Grocery Item 8,Food & Grocery,Food & Grocery Sub 3,Budget (<₹500),7140.53,True
+PRD-FOO-009,Food & Grocery Item 9,Food & Grocery,Food & Grocery Sub 1,Budget (<₹500),6918.24,True
+PRD-FOO-010,Food & Grocery Item 10,Food & Grocery,Food & Grocery Sub 2,Mid (₹500–2000),594.18,True
+PRD-FOO-011,Food & Grocery Item 11,Food & Grocery,Food & Grocery Sub 3,Budget (<₹500),2004.48,True
+PRD-FOO-012,Food & Grocery Item 12,Food & Grocery,Food & Grocery Sub 1,Mid (₹500–2000),2913.0,True
+PRD-FOO-013,Food & Grocery Item 13,Food & Grocery,Food & Grocery Sub 2,Mid (₹500–2000),7532.19,True
+PRD-FOO-014,Food & Grocery Item 14,Food & Grocery,Food & Grocery Sub 3,Premium (>₹2000),3405.53,True
+PRD-FOO-015,Food & Grocery Item 15,Food & Grocery,Food & Grocery Sub 1,Budget (<₹500),2168.72,True
+PRD-FOO-016,Food & Grocery Item 16,Food & Grocery,Food & Grocery Sub 2,Mid (₹500–2000),3122.1,True
+PRD-FOO-017,Food & Grocery Item 17,Food & Grocery,Food & Grocery Sub 3,Mid (₹500–2000),2361.63,True
+PRD-FOO-018,Food & Grocery Item 18,Food & Grocery,Food & Grocery Sub 1,Mid (₹500–2000),6488.16,True
+PRD-FOO-019,Food & Grocery Item 19,Food & Grocery,Food & Grocery Sub 2,Budget (<₹500),3634.6,True
+PRD-FOO-020,Food & Grocery Item 20,Food & Grocery,Food & Grocery Sub 3,Premium (>₹2000),5160.8,True
+PRD-FOO-021,Food & Grocery Item 21,Food & Grocery,Food & Grocery Sub 1,Premium (>₹2000),3314.1,True
+PRD-FOO-022,Food & Grocery Item 22,Food & Grocery,Food & Grocery Sub 2,Budget (<₹500),7369.33,True
+PRD-FOO-023,Food & Grocery Item 23,Food & Grocery,Food & Grocery Sub 3,Budget (<₹500),6876.23,True
+PRD-FOO-024,Food & Grocery Item 24,Food & Grocery,Food & Grocery Sub 1,Budget (<₹500),6013.45,True
+PRD-FOO-025,Food & Grocery Item 25,Food & Grocery,Food & Grocery Sub 2,Premium (>₹2000),7007.27,True
+PRD-BOO-001,Books Item 1,Books,Books Sub 2,Premium (>₹2000),5661.26,True
+PRD-BOO-002,Books Item 2,Books,Books Sub 3,Mid (₹500–2000),2026.78,True
+PRD-BOO-003,Books Item 3,Books,Books Sub 1,Budget (<₹500),7217.92,True
+PRD-BOO-004,Books Item 4,Books,Books Sub 2,Budget (<₹500),5972.35,True
+PRD-BOO-005,Books Item 5,Books,Books Sub 3,Mid (₹500–2000),3190.62,True
+PRD-BOO-006,Books Item 6,Books,Books Sub 1,Mid (₹500–2000),1143.84,True
+PRD-BOO-007,Books Item 7,Books,Books Sub 2,Mid (₹500–2000),3051.17,True
+PRD-BOO-008,Books Item 8,Books,Books Sub 3,Mid (₹500–2000),3943.4,True
+PRD-BOO-009,Books Item 9,Books,Books Sub 1,Budget (<₹500),4087.65,True
+PRD-BOO-010,Books Item 10,Books,Books Sub 2,Budget (<₹500),3615.08,True
+PRD-BOO-011,Books Item 11,Books,Books Sub 3,Budget (<₹500),1294.03,True
+PRD-BOO-012,Books Item 12,Books,Books Sub 1,Budget (<₹500),7984.33,True
+PRD-BOO-013,Books Item 13,Books,Books Sub 2,Mid (₹500–2000),4031.96,True
+PRD-BOO-014,Books Item 14,Books,Books Sub 3,Budget (<₹500),5934.38,True
+PRD-BOO-015,Books Item 15,Books,Books Sub 1,Mid (₹500–2000),6424.83,True
+PRD-BOO-016,Books Item 16,Books,Books Sub 2,Premium (>₹2000),4358.79,True
+PRD-BOO-017,Books Item 17,Books,Books Sub 3,Budget (<₹500),5550.54,True
+PRD-BOO-018,Books Item 18,Books,Books Sub 1,Premium (>₹2000),2264.06,True
+PRD-BOO-019,Books Item 19,Books,Books Sub 2,Premium (>₹2000),5174.08,True
+PRD-BOO-020,Books Item 20,Books,Books Sub 3,Mid (₹500–2000),682.15,True
+PRD-BOO-021,Books Item 21,Books,Books Sub 1,Mid (₹500–2000),3610.31,True
+PRD-BOO-022,Books Item 22,Books,Books Sub 2,Premium (>₹2000),5070.0,True
+PRD-BOO-023,Books Item 23,Books,Books Sub 3,Premium (>₹2000),3313.25,True
+PRD-BOO-024,Books Item 24,Books,Books Sub 1,Mid (₹500–2000),518.71,True
+PRD-BOO-025,Books Item 25,Books,Books Sub 2,Mid (₹500–2000),4814.92,True
+PRD-TOY-001,Toys Item 1,Toys,Toys Sub 2,Budget (<₹500),311.66,True
+PRD-TOY-002,Toys Item 2,Toys,Toys Sub 3,Premium (>₹2000),7432.86,True
+PRD-TOY-003,Toys Item 3,Toys,Toys Sub 1,Premium (>₹2000),1696.9,True
+PRD-TOY-004,Toys Item 4,Toys,Toys Sub 2,Premium (>₹2000),6094.72,True
+PRD-TOY-005,Toys Item 5,Toys,Toys Sub 3,Mid (₹500–2000),4039.13,True
+PRD-TOY-006,Toys Item 6,Toys,Toys Sub 1,Budget (<₹500),7141.9,True
+PRD-TOY-007,Toys Item 7,Toys,Toys Sub 2,Mid (₹500–2000),6396.79,True
+PRD-TOY-008,Toys Item 8,Toys,Toys Sub 3,Budget (<₹500),1105.81,True
+PRD-TOY-009,Toys Item 9,Toys,Toys Sub 1,Mid (₹500–2000),368.25,True
+PRD-TOY-010,Toys Item 10,Toys,Toys Sub 2,Premium (>₹2000),5127.09,True
+PRD-TOY-011,Toys Item 11,Toys,Toys Sub 3,Budget (<₹500),6205.62,True
+PRD-TOY-012,Toys Item 12,Toys,Toys Sub 1,Mid (₹500–2000),7652.86,True
+PRD-TOY-013,Toys Item 13,Toys,Toys Sub 2,Budget (<₹500),1465.83,True
+PRD-TOY-014,Toys Item 14,Toys,Toys Sub 3,Mid (₹500–2000),4012.66,True
+PRD-TOY-015,Toys Item 15,Toys,Toys Sub 1,Budget (<₹500),2689.75,True
+PRD-TOY-016,Toys Item 16,Toys,Toys Sub 2,Budget (<₹500),4957.6,True
+PRD-TOY-017,Toys Item 17,Toys,Toys Sub 3,Mid (₹500–2000),2194.19,True
+PRD-TOY-018,Toys Item 18,Toys,Toys Sub 1,Mid (₹500–2000),3229.16,True
+PRD-TOY-019,Toys Item 19,Toys,Toys Sub 2,Mid (₹500–2000),4869.75,True
+PRD-TOY-020,Toys Item 20,Toys,Toys Sub 3,Premium (>₹2000),5213.06,True
+PRD-TOY-021,Toys Item 21,Toys,Toys Sub 1,Budget (<₹500),6353.67,True
+PRD-TOY-022,Toys Item 22,Toys,Toys Sub 2,Mid (₹500–2000),3329.95,True
+PRD-TOY-023,Toys Item 23,Toys,Toys Sub 3,Budget (<₹500),4730.33,True
+PRD-TOY-024,Toys Item 24,Toys,Toys Sub 1,Mid (₹500–2000),5898.31,True
+PRD-TOY-025,Toys Item 25,Toys,Toys Sub 2,Budget (<₹500),3528.35,True

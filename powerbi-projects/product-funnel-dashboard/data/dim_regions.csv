@@ -1,0 +1,6 @@
+region,manager_email,region_head,active
+North,north.manager@target.com,North Head,True
+South,south.manager@target.com,South Head,True
+East,east.manager@target.com,East Head,True
+West,west.manager@target.com,West Head,True
+Central,central.manager@target.com,Central Head,True

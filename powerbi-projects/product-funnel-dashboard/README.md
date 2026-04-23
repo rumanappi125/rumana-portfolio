@@ -1,3 +1,30 @@
+# Product Funnel Dashboard — Target
+**Analyst:** Rumana Appi | **Client:** Target (via E-Mech Solutions)
+**Tool:** Power BI Desktop | **Data:** 230K+ funnel events · 78K+ orders · 50K users
+
+---
+
+## Sample Data & Build Guide
+
+All sample data and DAX measures are included in this folder so the dashboard can be fully reproduced:
+
+| File | Description |
+|------|-------------|
+| `generate_sample_data.py` | Run this to generate all 6 CSV data files |
+| `dax_measures.md` | All DAX measures — copy into Power BI |
+| `data/dim_date.csv` | 182 rows — date dimension |
+| `data/dim_users.csv` | 50,000 rows — user profiles |
+| `data/dim_products.csv` | 200 rows — product catalogue |
+| `data/dim_regions.csv` | 5 rows — regions with RLS manager emails |
+| `data/fact_funnel_events.csv` | 230,000+ rows — funnel event log |
+| `data/fact_orders.csv` | 78,000+ rows — completed transactions |
+
+**To regenerate data:** `pip install pandas numpy && python generate_sample_data.py`
+
+---
+
+# Original Project Documentation
+
 # 🛒 Product Funnel Dashboard | Power BI — Target Retail
 
 ## Project Overview
