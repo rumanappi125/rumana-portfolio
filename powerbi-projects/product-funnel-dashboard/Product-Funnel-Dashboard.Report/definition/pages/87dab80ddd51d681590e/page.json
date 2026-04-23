@@ -4,21 +4,5 @@
   "displayName": "Funnel Analysis",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280,
-  "background": {
-    "color": {
-      "solid": {
-        "color": "#0D0D1A"
-      }
-    },
-    "transparency": 0
-  },
-  "wallpaper": {
-    "color": {
-      "solid": {
-        "color": "#0D0D1A"
-      }
-    },
-    "transparency": 0
-  }
+  "width": 1280
 }
