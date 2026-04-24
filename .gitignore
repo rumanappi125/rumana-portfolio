@@ -1,0 +1,17 @@
+# Resume files — keep locally only
+resume.docx
+resume.tex
+generate_word_resume.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude memory
+.claude/
